@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bawa Computers | Landing Page</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Google Fonts: Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome for social icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-blue: #32658a;
+            --dark-gray: #3a3a3a;
+            --hover-accent: #0099ff;
+            --light-gray-bg: #e0e0e0;
+        }
+        html, body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', Arial, sans-serif;
+            background: var(--light-gray-bg);
+            color: var(--dark-gray);
+        }
+        .hero-carousel {
+            width: 100vw;
+            min-height: 60vh;
+            position: relative;
+            overflow: hidden;
+            background: #222;
+        }
+        .carousel-slide {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            opacity: 0;
+            transition: opacity 0.7s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-size: cover;
+            background-position: center;
+        }
+        .carousel-slide.active {
+            opacity: 1;
+            z-index: 1;
+        }
+        .carousel-content {
+            background: rgba(50,101,138,0.65);
+            color: #fff;
+            padding: 40px 32px;
+            border-radius: 18px;
+            text-align: center;
+            max-width: 90vw;
+        }
+        .carousel-content h1 {
+            font-size: 2.5rem;
+            margin: 0 0 16px 0;
+            font-weight: 700;
+        }
+        .carousel-content p {
+            font-size: 1.2rem;
+            margin-bottom: 28px;
+        }
+        .carousel-content .cta-btn {
+            background: var(--hover-accent);
+            color: #fff;
+            border: none;
+            padding: 14px 38px;
+            font-size: 1.1rem;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .carousel-content .cta-btn:hover {
+            background: #fff;
+            color: var(--primary-blue);
+        }
+        .carousel-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(50,101,138,0.7);
+            color: #fff;
+            border: none;
+            font-size: 2rem;
+            border-radius: 50%;
+            width: 48px; height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 2;
+            transition: background 0.2s;
+        }
+        .carousel-arrow:hover {
+            background: var(--hover-accent);
+        }
+        .carousel-arrow.prev { left: 24px; }
+        .carousel-arrow.next { right: 24px; }
+        .carousel-dots {
+            position: absolute;
+            left: 50%;
+            bottom: 24px;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 12px;
+            z-index: 3;
+        }
+        .carousel-dot {
+            width: 14px; height: 14px;
+            border-radius: 50%;
+            background: #fff;
+            border: 2px solid var(--primary-blue);
+            cursor: pointer;
+            opacity: 0.7;
+            transition: background 0.2s, border 0.2s;
+        }
+        .carousel-dot.active {
+            background: var(--hover-accent);
+            border-color: var(--hover-accent);
+            opacity: 1;
+        }
+        /* Featured Products */
+        .featured-section {
+            max-width: 1200px;
+            margin: 60px auto 0 auto;
+            padding: 0 16px;
+        }
+        .featured-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 32px;
+            text-align: center;
+        }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+        }
+        .product-card {
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 2px 12px rgba(50,101,138,0.07);
+            padding: 28px 18px 22px 18px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: box-shadow 0.2s, border 0.2s;
+            border: 2px solid transparent;
+        }
+        .product-card:hover {
+            border: 2px solid var(--hover-accent);
+            box-shadow: 0 6px 24px rgba(0,153,255,0.10);
+        }
+        .product-img {
+            width: 90px; height: 90px;
+            background: #e0e0e0;
+            border-radius: 12px;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            color: #bbb;
+        }
+        .product-title {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--primary-blue);
+            margin-bottom: 8px;
+            text-align: center;
+        }
+        .product-desc {
+            font-size: 0.98rem;
+            color: #3a3a3a;
+            margin-bottom: 12px;
+            text-align: center;
+        }
+        .product-price {
+            font-size: 1.08rem;
+            font-weight: 700;
+            color: var(--dark-gray);
+            margin-bottom: 16px;
+        }
+        .buy-btn {
+            background: var(--primary-blue);
+            color: #fff;
+            border: none;
+            padding: 10px 28px;
+            border-radius: 24px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .buy-btn:hover {
+            background: var(--hover-accent);
+        }
+        /* Footer */
+        .footer {
+            background: var(--dark-gray);
+            color: #fff;
+            padding: 48px 0 24px 0;
+            margin-top: 60px;
+        }
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            justify-content: space-between;
+            padding: 0 16px;
+        }
+        .footer-col {
+            flex: 1 1 220px;
+            min-width: 180px;
+        }
+        .footer-col h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 18px;
+            color: #fff;
+        }
+        .footer-col ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+        .footer-col ul li a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .footer-col ul li a:hover {
+            color: var(--hover-accent);
+        }
+        .footer-social {
+            margin-top: 18px;
+        }
+        .footer-social a {
+            color: #fff;
+            font-size: 1.3rem;
+            margin-right: 18px;
+            transition: color 0.2s;
+        }
+        .footer-social a:hover {
+            color: var(--hover-accent);
+        }
+        .footer-bottom {
+            text-align: center;
+            color: #bbb;
+            font-size: 0.98rem;
+            margin-top: 32px;
+        }
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .footer-container {
+                flex-direction: column;
+                gap: 24px;
+            }
+        }
+        @media (max-width: 600px) {
+            .carousel-content h1 {
+                font-size: 1.4rem;
+            }
+            .carousel-content p {
+                font-size: 1rem;
+            }
+            .carousel-content {
+                padding: 18px 6px;
+            }
+            .product-grid {
+                grid-template-columns: 1fr;
+                gap: 18px;
+            }
+            .footer-container {
+                padding: 0 6px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Header -->
+    <div class="top-header">
+        <div class="container">
+            <div class="tagline">Reliable Tech Since 2005</div>
+            <div class="account-links">
+                <a href="#">My Account</a>
+                <a href="#">Login</a>
+                <a href="#">Register</a>
+            </div>
+        </div>
+    </div>
+    <!-- Main Header -->
+    <header class="main-header">
+        <div class="container header-flex">
+            <div class="logo">Bawa Computers</div>
+            <div class="search-bar">
+                <input type="text" placeholder="Search products...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+            <div class="cart-icon">
+                <a href="#"><i class="fas fa-shopping-cart"></i></a>
+            </div>
+        </div>
+    </header>
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-flex">
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li class="dropdown">
+                    <a href="laptop.html" class="dropdown-toggle">Laptops <i class="fas fa-angle-right dropdown-arrow"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">HP</a></li>
+                        <li><a href="#">Dell</a></li>
+                        <li><a href="#">ThinkPad</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Desktops</a></li>
+                <li><a href="#">Accessories</a></li>
+                <li><a href="#">Components</a></li>
+                <li><a href="#">Deals</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            <div class="nav-social">
+                <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
+    <div class="nav-overlay"></div>
+    <!-- Hero Carousel -->
+    <section class="hero-carousel" id="hero-carousel">
+        <div class="carousel-slide active" style="background-image:url('https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=1200&q=80');">
+            <div class="carousel-content">
+                <h1>Best Deals on Laptops</h1>
+                <p>Upgrade your tech today with unbeatable prices and top brands.</p>
+                <button class="cta-btn">Shop Now</button>
+            </div>
+        </div>
+        <div class="carousel-slide" style="background-image:url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1200&q=80');">
+            <div class="carousel-content">
+                <h1>Gaming PCs & Accessories</h1>
+                <p>Power up your play with the latest hardware and gear.</p>
+                <button class="cta-btn">Explore Gaming</button>
+            </div>
+        </div>
+        <div class="carousel-slide" style="background-image:url('https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1200&q=80');">
+            <div class="carousel-content">
+                <h1>Business Solutions</h1>
+                <p>Reliable desktops and IT solutions for your office needs.</p>
+                <button class="cta-btn">See Solutions</button>
+            </div>
+        </div>
+        <div class="carousel-slide" style="background-image:url('https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=1200&q=80');">
+            <div class="carousel-content">
+                <h1>Accessories & More</h1>
+                <p>Find the perfect accessories to complete your setup.</p>
+                <button class="cta-btn">Browse Accessories</button>
+            </div>
+        </div>
+        <button class="carousel-arrow prev" id="carousel-prev"><i class="fas fa-chevron-left"></i></button>
+        <button class="carousel-arrow next" id="carousel-next"><i class="fas fa-chevron-right"></i></button>
+        <div class="carousel-dots" id="carousel-dots"></div>
+    </section>
+    <!-- Featured Products -->
+    <section class="featured-section">
+        <div class="featured-title">Featured Products</div>
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="product-img"><i class="fas fa-laptop"></i></div>
+                <div class="product-title">HP EliteBook 840</div>
+                <div class="product-desc">Powerful business laptop with sleek design.</div>
+                <div class="product-price">Rs. 250,000</div>
+                <button class="buy-btn">Buy Now</button>
+            </div>
+            <div class="product-card">
+                <div class="product-img"><i class="fas fa-laptop"></i></div>
+                <div class="product-title">Dell XPS 13</div>
+                <div class="product-desc">Ultra-portable, high-performance ultrabook.</div>
+                <div class="product-price">Rs. 330,000</div>
+                <button class="buy-btn">Buy Now</button>
+            </div>
+            <div class="product-card">
+                <div class="product-img"><i class="fas fa-desktop"></i></div>
+                <div class="product-title">Lenovo ThinkCentre</div>
+                <div class="product-desc">Reliable desktop for office and home.</div>
+                <div class="product-price">Rs. 120,000</div>
+                <button class="buy-btn">Buy Now</button>
+            </div>
+            <div class="product-card">
+                <div class="product-img"><i class="fas fa-keyboard"></i></div>
+                <div class="product-title">Logitech Keyboard</div>
+                <div class="product-desc">Ergonomic keyboard for comfortable typing.</div>
+                <div class="product-price">Rs. 8,500</div>
+                <button class="buy-btn">Buy Now</button>
+            </div>
+            <div class="product-card">
+                <div class="product-img"><i class="fas fa-mouse"></i></div>
+                <div class="product-title">HP Wireless Mouse</div>
+                <div class="product-desc">Smooth, precise, and wireless control.</div>
+                <div class="product-price">Rs. 3,200</div>
+                <button class="buy-btn">Buy Now</button>
+            </div>
+            <div class="product-card">
+                <div class="product-img"><i class="fas fa-headphones"></i></div>
+                <div class="product-title">Gaming Headset</div>
+                <div class="product-desc">Immersive sound for gaming and music.</div>
+                <div class="product-price">Rs. 14,000</div>
+                <button class="buy-btn">Buy Now</button>
+            </div>
+            <div class="product-card">
+                <div class="product-img"><i class="fas fa-laptop-code"></i></div>
+                <div class="product-title">Asus ROG Zephyrus</div>
+                <div class="product-desc">High-end gaming laptop for enthusiasts.</div>
+                <div class="product-price">Rs. 370,000</div>
+                <button class="buy-btn">Buy Now</button>
+            </div>
+            <div class="product-card">
+                <div class="product-img"><i class="fas fa-desktop"></i></div>
+                <div class="product-title">Custom Gaming PC</div>
+                <div class="product-desc">Build your dream gaming rig today.</div>
+                <div class="product-price">Rs. 450,000</div>
+                <button class="buy-btn">Buy Now</button>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <h4>About Us</h4>
+                <p>Bawa Computers is your trusted partner for laptops, desktops, and accessories. We deliver quality tech and reliable service since 2005.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Laptops</a></li>
+                    <li><a href="#">Desktops</a></li>
+                    <li><a href="#">Accessories</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Info</h4>
+                <ul>
+                    <li>123 Tech Street, Karachi, Pakistan</li>
+                    <li>Phone: (021) 123-4567</li>
+                    <li>Email: info@bawacomputers.com</li>
+                </ul>
+                <div class="footer-social">
+                    <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">&copy; 2024 Bawa Computers. All rights reserved.</div>
+    </footer>
+    <script src="js/script.js"></script>
+    <script>
+    // Carousel functionality
+    const slides = document.querySelectorAll('.carousel-slide');
+    const prevBtn = document.getElementById('carousel-prev');
+    const nextBtn = document.getElementById('carousel-next');
+    const dotsContainer = document.getElementById('carousel-dots');
+    let currentSlide = 0;
+    let autoSlideInterval;
+
+    function showSlide(idx) {
+        slides.forEach((slide, i) => {
+            slide.classList.toggle('active', i === idx);
+        });
+        document.querySelectorAll('.carousel-dot').forEach((dot, i) => {
+            dot.classList.toggle('active', i === idx);
+        });
+        currentSlide = idx;
+    }
+    function nextSlide() {
+        let idx = (currentSlide + 1) % slides.length;
+        showSlide(idx);
+    }
+    function prevSlide() {
+        let idx = (currentSlide - 1 + slides.length) % slides.length;
+        showSlide(idx);
+    }
+    function startAutoSlide() {
+        autoSlideInterval = setInterval(nextSlide, 5000);
+    }
+    function stopAutoSlide() {
+        clearInterval(autoSlideInterval);
+    }
+    // Dots
+    slides.forEach((_, i) => {
+        const dot = document.createElement('span');
+        dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+        dot.addEventListener('click', () => {
+            showSlide(i);
+            stopAutoSlide();
+            startAutoSlide();
+        });
+        dotsContainer.appendChild(dot);
+    });
+    prevBtn.addEventListener('click', () => {
+        prevSlide();
+        stopAutoSlide();
+        startAutoSlide();
+    });
+    nextBtn.addEventListener('click', () => {
+        nextSlide();
+        stopAutoSlide();
+        startAutoSlide();
+    });
+    // Start
+    showSlide(0);
+    startAutoSlide();
+
+    // Search bar functionality for featured products
+    const searchInput = document.querySelector('.search-bar input');
+    const searchBtn = document.querySelector('.search-bar button');
+    const productGrid = document.querySelector('.product-grid');
+    const allProducts = [
+        {
+            icon: '<i class="fas fa-laptop"></i>',
+            title: 'HP EliteBook 840',
+            desc: 'Powerful business laptop with sleek design.',
+            price: 'Rs. 250,000'
+        },
+        {
+            icon: '<i class="fas fa-laptop"></i>',
+            title: 'Dell XPS 13',
+            desc: 'Ultra-portable, high-performance ultrabook.',
+            price: 'Rs. 330,000'
+        },
+        {
+            icon: '<i class="fas fa-desktop"></i>',
+            title: 'Lenovo ThinkCentre',
+            desc: 'Reliable desktop for office and home.',
+            price: 'Rs. 120,000'
+        },
+        {
+            icon: '<i class="fas fa-keyboard"></i>',
+            title: 'Logitech Keyboard',
+            desc: 'Ergonomic keyboard for comfortable typing.',
+            price: 'Rs. 8,500'
+        },
+        {
+            icon: '<i class="fas fa-mouse"></i>',
+            title: 'HP Wireless Mouse',
+            desc: 'Smooth, precise, and wireless control.',
+            price: 'Rs. 3,200'
+        },
+        {
+            icon: '<i class="fas fa-headphones"></i>',
+            title: 'Gaming Headset',
+            desc: 'Immersive sound for gaming and music.',
+            price: 'Rs. 14,000'
+        },
+        {
+            icon: '<i class="fas fa-laptop-code"></i>',
+            title: 'Asus ROG Zephyrus',
+            desc: 'High-end gaming laptop for enthusiasts.',
+            price: 'Rs. 370,000'
+        },
+        {
+            icon: '<i class="fas fa-desktop"></i>',
+            title: 'Custom Gaming PC',
+            desc: 'Build your dream gaming rig today.',
+            price: 'Rs. 450,000'
+        }
+    ];
+    function renderProducts(products) {
+        if (products.length === 0) {
+            productGrid.innerHTML = '<div style="grid-column: 1/-1; text-align:center; color:#888; padding:40px 0; font-size:1.2rem;">No products found.</div>';
+            return;
+        }
+        productGrid.innerHTML = products.map(p => `
+            <div class="product-card">
+                <div class="product-img">${p.icon}</div>
+                <div class="product-title">${p.title}</div>
+                <div class="product-desc">${p.desc}</div>
+                <div class="product-price">${p.price}</div>
+                <button class="buy-btn">Buy Now</button>
+            </div>
+        `).join('');
+    }
+    function slugify(str) {
+        return str.toLowerCase().replace(/[^a-z0-9 ]/g, '').replace(/\s+/g, '-');
+    }
+    function handleSearch() {
+        const term = searchInput.value.trim().toLowerCase();
+        if (!term) {
+            renderProducts(allProducts);
+            return;
+        }
+        // Check for exact match (case-insensitive)
+        const exact = allProducts.find(p => p.title.toLowerCase() === term);
+        if (exact) {
+            // Simulate redirect to product page
+            window.location.href = `product-${slugify(exact.title)}.html`;
+            return;
+        }
+        const filtered = allProducts.filter(p =>
+            p.title.toLowerCase().includes(term) ||
+            p.desc.toLowerCase().includes(term)
+        );
+        renderProducts(filtered);
+    }
+    searchBtn.addEventListener('click', handleSearch);
+    searchInput.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') handleSearch();
+    });
+    searchInput.addEventListener('input', function() {
+        if (!this.value) renderProducts(allProducts);
+    });
+    // Initial render (in case page is loaded after search)
+    renderProducts(allProducts);
+    </script>
+</body>
+</html>
