@@ -41,43 +41,97 @@
     <div id="cart-items" style="min-height:200px;text-align:center;color:#888;font-size:1.2rem;padding:40px 0;">
       Your cart is empty.
     </div>
+    <div id="cart-actions" style="text-align:center;margin-top:20px;display:none;">
+      <button class="btn btn-gray" id="clear-cart-btn" style="margin:0 10px;">
+        <i class="fas fa-trash"></i> Clear Cart
+      </button>
+      <button class="btn btn-blue" id="checkout-btn" style="margin:0 10px;">
+        <i class="fas fa-credit-card"></i> Checkout
+      </button>
+    </div>
   </section>
   <div id="footer"></div>
   <script src="js/script.js"></script>
   <script src="js/include.js"></script>
+  <script src="js/notifications.js"></script>
   <script>
     // Render cart items from localStorage
     document.addEventListener('DOMContentLoaded', function() {
       const cartDiv = document.getElementById('cart-items');
+      const cartActions = document.getElementById('cart-actions');
       let cart = JSON.parse(localStorage.getItem('cart')) || [];
-      if (cart.length === 0) {
-        cartDiv.innerHTML = 'Your cart is empty.';
-      } else {
-        cartDiv.innerHTML = cart.map(item => `
-          <div class="product-card" style="max-width:500px;margin:24px auto;">
-            <div class="product-img">
-              <img src="${item.img || 'https://via.placeholder.com/300x200?text=Product'}" alt="${item.name || item.title}" style="width:100%;height:auto;border-radius:12px;">
-            </div>
-            <div class="product-info">
-              <h2 class="product-title">${item.name || item.title}</h2>
-              <div class="product-meta">
-                <span class="price">${item.price || item.priceDisplay}</span>
+      
+      function renderCart() {
+        if (cart.length === 0) {
+          cartDiv.innerHTML = 'Your cart is empty.';
+          cartActions.style.display = 'none';
+        } else {
+          cartDiv.innerHTML = cart.map(item => `
+            <div class="product-card" style="max-width:500px;margin:24px auto;">
+              <div class="product-img">
+                <img src="${item.img || 'https://via.placeholder.com/300x200?text=Product'}" alt="${item.name || item.title}" style="width:100%;height:auto;border-radius:12px;">
               </div>
-              <p class="product-desc">${item.desc || ''}</p>
-              <button class="btn btn-gray remove-from-cart" data-id="${item.id || item.title}">Remove</button>
+              <div class="product-info">
+                <h2 class="product-title">${item.name || item.title}</h2>
+                <div class="product-meta">
+                  <span class="price">${item.price || item.priceDisplay}</span>
+                </div>
+                <p class="product-desc">${item.desc || ''}</p>
+                <button class="btn btn-gray remove-from-cart" data-title="${item.title}">
+                  <i class="fas fa-trash"></i> Remove from Cart
+                </button>
+              </div>
             </div>
-          </div>
-        `).join('');
-        // Remove from cart functionality
-        document.querySelectorAll('.remove-from-cart').forEach(btn => {
-          btn.addEventListener('click', function() {
-            let id = this.getAttribute('data-id');
-            cart = cart.filter(p => (p.id ? String(p.id) : p.title) !== id);
-            localStorage.setItem('cart', JSON.stringify(cart));
-            location.reload();
+          `).join('');
+          cartActions.style.display = 'block';
+          
+          // Remove from cart functionality with notifications
+          document.querySelectorAll('.remove-from-cart').forEach(btn => {
+            btn.addEventListener('click', function() {
+              const productTitle = this.getAttribute('data-title');
+              const product = cart.find(p => p.title === productTitle);
+              
+              if (product) {
+                removeFromCart(product, productTitle);
+                // Remove from display
+                this.closest('.product-card').style.opacity = '0.5';
+                setTimeout(() => {
+                  location.reload();
+                }, 1000);
+              } else {
+                notifications.error('Could not remove product from cart.');
+              }
+            });
           });
-        });
+        }
       }
+      
+      renderCart();
+      
+      // Clear cart functionality
+      document.getElementById('clear-cart-btn').addEventListener('click', function() {
+        if (cart.length > 0) {
+          if (confirm('Are you sure you want to clear your entire cart?')) {
+            localStorage.removeItem('cart');
+            cart = [];
+            notifications.success('Cart cleared successfully!');
+            setTimeout(() => {
+              location.reload();
+            }, 1000);
+          }
+        } else {
+          notifications.info('Your cart is already empty.');
+        }
+      });
+      
+      // Checkout functionality
+      document.getElementById('checkout-btn').addEventListener('click', function() {
+        if (cart.length > 0) {
+          window.location.href = 'checkout.html';
+        } else {
+          notifications.error('Your cart is empty!');
+        }
+      });
     });
   </script>
 </body>

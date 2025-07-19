@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Used Laptops | Bawa Computers</title>
+    <title>Mouse | Bawa Computers</title>
     <!-- Google Fonts: Poppins -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <!-- Font Awesome CDN -->
@@ -40,7 +40,7 @@
     <!-- Breadcrumb -->
     <div class="breadcrumb-bar">
         <div class="container">
-            <span class="breadcrumb" href="">Home / Used / <span class="current">Laptops</span></span>
+            <span class="breadcrumb" href="">Home / More / <span class="current">Mouse</span></span>
         </div>
     </div>
     <!-- Main Content Layout -->
@@ -48,50 +48,50 @@
         <!-- Sidebar -->
         <aside class="sidebar">
             <div class="sidebar-section category">
-                <h3>USED LAPTOPS</h3>
+                <h3>MOUSE</h3>
             </div>
             <div class="sidebar-section price-range">
                 <h4>PRICE RANGE</h4>
                 <div class="slider-row">
-                    <input type="range" min="0" max="200000" value="0" class="price-slider" id="price-slider">
+                    <input type="range" min="0" max="15000" value="0" class="price-slider" id="price-slider">
                     <div class="price-values">
                         <span>0</span>
                         <span id="selected-price">0</span>
-                        <span style="float:right">200,000</span>
+                        <span style="float:right">15,000</span>
                     </div>
                 </div>
                 <button class="btn btn-blue" id="price-go">GO</button>
             </div>
             <div class="sidebar-section brand-filter">
                 <h4>BRAND</h4>
-                <label><input type="checkbox" class="brand-checkbox" value="HP"> HP</label>
-                <label><input type="checkbox" class="brand-checkbox" value="Dell"> Dell</label>
-                <label><input type="checkbox" class="brand-checkbox" value="ThinkPad"> ThinkPad</label>
-                <label><input type="checkbox" class="brand-checkbox" value="Lenovo"> Lenovo</label>
-                <label><input type="checkbox" class="brand-checkbox" value="Asus"> Asus</label>
+                <label><input type="checkbox" class="brand-checkbox" value="Logitech"> Logitech</label>
+                <label><input type="checkbox" class="brand-checkbox" value="Razer"> Razer</label>
+                <label><input type="checkbox" class="brand-checkbox" value="SteelSeries"> SteelSeries</label>
+                <label><input type="checkbox" class="brand-checkbox" value="Corsair"> Corsair</label>
+                <label><input type="checkbox" class="brand-checkbox" value="HyperX"> HyperX</label>
+                <label><input type="checkbox" class="brand-checkbox" value="ASUS"> ASUS</label>
             </div>
-            <div class="sidebar-section condition-filter">
-                <h4>CONDITION</h4>
-                <label><input type="checkbox" class="condition-checkbox" value="Excellent"> Excellent</label>
-                <label><input type="checkbox" class="condition-checkbox" value="Good"> Good</label>
-                <label><input type="checkbox" class="condition-checkbox" value="Fair"> Fair</label>
-                <label><input type="checkbox" class="condition-checkbox" value="Refurbished"> Refurbished</label>
+            <div class="sidebar-section type-filter">
+                <h4>TYPE</h4>
+                <label><input type="checkbox" class="type-checkbox" value="Gaming"> Gaming</label>
+                <label><input type="checkbox" class="type-checkbox" value="Wireless"> Wireless</label>
+                <label><input type="checkbox" class="type-checkbox" value="Wired"> Wired</label>
+                <label><input type="checkbox" class="type-checkbox" value="Office"> Office</label>
             </div>
-            <div class="sidebar-section year-filter">
-                <h4>YEAR</h4>
-                <label><input type="checkbox" class="year-checkbox" value="2023"> 2023</label>
-                <label><input type="checkbox" class="year-checkbox" value="2022"> 2022</label>
-                <label><input type="checkbox" class="year-checkbox" value="2021"> 2021</label>
-                <label><input type="checkbox" class="year-checkbox" value="2020"> 2020</label>
-                <label><input type="checkbox" class="year-checkbox" value="2019"> 2019</label>
+            <div class="sidebar-section dpi-filter">
+                <h4>DPI RANGE</h4>
+                <label><input type="checkbox" class="dpi-checkbox" value="Up to 3200"> Up to 3200</label>
+                <label><input type="checkbox" class="dpi-checkbox" value="3200-8000"> 3200-8000</label>
+                <label><input type="checkbox" class="dpi-checkbox" value="8000-16000"> 8000-16000</label>
+                <label><input type="checkbox" class="dpi-checkbox" value="16000+"> 16000+</label>
             </div>
         </aside>
         <!-- Main Content -->
         <main class="main-area">
-            <h1 class="page-title">Used Laptops</h1>
-            <div class="banner-text">Quality pre-owned laptops at affordable prices. All used laptops are tested and come with warranty.</div>
+            <h1 class="page-title">Mouse</h1>
+            <div class="banner-text">High-performance gaming mice and precision office mice for every need.</div>
             <div class="results-bar">
-                <span class="results-info" id="results-info">Showing 1-20 of 25</span>
+                <span class="results-info" id="results-info">Showing 1-20 of 32</span>
                 <div class="results-controls">
                     <label>Results Per Page
                         <select class="styled-select" id="results-per-page">
@@ -128,59 +128,70 @@
     <script src="js/include.js"></script>
     <script src="js/notifications.js"></script>
     <script>
-// Used Laptops product data
-const usedLaptopProducts = [
-    // HP Used Laptops
-    { title: 'HP EliteBook 840 G6 (Used)', price: 85000, priceDisplay: 'Rs. 85,000', stock: 'In Stock', img: '', condition: 'Excellent', year: '2021', brand: 'HP' },
-    { title: 'HP Pavilion 15 (Used)', price: 65000, priceDisplay: 'Rs. 65,000', stock: 'In Stock', img: '', condition: 'Good', year: '2020', brand: 'HP' },
-    { title: 'HP Spectre x360 (Used)', price: 120000, priceDisplay: 'Rs. 120,000', stock: 'In Stock', img: '', condition: 'Excellent', year: '2022', brand: 'HP' },
-    { title: 'HP Envy 13 (Used)', price: 75000, priceDisplay: 'Rs. 75,000', stock: 'In Stock', img: '', condition: 'Good', year: '2021', brand: 'HP' },
-    { title: 'HP ProBook 450 (Used)', price: 70000, priceDisplay: 'Rs. 70,000', stock: 'In Stock', img: '', condition: 'Fair', year: '2020', brand: 'HP' },
+// Mouse product data
+const mouseProducts = [
+    // Logitech Mice
+    { title: 'Logitech G502 HERO Gaming Mouse', price: 8500, priceDisplay: 'Rs. 8,500', stock: 'In Stock', img: '', type: 'Gaming', dpi: '16000+', brand: 'Logitech' },
+    { title: 'Logitech G Pro X Superlight', price: 12000, priceDisplay: 'Rs. 12,000', stock: 'In Stock', img: '', type: 'Wireless', dpi: '16000+', brand: 'Logitech' },
+    { title: 'Logitech MX Master 3', price: 9500, priceDisplay: 'Rs. 9,500', stock: 'In Stock', img: '', type: 'Wireless', dpi: '4000', brand: 'Logitech' },
+    { title: 'Logitech M185 Wireless Mouse', price: 1200, priceDisplay: 'Rs. 1,200', stock: 'In Stock', img: '', type: 'Wireless', dpi: '1000', brand: 'Logitech' },
+    { title: 'Logitech G203 Lightsync', price: 3500, priceDisplay: 'Rs. 3,500', stock: 'In Stock', img: '', type: 'Gaming', dpi: '8000', brand: 'Logitech' },
+    { title: 'Logitech M100 Wired Mouse', price: 800, priceDisplay: 'Rs. 800', stock: 'In Stock', img: '', type: 'Wired', dpi: '1000', brand: 'Logitech' },
     
-    // Dell Used Laptops
-    { title: 'Dell Inspiron 15 (Used)', price: 60000, priceDisplay: 'Rs. 60,000', stock: 'In Stock', img: '', condition: 'Good', year: '2020', brand: 'Dell' },
-    { title: 'Dell XPS 13 (Used)', price: 110000, priceDisplay: 'Rs. 110,000', stock: 'In Stock', img: '', condition: 'Excellent', year: '2022', brand: 'Dell' },
-    { title: 'Dell Latitude 5420 (Used)', price: 85000, priceDisplay: 'Rs. 85,000', stock: 'In Stock', img: '', condition: 'Good', year: '2021', brand: 'Dell' },
-    { title: 'Dell Vostro 3500 (Used)', price: 55000, priceDisplay: 'Rs. 55,000', stock: 'In Stock', img: '', condition: 'Fair', year: '2020', brand: 'Dell' },
-    { title: 'Dell G5 15 (Used)', price: 95000, priceDisplay: 'Rs. 95,000', stock: 'In Stock', img: '', condition: 'Good', year: '2021', brand: 'Dell' },
+    // Razer Mice
+    { title: 'Razer DeathAdder V3 Pro', price: 14000, priceDisplay: 'Rs. 14,000', stock: 'In Stock', img: '', type: 'Wireless', dpi: '16000+', brand: 'Razer' },
+    { title: 'Razer Viper V2 Pro', price: 13500, priceDisplay: 'Rs. 13,500', stock: 'In Stock', img: '', type: 'Wireless', dpi: '16000+', brand: 'Razer' },
+    { title: 'Razer Basilisk V3', price: 7500, priceDisplay: 'Rs. 7,500', stock: 'In Stock', img: '', type: 'Gaming', dpi: '16000+', brand: 'Razer' },
+    { title: 'Razer DeathAdder Essential', price: 2500, priceDisplay: 'Rs. 2,500', stock: 'In Stock', img: '', type: 'Gaming', dpi: '6400', brand: 'Razer' },
+    { title: 'Razer Orochi V2', price: 6500, priceDisplay: 'Rs. 6,500', stock: 'In Stock', img: '', type: 'Wireless', dpi: '16000+', brand: 'Razer' },
+    { title: 'Razer Abyssus Essential', price: 1800, priceDisplay: 'Rs. 1,800', stock: 'In Stock', img: '', type: 'Gaming', dpi: '7200', brand: 'Razer' },
     
-    // ThinkPad Used Laptops
-    { title: 'ThinkPad X1 Carbon (Used)', price: 130000, priceDisplay: 'Rs. 130,000', stock: 'In Stock', img: '', condition: 'Excellent', year: '2022', brand: 'ThinkPad' },
-    { title: 'ThinkPad T14 (Used)', price: 90000, priceDisplay: 'Rs. 90,000', stock: 'In Stock', img: '', condition: 'Good', year: '2021', brand: 'ThinkPad' },
-    { title: 'ThinkPad L13 Yoga (Used)', price: 75000, priceDisplay: 'Rs. 75,000', stock: 'In Stock', img: '', condition: 'Good', year: '2021', brand: 'ThinkPad' },
-    { title: 'ThinkPad E15 (Used)', price: 65000, priceDisplay: 'Rs. 65,000', stock: 'In Stock', img: '', condition: 'Fair', year: '2020', brand: 'ThinkPad' },
-    { title: 'ThinkPad P15 (Used)', price: 150000, priceDisplay: 'Rs. 150,000', stock: 'In Stock', img: '', condition: 'Excellent', year: '2022', brand: 'ThinkPad' },
+    // SteelSeries Mice
+    { title: 'SteelSeries Prime Pro', price: 11000, priceDisplay: 'Rs. 11,000', stock: 'In Stock', img: '', type: 'Gaming', dpi: '16000+', brand: 'SteelSeries' },
+    { title: 'SteelSeries Aerox 3 Wireless', price: 12500, priceDisplay: 'Rs. 12,500', stock: 'In Stock', img: '', type: 'Wireless', dpi: '16000+', brand: 'SteelSeries' },
+    { title: 'SteelSeries Rival 3', price: 4000, priceDisplay: 'Rs. 4,000', stock: 'In Stock', img: '', type: 'Gaming', dpi: '8500', brand: 'SteelSeries' },
+    { title: 'SteelSeries Sensei Ten', price: 8500, priceDisplay: 'Rs. 8,500', stock: 'In Stock', img: '', type: 'Gaming', dpi: '16000+', brand: 'SteelSeries' },
+    { title: 'SteelSeries Prime Wireless', price: 13000, priceDisplay: 'Rs. 13,000', stock: 'In Stock', img: '', type: 'Wireless', dpi: '16000+', brand: 'SteelSeries' },
+    { title: 'SteelSeries Rival 600', price: 9000, priceDisplay: 'Rs. 9,000', stock: 'In Stock', img: '', type: 'Gaming', dpi: '16000+', brand: 'SteelSeries' },
     
-    // Lenovo Used Laptops
-    { title: 'Lenovo IdeaPad 3 (Used)', price: 45000, priceDisplay: 'Rs. 45,000', stock: 'In Stock', img: '', condition: 'Good', year: '2020', brand: 'Lenovo' },
-    { title: 'Lenovo Legion 5 (Used)', price: 100000, priceDisplay: 'Rs. 100,000', stock: 'In Stock', img: '', condition: 'Good', year: '2021', brand: 'Lenovo' },
-    { title: 'Lenovo Yoga Slim 7 (Used)', price: 95000, priceDisplay: 'Rs. 95,000', stock: 'In Stock', img: '', condition: 'Excellent', year: '2022', brand: 'Lenovo' },
-    { title: 'Lenovo ThinkBook 15 (Used)', price: 70000, priceDisplay: 'Rs. 70,000', stock: 'In Stock', img: '', condition: 'Good', year: '2021', brand: 'Lenovo' },
-    { title: 'Lenovo V14 (Used)', price: 40000, priceDisplay: 'Rs. 40,000', stock: 'In Stock', img: '', condition: 'Fair', year: '2020', brand: 'Lenovo' },
+    // Corsair Mice
+    { title: 'Corsair M65 RGB Ultra', price: 9500, priceDisplay: 'Rs. 9,500', stock: 'In Stock', img: '', type: 'Gaming', dpi: '16000+', brand: 'Corsair' },
+    { title: 'Corsair Dark Core RGB Pro', price: 11500, priceDisplay: 'Rs. 11,500', stock: 'In Stock', img: '', type: 'Wireless', dpi: '16000+', brand: 'Corsair' },
+    { title: 'Corsair Harpoon RGB Pro', price: 4500, priceDisplay: 'Rs. 4,500', stock: 'In Stock', img: '', type: 'Gaming', dpi: '16000+', brand: 'Corsair' },
+    { title: 'Corsair Ironclaw RGB', price: 7000, priceDisplay: 'Rs. 7,000', stock: 'In Stock', img: '', type: 'Gaming', dpi: '16000+', brand: 'Corsair' },
+    { title: 'Corsair Sabre RGB Pro', price: 6500, priceDisplay: 'Rs. 6,500', stock: 'In Stock', img: '', type: 'Gaming', dpi: '16000+', brand: 'Corsair' },
+    { title: 'Corsair Katar Pro', price: 2500, priceDisplay: 'Rs. 2,500', stock: 'In Stock', img: '', type: 'Gaming', dpi: '12400', brand: 'Corsair' },
     
-    // Asus Used Laptops
-    { title: 'Asus VivoBook 15 (Used)', price: 50000, priceDisplay: 'Rs. 50,000', stock: 'In Stock', img: '', condition: 'Good', year: '2020', brand: 'Asus' },
-    { title: 'Asus ZenBook 14 (Used)', price: 85000, priceDisplay: 'Rs. 85,000', stock: 'In Stock', img: '', condition: 'Excellent', year: '2021', brand: 'Asus' },
-    { title: 'Asus ROG Zephyrus G14 (Used)', price: 140000, priceDisplay: 'Rs. 140,000', stock: 'In Stock', img: '', condition: 'Good', year: '2022', brand: 'Asus' },
-    { title: 'Asus TUF Gaming F15 (Used)', price: 90000, priceDisplay: 'Rs. 90,000', stock: 'In Stock', img: '', condition: 'Good', year: '2021', brand: 'Asus' },
-    { title: 'Asus ExpertBook B9 (Used)', price: 120000, priceDisplay: 'Rs. 120,000', stock: 'In Stock', img: '', condition: 'Excellent', year: '2022', brand: 'Asus' }
+    // HyperX Mice
+    { title: 'HyperX Pulsefire Haste', price: 5500, priceDisplay: 'Rs. 5,500', stock: 'In Stock', img: '', type: 'Gaming', dpi: '16000+', brand: 'HyperX' },
+    { title: 'HyperX Pulsefire Dart', price: 8500, priceDisplay: 'Rs. 8,500', stock: 'In Stock', img: '', type: 'Wireless', dpi: '16000+', brand: 'HyperX' },
+    { title: 'HyperX Pulsefire Core', price: 3000, priceDisplay: 'Rs. 3,000', stock: 'In Stock', img: '', type: 'Gaming', dpi: '6200', brand: 'HyperX' },
+    { title: 'HyperX Pulsefire FPS Pro', price: 6000, priceDisplay: 'Rs. 6,000', stock: 'In Stock', img: '', type: 'Gaming', dpi: '16000+', brand: 'HyperX' },
+    { title: 'HyperX Pulsefire Surge', price: 7500, priceDisplay: 'Rs. 7,500', stock: 'In Stock', img: '', type: 'Gaming', dpi: '16000+', brand: 'HyperX' },
+    { title: 'HyperX Pulsefire Raid', price: 9500, priceDisplay: 'Rs. 9,500', stock: 'In Stock', img: '', type: 'Gaming', dpi: '16000+', brand: 'HyperX' },
+    
+    // ASUS Mice
+    { title: 'ASUS ROG Gladius III', price: 10000, priceDisplay: 'Rs. 10,000', stock: 'In Stock', img: '', type: 'Gaming', dpi: '16000+', brand: 'ASUS' },
+    { title: 'ASUS ROG Chakram Core', price: 12000, priceDisplay: 'Rs. 12,000', stock: 'In Stock', img: '', type: 'Wireless', dpi: '16000+', brand: 'ASUS' },
+    { title: 'ASUS ROG Strix Impact II', price: 3500, priceDisplay: 'Rs. 3,500', stock: 'In Stock', img: '', type: 'Gaming', dpi: '6200', brand: 'ASUS' },
+    { title: 'ASUS ROG Pugio II', price: 8000, priceDisplay: 'Rs. 8,000', stock: 'In Stock', img: '', type: 'Gaming', dpi: '16000+', brand: 'ASUS' }
 ];
 
 let productsPerPage = 20;
 let currentPage = 1;
 let maxPrice = 0;
-let filteredProducts = usedLaptopProducts.slice();
+let filteredProducts = mouseProducts.slice();
 let selectedBrands = [];
-let selectedConditions = [];
-let selectedYears = [];
+let selectedTypes = [];
+let selectedDpis = [];
 
 function filterProducts() {
-    filteredProducts = usedLaptopProducts.filter(p => {
+    filteredProducts = mouseProducts.filter(p => {
         const priceMatch = p.price >= maxPrice;
         const brandMatch = selectedBrands.length === 0 || selectedBrands.includes(p.brand);
-        const conditionMatch = selectedConditions.length === 0 || selectedConditions.includes(p.condition);
-        const yearMatch = selectedYears.length === 0 || selectedYears.includes(p.year);
-        return priceMatch && brandMatch && conditionMatch && yearMatch;
+        const typeMatch = selectedTypes.length === 0 || selectedTypes.includes(p.type);
+        const dpiMatch = selectedDpis.length === 0 || selectedDpis.includes(p.dpi);
+        return priceMatch && brandMatch && typeMatch && dpiMatch;
     });
 }
 
@@ -201,11 +212,11 @@ function renderProducts(page) {
                     <span class="stock in-stock">${p.stock}</span>
                 </div>
                 <div class="product-details">
-                    <span class="condition ${p.condition.toLowerCase()}">${p.condition}</span>
-                    <span class="year">${p.year}</span>
+                    <span class="type">${p.type}</span>
+                    <span class="dpi">${p.dpi} DPI</span>
                 </div>
                 <div class="product-actions">
-                    <a class="btn btn-blue" href="product-detail.html?id=${i+1}&type=used-laptop">View Product</a>
+                    <a class="btn btn-blue" href="product-detail.html?id=${i+1}&type=mouse">View Product</a>
                     <button class="btn btn-gray add-to-cart-btn" data-id="${i+1}"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
                     <button class="btn btn-gray wishlist-btn" data-id="${i+1}"><i class="far fa-heart"></i> ADD TO WISHLIST</button>
                 </div>
@@ -287,11 +298,11 @@ brandCheckboxes.forEach(cb => {
     });
 });
 
-// Condition filter
-const conditionCheckboxes = document.querySelectorAll('.condition-checkbox');
-conditionCheckboxes.forEach(cb => {
+// Type filter
+const typeCheckboxes = document.querySelectorAll('.type-checkbox');
+typeCheckboxes.forEach(cb => {
     cb.addEventListener('change', function() {
-        selectedConditions = Array.from(conditionCheckboxes).filter(c => c.checked).map(c => c.value);
+        selectedTypes = Array.from(typeCheckboxes).filter(c => c.checked).map(c => c.value);
         currentPage = 1;
         filterProducts();
         renderProducts(currentPage);
@@ -299,11 +310,11 @@ conditionCheckboxes.forEach(cb => {
     });
 });
 
-// Year filter
-const yearCheckboxes = document.querySelectorAll('.year-checkbox');
-yearCheckboxes.forEach(cb => {
+// DPI filter
+const dpiCheckboxes = document.querySelectorAll('.dpi-checkbox');
+dpiCheckboxes.forEach(cb => {
     cb.addEventListener('change', function() {
-        selectedYears = Array.from(yearCheckboxes).filter(c => c.checked).map(c => c.value);
+        selectedDpis = Array.from(dpiCheckboxes).filter(c => c.checked).map(c => c.value);
         currentPage = 1;
         filterProducts();
         renderProducts(currentPage);
@@ -352,7 +363,7 @@ window.addEventListener('DOMContentLoaded', function() {
       if (!card) return;
       const productId = card.getAttribute('data-id');
       if (!productId) return;
-      const product = usedLaptopProducts[parseInt(productId)-1];
+      const product = mouseProducts[parseInt(productId)-1];
       if (!product) return;
       let cart = JSON.parse(localStorage.getItem('cart')) || [];
       if (!cart.find(item => String(item.title) === String(product.title))) {

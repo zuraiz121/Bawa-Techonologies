@@ -7,83 +7,10 @@
   <link rel="stylesheet" href="css/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<style>
-         /* Footer Styles (inline for contact page) */
-         .footer {
-            background: #3a3a3a;
-            color: #fff;
-            padding: 48px 0 24px 0;
-            margin-top: 60px;
-        }
-        .footer-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 40px;
-            justify-content: space-between;
-            padding: 0 16px;
-        }
-        .footer-col {
-            flex: 1 1 220px;
-            min-width: 180px;
-        }
-        .footer-col h4 {
-            font-size: 1.1rem;
-            font-weight: 700;
-            margin-bottom: 18px;
-            color: #fff;
-        }
-        .footer-col ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        .footer-col ul li {
-            margin-bottom: 10px;
-        }
-        .footer-col ul li a {
-            color: #fff;
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-        .footer-col ul li a:hover {
-            color: #0099ff;
-        }
-        .footer-social {
-            margin-top: 18px;
-        }
-        .footer-social a {
-            color: #fff;
-            font-size: 1.3rem;
-            margin-right: 18px;
-            transition: color 0.2s;
-        }
-        .footer-social a:hover {
-            color: #0099ff;
-        }
-        .footer-bottom {
-            text-align: center;
-            color: #bbb;
-            font-size: 0.98rem;
-            margin-top: 32px;
-        }
-        @media (max-width: 1024px) {
-            .footer-container {
-                flex-direction: column;
-                gap: 24px;
-            }
-        }
-        @media (max-width: 600px) {
-            .footer-container {
-                padding: 0 6px;
-            }
-        }
-</style>
 </head>
 <body>
-   <!-- Top Header -->
-   <div class="top-header">
+ <!-- Top Header -->
+ <div class="top-header">
     <div class="container">
         <div class="tagline">Reliable Tech Since 2005</div>
         <div class="account-links">
@@ -102,21 +29,94 @@
             <button><i class="fas fa-search"></i></button>
         </div>
         <div class="cart-icon">
-            <a href="#"><i class="fas fa-shopping-cart"></i></a>
+            <a href="cart.html" id="cart-link"><i class="fas fa-shopping-cart"></i></a>
         </div>
     </div>
 </header>
 <!-- Navbar -->
 <div id="navbar"></div>
   <section class="featured-section">
-    <div class="featured-title"><i class="far fa-heart"></i> My Wishlist</div>
+    <div class="featured-title"><i class="fas fa-heart"></i> My Wishlist</div>
     <div id="wishlist-items" style="min-height:200px;text-align:center;color:#888;font-size:1.2rem;padding:40px 0;">
       Your wishlist is empty.
     </div>
   </section>
-        <!-- Footer -->
-    <div id="footer"></div>
-    <script src="js/script.js"></script>
-    <script src="js/include.js"></script>
+  <div id="footer"></div>
+  <script src="js/script.js"></script>
+  <script src="js/include.js"></script>
+  <script src="js/notifications.js"></script>
+  <script>
+    // Render wishlist items from localStorage
+    document.addEventListener('DOMContentLoaded', function() {
+      const wishlistDiv = document.getElementById('wishlist-items');
+      let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+      
+      if (wishlist.length === 0) {
+        wishlistDiv.innerHTML = 'Your wishlist is empty.';
+      } else {
+        wishlistDiv.innerHTML = wishlist.map(item => `
+          <div class="product-card" style="max-width:500px;margin:24px auto;">
+            <div class="product-img">
+              <img src="${item.img || 'https://via.placeholder.com/300x200?text=Product'}" alt="${item.name || item.title}" style="width:100%;height:auto;border-radius:12px;">
+            </div>
+            <div class="product-info">
+              <h2 class="product-title">${item.name || item.title}</h2>
+              <div class="product-meta">
+                <span class="price">${item.price || item.priceDisplay}</span>
+              </div>
+              <p class="product-desc">${item.desc || ''}</p>
+              <div class="product-actions">
+                <button class="btn btn-blue add-to-cart-from-wishlist" data-title="${item.title}">
+                  <i class="fas fa-shopping-cart"></i> Add to Cart
+                </button>
+                <button class="btn btn-gray remove-from-wishlist" data-title="${item.title}">
+                  <i class="fas fa-trash"></i> Remove
+                </button>
+              </div>
+            </div>
+          </div>
+        `).join('');
+        
+        // Remove from wishlist functionality with notifications
+        document.querySelectorAll('.remove-from-wishlist').forEach(btn => {
+          btn.addEventListener('click', function() {
+            const productTitle = this.getAttribute('data-title');
+            const product = wishlist.find(p => p.title === productTitle);
+            
+            if (product) {
+              removeFromWishlist(product, productTitle);
+              // Remove from display
+              this.closest('.product-card').style.opacity = '0.5';
+              setTimeout(() => {
+                location.reload();
+              }, 1000);
+            } else {
+              notifications.error('Could not remove product from wishlist.');
+            }
+          });
+        });
+        
+        // Add to cart from wishlist functionality
+        document.querySelectorAll('.add-to-cart-from-wishlist').forEach(btn => {
+          btn.addEventListener('click', function() {
+            const productTitle = this.getAttribute('data-title');
+            const product = wishlist.find(p => p.title === productTitle);
+            
+            if (product) {
+              if (addToCart(product, productTitle)) {
+                // Remove from wishlist after adding to cart
+                removeFromWishlist(product, productTitle);
+                setTimeout(() => {
+                  location.reload();
+                }, 1500);
+              }
+            } else {
+              notifications.error('Could not add product to cart.');
+            }
+          });
+        });
+      }
+    });
+  </script>
 </body>
 </html> 

@@ -3,85 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Monitors | Bawa Computers</title>
+    <title>Scanners | Bawa Computers</title>
     <!-- Google Fonts: Poppins -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <!-- Font Awesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
-    <style>
-          /* Footer Styles (inline for contact page) */
-          .footer {
-            background: #3a3a3a;
-            color: #fff;
-            padding: 48px 0 24px 0;
-            margin-top: 60px;
-        }
-        .footer-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 40px;
-            justify-content: space-between;
-            padding: 0 16px;
-        }
-        .footer-col {
-            flex: 1 1 220px;
-            min-width: 180px;
-        }
-        .footer-col h4 {
-            font-size: 1.1rem;
-            font-weight: 700;
-            margin-bottom: 18px;
-            color: #fff;
-        }
-        .footer-col ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        .footer-col ul li {
-            margin-bottom: 10px;
-        }
-        .footer-col ul li a {
-            color: #fff;
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-        .footer-col ul li a:hover {
-            color: #0099ff;
-        }
-        .footer-social {
-            margin-top: 18px;
-        }
-        .footer-social a {
-            color: #fff;
-            font-size: 1.3rem;
-            margin-right: 18px;
-            transition: color 0.2s;
-        }
-        .footer-social a:hover {
-            color: #0099ff;
-        }
-        .footer-bottom {
-            text-align: center;
-            color: #bbb;
-            font-size: 0.98rem;
-            margin-top: 32px;
-        }
-        @media (max-width: 1024px) {
-            .footer-container {
-                flex-direction: column;
-                gap: 24px;
-            }
-        }
-        @media (max-width: 600px) {
-            .footer-container {
-                padding: 0 6px;
-            }
-        }
-    </style>
 </head>
 <body>
     <!-- Top Header -->
@@ -113,7 +40,7 @@
     <!-- Breadcrumb -->
     <div class="breadcrumb-bar">
         <div class="container">
-            <span class="breadcrumb" href="">Home / <span class="current">Monitors</span></span>
+            <span class="breadcrumb" href="">Home / More / <span class="current">Scanners</span></span>
         </div>
     </div>
     <!-- Main Content Layout -->
@@ -121,35 +48,50 @@
         <!-- Sidebar -->
         <aside class="sidebar">
             <div class="sidebar-section category">
-                <h3>MONITORS</h3>
+                <h3>SCANNERS</h3>
             </div>
             <div class="sidebar-section price-range">
                 <h4>PRICE RANGE</h4>
                 <div class="slider-row">
-                    <input type="range" min="0" max="200000" value="0" class="price-slider" id="price-slider">
+                    <input type="range" min="0" max="50000" value="0" class="price-slider" id="price-slider">
                     <div class="price-values">
                         <span>0</span>
                         <span id="selected-price">0</span>
-                        <span style="float:right">200,000</span>
+                        <span style="float:right">50,000</span>
                     </div>
                 </div>
                 <button class="btn btn-blue" id="price-go">GO</button>
             </div>
             <div class="sidebar-section brand-filter">
                 <h4>BRAND</h4>
-                <label><input type="checkbox" class="brand-checkbox" value="Samsung"> Samsung</label>
-                <label><input type="checkbox" class="brand-checkbox" value="LG"> LG</label>
-                <label><input type="checkbox" class="brand-checkbox" value="Dell"> Dell</label>
-                <label><input type="checkbox" class="brand-checkbox" value="Asus"> Asus</label>
-                <label><input type="checkbox" class="brand-checkbox" value="Acer"> Acer</label>
+                <label><input type="checkbox" class="brand-checkbox" value="Canon"> Canon</label>
+                <label><input type="checkbox" class="brand-checkbox" value="Epson"> Epson</label>
+                <label><input type="checkbox" class="brand-checkbox" value="HP"> HP</label>
+                <label><input type="checkbox" class="brand-checkbox" value="Brother"> Brother</label>
+                <label><input type="checkbox" class="brand-checkbox" value="Fujitsu"> Fujitsu</label>
+                <label><input type="checkbox" class="brand-checkbox" value="Plustek"> Plustek</label>
+            </div>
+            <div class="sidebar-section type-filter">
+                <h4>SCANNER TYPE</h4>
+                <label><input type="checkbox" class="type-checkbox" value="Flatbed"> Flatbed</label>
+                <label><input type="checkbox" class="type-checkbox" value="Document"> Document</label>
+                <label><input type="checkbox" class="type-checkbox" value="Photo"> Photo</label>
+                <label><input type="checkbox" class="type-checkbox" value="Portable"> Portable</label>
+            </div>
+            <div class="sidebar-section resolution-filter">
+                <h4>RESOLUTION</h4>
+                <label><input type="checkbox" class="resolution-checkbox" value="1200 DPI"> 1200 DPI</label>
+                <label><input type="checkbox" class="resolution-checkbox" value="2400 DPI"> 2400 DPI</label>
+                <label><input type="checkbox" class="resolution-checkbox" value="4800 DPI"> 4800 DPI</label>
+                <label><input type="checkbox" class="resolution-checkbox" value="9600 DPI"> 9600 DPI</label>
             </div>
         </aside>
         <!-- Main Content -->
         <main class="main-area">
-            <h1 class="page-title">Monitors</h1>
-            <div class="banner-text">High-quality monitors for gaming, work, and entertainment.</div>
+            <h1 class="page-title">Scanners</h1>
+            <div class="banner-text">High-quality document and photo scanners for home, office, and professional use.</div>
             <div class="results-bar">
-                <span class="results-info" id="results-info">Showing 1-20 of 40</span>
+                <span class="results-info" id="results-info">Showing 1-20 of 24</span>
                 <div class="results-controls">
                     <label>Results Per Page
                         <select class="styled-select" id="results-per-page">
@@ -168,7 +110,7 @@
                 </div>
             </div>
             <div class="product-grid" id="product-grid">
-                <!-- Product cards will be generated by JS for pagination -->
+                <!-- Product cards will be generated by JS -->
             </div>
             <nav class="pagination-bar" id="pagination-bar">
                 <ul class="pagination">
@@ -184,67 +126,58 @@
     <div id="footer"></div>
     <script src="js/script.js"></script>
     <script src="js/include.js"></script>
+    <script src="js/notifications.js"></script>
     <script>
-// Monitor product data
-const products = [
-    // Samsung Monitors
-    { title: 'Samsung 24" FHD Monitor', price: 25000, priceDisplay: 'Rs. 25,000', stock: 'In Stock', img: '' },
-    { title: 'Samsung 27" QHD Monitor', price: 45000, priceDisplay: 'Rs. 45,000', stock: 'In Stock', img: '' },
-    { title: 'Samsung 32" 4K Monitor', price: 85000, priceDisplay: 'Rs. 85,000', stock: 'In Stock', img: '' },
-    { title: 'Samsung 34" Ultrawide', price: 120000, priceDisplay: 'Rs. 120,000', stock: 'In Stock', img: '' },
-    { title: 'Samsung 49" Super Ultrawide', price: 180000, priceDisplay: 'Rs. 180,000', stock: 'In Stock', img: '' },
-    { title: 'Samsung 24" Gaming Monitor', price: 35000, priceDisplay: 'Rs. 35,000', stock: 'In Stock', img: '' },
-    { title: 'Samsung 27" Gaming Monitor', price: 55000, priceDisplay: 'Rs. 55,000', stock: 'In Stock', img: '' },
-    { title: 'Samsung 32" Gaming Monitor', price: 95000, priceDisplay: 'Rs. 95,000', stock: 'In Stock', img: '' },
-    // LG Monitors
-    { title: 'LG 24" FHD Monitor', price: 22000, priceDisplay: 'Rs. 22,000', stock: 'In Stock', img: '' },
-    { title: 'LG 27" QHD Monitor', price: 42000, priceDisplay: 'Rs. 42,000', stock: 'In Stock', img: '' },
-    { title: 'LG 32" 4K Monitor', price: 80000, priceDisplay: 'Rs. 80,000', stock: 'In Stock', img: '' },
-    { title: 'LG 34" Ultrawide', price: 110000, priceDisplay: 'Rs. 110,000', stock: 'In Stock', img: '' },
-    { title: 'LG 38" Ultrawide', price: 150000, priceDisplay: 'Rs. 150,000', stock: 'In Stock', img: '' },
-    { title: 'LG 24" Gaming Monitor', price: 32000, priceDisplay: 'Rs. 32,000', stock: 'In Stock', img: '' },
-    { title: 'LG 27" Gaming Monitor', price: 52000, priceDisplay: 'Rs. 52,000', stock: 'In Stock', img: '' },
-    { title: 'LG 32" Gaming Monitor', price: 90000, priceDisplay: 'Rs. 90,000', stock: 'In Stock', img: '' },
-    // Dell Monitors
-    { title: 'Dell 24" FHD Monitor', price: 28000, priceDisplay: 'Rs. 28,000', stock: 'In Stock', img: '' },
-    { title: 'Dell 27" QHD Monitor', price: 48000, priceDisplay: 'Rs. 48,000', stock: 'In Stock', img: '' },
-    { title: 'Dell 32" 4K Monitor', price: 88000, priceDisplay: 'Rs. 88,000', stock: 'In Stock', img: '' },
-    { title: 'Dell 34" Ultrawide', price: 125000, priceDisplay: 'Rs. 125,000', stock: 'In Stock', img: '' },
-    { title: 'Dell 38" Ultrawide', price: 160000, priceDisplay: 'Rs. 160,000', stock: 'In Stock', img: '' },
-    { title: 'Dell 24" Gaming Monitor', price: 38000, priceDisplay: 'Rs. 38,000', stock: 'In Stock', img: '' },
-    { title: 'Dell 27" Gaming Monitor', price: 58000, priceDisplay: 'Rs. 58,000', stock: 'In Stock', img: '' },
-    { title: 'Dell 32" Gaming Monitor', price: 98000, priceDisplay: 'Rs. 98,000', stock: 'In Stock', img: '' },
-    // Asus Monitors
-    { title: 'Asus 24" FHD Monitor', price: 24000, priceDisplay: 'Rs. 24,000', stock: 'In Stock', img: '' },
-    { title: 'Asus 27" QHD Monitor', price: 44000, priceDisplay: 'Rs. 44,000', stock: 'In Stock', img: '' },
-    { title: 'Asus 32" 4K Monitor', price: 82000, priceDisplay: 'Rs. 82,000', stock: 'In Stock', img: '' },
-    { title: 'Asus 34" Ultrawide', price: 115000, priceDisplay: 'Rs. 115,000', stock: 'In Stock', img: '' },
-    { title: 'Asus 49" Super Ultrawide', price: 175000, priceDisplay: 'Rs. 175,000', stock: 'In Stock', img: '' },
-    { title: 'Asus 24" Gaming Monitor', price: 34000, priceDisplay: 'Rs. 34,000', stock: 'In Stock', img: '' },
-    { title: 'Asus 27" Gaming Monitor', price: 54000, priceDisplay: 'Rs. 54,000', stock: 'In Stock', img: '' },
-    { title: 'Asus 32" Gaming Monitor', price: 92000, priceDisplay: 'Rs. 92,000', stock: 'In Stock', img: '' },
-    // Acer Monitors
-    { title: 'Acer 24" FHD Monitor', price: 20000, priceDisplay: 'Rs. 20,000', stock: 'In Stock', img: '' },
-    { title: 'Acer 27" QHD Monitor', price: 40000, priceDisplay: 'Rs. 40,000', stock: 'In Stock', img: '' },
-    { title: 'Acer 32" 4K Monitor', price: 78000, priceDisplay: 'Rs. 78,000', stock: 'In Stock', img: '' },
-    { title: 'Acer 34" Ultrawide', price: 105000, priceDisplay: 'Rs. 105,000', stock: 'In Stock', img: '' },
-    { title: 'Acer 38" Ultrawide', price: 140000, priceDisplay: 'Rs. 140,000', stock: 'In Stock', img: '' },
-    { title: 'Acer 24" Gaming Monitor', price: 30000, priceDisplay: 'Rs. 30,000', stock: 'In Stock', img: '' },
-    { title: 'Acer 27" Gaming Monitor', price: 50000, priceDisplay: 'Rs. 50,000', stock: 'In Stock', img: '' },
-    { title: 'Acer 32" Gaming Monitor', price: 88000, priceDisplay: 'Rs. 88,000', stock: 'In Stock', img: '' },
+// Scanners product data
+const scannerProducts = [
+    // Canon Scanners
+    { title: 'Canon CanoScan LiDE 400', price: 12000, priceDisplay: 'Rs. 12,000', stock: 'In Stock', img: '', type: 'Flatbed', resolution: '4800 DPI', brand: 'Canon' },
+    { title: 'Canon CanoScan LiDE 300', price: 9500, priceDisplay: 'Rs. 9,500', stock: 'In Stock', img: '', type: 'Flatbed', resolution: '2400 DPI', brand: 'Canon' },
+    { title: 'Canon CanoScan 9000F Mark II', price: 28000, priceDisplay: 'Rs. 28,000', stock: 'In Stock', img: '', type: 'Photo', resolution: '9600 DPI', brand: 'Canon' },
+    { title: 'Canon CanoScan LiDE 120', price: 7500, priceDisplay: 'Rs. 7,500', stock: 'In Stock', img: '', type: 'Flatbed', resolution: '2400 DPI', brand: 'Canon' },
+    { title: 'Canon CanoScan 5600F', price: 18000, priceDisplay: 'Rs. 18,000', stock: 'In Stock', img: '', type: 'Photo', resolution: '4800 DPI', brand: 'Canon' },
+    { title: 'Canon CanoScan LiDE 220', price: 8500, priceDisplay: 'Rs. 8,500', stock: 'In Stock', img: '', type: 'Flatbed', resolution: '2400 DPI', brand: 'Canon' },
+    
+    // Epson Scanners
+    { title: 'Epson Perfection V39', price: 15000, priceDisplay: 'Rs. 15,000', stock: 'In Stock', img: '', type: 'Flatbed', resolution: '4800 DPI', brand: 'Epson' },
+    { title: 'Epson Perfection V600', price: 35000, priceDisplay: 'Rs. 35,000', stock: 'In Stock', img: '', type: 'Photo', resolution: '9600 DPI', brand: 'Epson' },
+    { title: 'Epson WorkForce DS-30', price: 22000, priceDisplay: 'Rs. 22,000', stock: 'In Stock', img: '', type: 'Document', resolution: '1200 DPI', brand: 'Epson' },
+    { title: 'Epson Perfection V370', price: 18000, priceDisplay: 'Rs. 18,000', stock: 'In Stock', img: '', type: 'Flatbed', resolution: '4800 DPI', brand: 'Epson' },
+    { title: 'Epson WorkForce DS-80W', price: 45000, priceDisplay: 'Rs. 45,000', stock: 'In Stock', img: '', type: 'Document', resolution: '1200 DPI', brand: 'Epson' },
+    { title: 'Epson Perfection V850 Pro', price: 48000, priceDisplay: 'Rs. 48,000', stock: 'In Stock', img: '', type: 'Photo', resolution: '9600 DPI', brand: 'Epson' },
+    
+    // HP Scanners
+    { title: 'HP ScanJet Pro 2500 f1', price: 25000, priceDisplay: 'Rs. 25,000', stock: 'In Stock', img: '', type: 'Document', resolution: '1200 DPI', brand: 'HP' },
+    { title: 'HP ScanJet Pro 3000 s3', price: 32000, priceDisplay: 'Rs. 32,000', stock: 'In Stock', img: '', type: 'Document', resolution: '1200 DPI', brand: 'HP' },
+    { title: 'HP ScanJet 200', price: 8000, priceDisplay: 'Rs. 8,000', stock: 'In Stock', img: '', type: 'Flatbed', resolution: '1200 DPI', brand: 'HP' },
+    { title: 'HP ScanJet Pro 4500 fn1', price: 38000, priceDisplay: 'Rs. 38,000', stock: 'In Stock', img: '', type: 'Document', resolution: '1200 DPI', brand: 'HP' },
+    { title: 'HP ScanJet 300', price: 12000, priceDisplay: 'Rs. 12,000', stock: 'In Stock', img: '', type: 'Flatbed', resolution: '2400 DPI', brand: 'HP' },
+    { title: 'HP ScanJet Pro 3500 f1', price: 28000, priceDisplay: 'Rs. 28,000', stock: 'In Stock', img: '', type: 'Document', resolution: '1200 DPI', brand: 'HP' },
+    
+    // Brother Scanners
+    { title: 'Brother ADS-1200', price: 18000, priceDisplay: 'Rs. 18,000', stock: 'In Stock', img: '', type: 'Document', resolution: '1200 DPI', brand: 'Brother' },
+    { title: 'Brother ADS-1700W', price: 22000, priceDisplay: 'Rs. 22,000', stock: 'In Stock', img: '', type: 'Document', resolution: '1200 DPI', brand: 'Brother' },
+    { title: 'Brother ADS-2400N', price: 25000, priceDisplay: 'Rs. 25,000', stock: 'In Stock', img: '', type: 'Document', resolution: '1200 DPI', brand: 'Brother' },
+    { title: 'Brother ADS-1100W', price: 15000, priceDisplay: 'Rs. 15,000', stock: 'In Stock', img: '', type: 'Document', resolution: '1200 DPI', brand: 'Brother' },
+    { title: 'Brother ADS-2700W', price: 30000, priceDisplay: 'Rs. 30,000', stock: 'In Stock', img: '', type: 'Document', resolution: '1200 DPI', brand: 'Brother' },
+    { title: 'Brother ADS-3000N', price: 35000, priceDisplay: 'Rs. 35,000', stock: 'In Stock', img: '', type: 'Document', resolution: '1200 DPI', brand: 'Brother' }
 ];
 
 let productsPerPage = 20;
 let currentPage = 1;
 let maxPrice = 0;
-let filteredProducts = products.slice();
+let filteredProducts = scannerProducts.slice();
 let selectedBrands = [];
+let selectedTypes = [];
+let selectedResolutions = [];
 
 function filterProducts() {
-    filteredProducts = products.filter(p => {
+    filteredProducts = scannerProducts.filter(p => {
         const priceMatch = p.price >= maxPrice;
-        const brandMatch = selectedBrands.length === 0 || selectedBrands.some(b => p.title.toLowerCase().includes(b.toLowerCase()));
-        return priceMatch && brandMatch;
+        const brandMatch = selectedBrands.length === 0 || selectedBrands.includes(p.brand);
+        const typeMatch = selectedTypes.length === 0 || selectedTypes.includes(p.type);
+        const resolutionMatch = selectedResolutions.length === 0 || selectedResolutions.includes(p.resolution);
+        return priceMatch && brandMatch && typeMatch && resolutionMatch;
     });
 }
 
@@ -264,10 +197,14 @@ function renderProducts(page) {
                     <span class="price">${p.priceDisplay}</span>
                     <span class="stock in-stock">${p.stock}</span>
                 </div>
+                <div class="product-details">
+                    <span class="type">${p.type}</span>
+                    <span class="resolution">${p.resolution}</span>
+                </div>
                 <div class="product-actions">
-                    <a class="btn btn-blue" href="product-detail.html?id=${i+1}">View Product</a>
+                    <a class="btn btn-blue" href="product-detail.html?id=${i+1}&type=scanner">View Product</a>
                     <button class="btn btn-gray add-to-cart-btn" data-id="${i+1}"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
-                    <button class="btn btn-gray"><i class="far fa-heart"></i> ADD TO WISHLIST</button>
+                    <button class="btn btn-gray wishlist-btn" data-id="${i+1}"><i class="far fa-heart"></i> ADD TO WISHLIST</button>
                 </div>
             </div>
         </div>`;
@@ -335,7 +272,57 @@ priceSlider.addEventListener('input', function() {
     renderPagination();
 });
 
-// On page load, set slider to min and update selected price
+// Brand filter
+const brandCheckboxes = document.querySelectorAll('.brand-checkbox');
+brandCheckboxes.forEach(cb => {
+    cb.addEventListener('change', function() {
+        selectedBrands = Array.from(brandCheckboxes).filter(c => c.checked).map(c => c.value);
+        currentPage = 1;
+        filterProducts();
+        renderProducts(currentPage);
+        renderPagination();
+    });
+});
+
+// Type filter
+const typeCheckboxes = document.querySelectorAll('.type-checkbox');
+typeCheckboxes.forEach(cb => {
+    cb.addEventListener('change', function() {
+        selectedTypes = Array.from(typeCheckboxes).filter(c => c.checked).map(c => c.value);
+        currentPage = 1;
+        filterProducts();
+        renderProducts(currentPage);
+        renderPagination();
+    });
+});
+
+// Resolution filter
+const resolutionCheckboxes = document.querySelectorAll('.resolution-checkbox');
+resolutionCheckboxes.forEach(cb => {
+    cb.addEventListener('change', function() {
+        selectedResolutions = Array.from(resolutionCheckboxes).filter(c => c.checked).map(c => c.value);
+        currentPage = 1;
+        filterProducts();
+        renderProducts(currentPage);
+        renderPagination();
+    });
+});
+
+// Sort By dropdown
+const sortBySelect = document.getElementById('sort-by');
+sortBySelect.addEventListener('change', function() {
+    const sortValue = this.value;
+    if (sortValue === 'low-high') {
+        filteredProducts.sort((a, b) => a.price - b.price);
+    } else if (sortValue === 'high-low') {
+        filteredProducts.sort((a, b) => b.price - a.price);
+    }
+    currentPage = 1;
+    renderProducts(currentPage);
+    renderPagination();
+});
+
+// On page load
 window.addEventListener('DOMContentLoaded', function() {
     priceSlider.value = 0;
     selectedPrice.textContent = '0';
@@ -354,39 +341,6 @@ document.getElementById('price-go').addEventListener('click', function() {
     renderPagination();
 });
 
-// Brand filter
-const brandCheckboxes = document.querySelectorAll('.brand-checkbox');
-brandCheckboxes.forEach(cb => {
-    cb.addEventListener('change', function() {
-        selectedBrands = Array.from(brandCheckboxes).filter(c => c.checked).map(c => c.value);
-        currentPage = 1;
-        filterProducts();
-        renderProducts(currentPage);
-        renderPagination();
-    });
-});
-
-// Sort By dropdown
-const sortBySelect = document.getElementById('sort-by');
-sortBySelect.addEventListener('change', function() {
-    const sortValue = this.value;
-    if (sortValue === 'low-high') {
-        filteredProducts.sort((a, b) => a.price - b.price);
-    } else if (sortValue === 'high-low') {
-        filteredProducts.sort((a, b) => b.price - a.price);
-    } else {
-        // Newest or default: no sorting or implement your own logic
-    }
-    currentPage = 1;
-    renderProducts(currentPage);
-    renderPagination();
-});
-
-// Initial render
-filterProducts();
-renderProducts(currentPage);
-renderPagination();
-
 // Add to Cart global handler
 window.addEventListener('DOMContentLoaded', function() {
   document.body.addEventListener('click', function(e) {
@@ -395,7 +349,7 @@ window.addEventListener('DOMContentLoaded', function() {
       if (!card) return;
       const productId = card.getAttribute('data-id');
       if (!productId) return;
-      const product = products[parseInt(productId)-1];
+      const product = scannerProducts[parseInt(productId)-1];
       if (!product) return;
       let cart = JSON.parse(localStorage.getItem('cart')) || [];
       if (!cart.find(item => String(item.title) === String(product.title))) {

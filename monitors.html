@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Used Laptops | Bawa Computers</title>
+    <title>Monitors | Bawa Computers</title>
     <!-- Google Fonts: Poppins -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <!-- Font Awesome CDN -->
@@ -40,7 +40,7 @@
     <!-- Breadcrumb -->
     <div class="breadcrumb-bar">
         <div class="container">
-            <span class="breadcrumb" href="">Home / Used / <span class="current">Laptops</span></span>
+            <span class="breadcrumb" href="">Home / <span class="current">Monitors</span></span>
         </div>
     </div>
     <!-- Main Content Layout -->
@@ -48,50 +48,53 @@
         <!-- Sidebar -->
         <aside class="sidebar">
             <div class="sidebar-section category">
-                <h3>USED LAPTOPS</h3>
+                <h3>MONITORS</h3>
             </div>
             <div class="sidebar-section price-range">
                 <h4>PRICE RANGE</h4>
                 <div class="slider-row">
-                    <input type="range" min="0" max="200000" value="0" class="price-slider" id="price-slider">
+                    <input type="range" min="0" max="150000" value="0" class="price-slider" id="price-slider">
                     <div class="price-values">
                         <span>0</span>
                         <span id="selected-price">0</span>
-                        <span style="float:right">200,000</span>
+                        <span style="float:right">150,000</span>
                     </div>
                 </div>
                 <button class="btn btn-blue" id="price-go">GO</button>
             </div>
             <div class="sidebar-section brand-filter">
                 <h4>BRAND</h4>
-                <label><input type="checkbox" class="brand-checkbox" value="HP"> HP</label>
+                <label><input type="checkbox" class="brand-checkbox" value="Samsung"> Samsung</label>
+                <label><input type="checkbox" class="brand-checkbox" value="LG"> LG</label>
                 <label><input type="checkbox" class="brand-checkbox" value="Dell"> Dell</label>
-                <label><input type="checkbox" class="brand-checkbox" value="ThinkPad"> ThinkPad</label>
-                <label><input type="checkbox" class="brand-checkbox" value="Lenovo"> Lenovo</label>
+                <label><input type="checkbox" class="brand-checkbox" value="HP"> HP</label>
                 <label><input type="checkbox" class="brand-checkbox" value="Asus"> Asus</label>
+                <label><input type="checkbox" class="brand-checkbox" value="Acer"> Acer</label>
+                <label><input type="checkbox" class="brand-checkbox" value="BenQ"> BenQ</label>
             </div>
-            <div class="sidebar-section condition-filter">
-                <h4>CONDITION</h4>
-                <label><input type="checkbox" class="condition-checkbox" value="Excellent"> Excellent</label>
-                <label><input type="checkbox" class="condition-checkbox" value="Good"> Good</label>
-                <label><input type="checkbox" class="condition-checkbox" value="Fair"> Fair</label>
-                <label><input type="checkbox" class="condition-checkbox" value="Refurbished"> Refurbished</label>
+            <div class="sidebar-section category-filter">
+                <h4>MONITOR TYPE</h4>
+                <label><input type="checkbox" class="type-checkbox" value="Gaming"> Gaming</label>
+                <label><input type="checkbox" class="type-checkbox" value="Business"> Business</label>
+                <label><input type="checkbox" class="type-checkbox" value="Professional"> Professional</label>
+                <label><input type="checkbox" class="type-checkbox" value="Curved"> Curved</label>
+                <label><input type="checkbox" class="type-checkbox" value="Ultrawide"> Ultrawide</label>
             </div>
-            <div class="sidebar-section year-filter">
-                <h4>YEAR</h4>
-                <label><input type="checkbox" class="year-checkbox" value="2023"> 2023</label>
-                <label><input type="checkbox" class="year-checkbox" value="2022"> 2022</label>
-                <label><input type="checkbox" class="year-checkbox" value="2021"> 2021</label>
-                <label><input type="checkbox" class="year-checkbox" value="2020"> 2020</label>
-                <label><input type="checkbox" class="year-checkbox" value="2019"> 2019</label>
+            <div class="sidebar-section size-filter">
+                <h4>SCREEN SIZE</h4>
+                <label><input type="checkbox" class="size-checkbox" value="24"> 24"</label>
+                <label><input type="checkbox" class="size-checkbox" value="27"> 27"</label>
+                <label><input type="checkbox" class="size-checkbox" value="32"> 32"</label>
+                <label><input type="checkbox" class="size-checkbox" value="34"> 34"</label>
+                <label><input type="checkbox" class="size-checkbox" value="49"> 49"</label>
             </div>
         </aside>
         <!-- Main Content -->
         <main class="main-area">
-            <h1 class="page-title">Used Laptops</h1>
-            <div class="banner-text">Quality pre-owned laptops at affordable prices. All used laptops are tested and come with warranty.</div>
+            <h1 class="page-title">Monitors</h1>
+            <div class="banner-text">High-quality displays for gaming, work, and entertainment with stunning visuals and smooth performance.</div>
             <div class="results-bar">
-                <span class="results-info" id="results-info">Showing 1-20 of 25</span>
+                <span class="results-info" id="results-info">Showing 1-20 of 38</span>
                 <div class="results-controls">
                     <label>Results Per Page
                         <select class="styled-select" id="results-per-page">
@@ -128,59 +131,77 @@
     <script src="js/include.js"></script>
     <script src="js/notifications.js"></script>
     <script>
-// Used Laptops product data
-const usedLaptopProducts = [
-    // HP Used Laptops
-    { title: 'HP EliteBook 840 G6 (Used)', price: 85000, priceDisplay: 'Rs. 85,000', stock: 'In Stock', img: '', condition: 'Excellent', year: '2021', brand: 'HP' },
-    { title: 'HP Pavilion 15 (Used)', price: 65000, priceDisplay: 'Rs. 65,000', stock: 'In Stock', img: '', condition: 'Good', year: '2020', brand: 'HP' },
-    { title: 'HP Spectre x360 (Used)', price: 120000, priceDisplay: 'Rs. 120,000', stock: 'In Stock', img: '', condition: 'Excellent', year: '2022', brand: 'HP' },
-    { title: 'HP Envy 13 (Used)', price: 75000, priceDisplay: 'Rs. 75,000', stock: 'In Stock', img: '', condition: 'Good', year: '2021', brand: 'HP' },
-    { title: 'HP ProBook 450 (Used)', price: 70000, priceDisplay: 'Rs. 70,000', stock: 'In Stock', img: '', condition: 'Fair', year: '2020', brand: 'HP' },
+// Monitor product data
+const monitorProducts = [
+    // Samsung Monitors
+    { title: 'Samsung 24" FHD Monitor', price: 25000, priceDisplay: 'Rs. 25,000', stock: 'In Stock', img: '', type: 'Business', size: '24', brand: 'Samsung' },
+    { title: 'Samsung 27" QHD Gaming Monitor', price: 45000, priceDisplay: 'Rs. 45,000', stock: 'In Stock', img: '', type: 'Gaming', size: '27', brand: 'Samsung' },
+    { title: 'Samsung 32" 4K Monitor', price: 85000, priceDisplay: 'Rs. 85,000', stock: 'In Stock', img: '', type: 'Professional', size: '32', brand: 'Samsung' },
+    { title: 'Samsung 34" Ultrawide Curved', price: 95000, priceDisplay: 'Rs. 95,000', stock: 'In Stock', img: '', type: 'Curved', size: '34', brand: 'Samsung' },
+    { title: 'Samsung 49" Super Ultrawide', price: 140000, priceDisplay: 'Rs. 140,000', stock: 'In Stock', img: '', type: 'Ultrawide', size: '49', brand: 'Samsung' },
+    { title: 'Samsung 24" Business Monitor', price: 22000, priceDisplay: 'Rs. 22,000', stock: 'In Stock', img: '', type: 'Business', size: '24', brand: 'Samsung' },
     
-    // Dell Used Laptops
-    { title: 'Dell Inspiron 15 (Used)', price: 60000, priceDisplay: 'Rs. 60,000', stock: 'In Stock', img: '', condition: 'Good', year: '2020', brand: 'Dell' },
-    { title: 'Dell XPS 13 (Used)', price: 110000, priceDisplay: 'Rs. 110,000', stock: 'In Stock', img: '', condition: 'Excellent', year: '2022', brand: 'Dell' },
-    { title: 'Dell Latitude 5420 (Used)', price: 85000, priceDisplay: 'Rs. 85,000', stock: 'In Stock', img: '', condition: 'Good', year: '2021', brand: 'Dell' },
-    { title: 'Dell Vostro 3500 (Used)', price: 55000, priceDisplay: 'Rs. 55,000', stock: 'In Stock', img: '', condition: 'Fair', year: '2020', brand: 'Dell' },
-    { title: 'Dell G5 15 (Used)', price: 95000, priceDisplay: 'Rs. 95,000', stock: 'In Stock', img: '', condition: 'Good', year: '2021', brand: 'Dell' },
+    // LG Monitors
+    { title: 'LG 24" FHD Monitor', price: 23000, priceDisplay: 'Rs. 23,000', stock: 'In Stock', img: '', type: 'Business', size: '24', brand: 'LG' },
+    { title: 'LG 27" 4K Monitor', price: 75000, priceDisplay: 'Rs. 75,000', stock: 'In Stock', img: '', type: 'Professional', size: '27', brand: 'LG' },
+    { title: 'LG 34" Ultrawide Curved', price: 88000, priceDisplay: 'Rs. 88,000', stock: 'In Stock', img: '', type: 'Curved', size: '34', brand: 'LG' },
+    { title: 'LG 32" Gaming Monitor', price: 65000, priceDisplay: 'Rs. 65,000', stock: 'In Stock', img: '', type: 'Gaming', size: '32', brand: 'LG' },
+    { title: 'LG 27" QHD Monitor', price: 42000, priceDisplay: 'Rs. 42,000', stock: 'In Stock', img: '', type: 'Business', size: '27', brand: 'LG' },
+    { title: 'LG 49" Ultrawide Gaming', price: 135000, priceDisplay: 'Rs. 135,000', stock: 'In Stock', img: '', type: 'Ultrawide', size: '49', brand: 'LG' },
     
-    // ThinkPad Used Laptops
-    { title: 'ThinkPad X1 Carbon (Used)', price: 130000, priceDisplay: 'Rs. 130,000', stock: 'In Stock', img: '', condition: 'Excellent', year: '2022', brand: 'ThinkPad' },
-    { title: 'ThinkPad T14 (Used)', price: 90000, priceDisplay: 'Rs. 90,000', stock: 'In Stock', img: '', condition: 'Good', year: '2021', brand: 'ThinkPad' },
-    { title: 'ThinkPad L13 Yoga (Used)', price: 75000, priceDisplay: 'Rs. 75,000', stock: 'In Stock', img: '', condition: 'Good', year: '2021', brand: 'ThinkPad' },
-    { title: 'ThinkPad E15 (Used)', price: 65000, priceDisplay: 'Rs. 65,000', stock: 'In Stock', img: '', condition: 'Fair', year: '2020', brand: 'ThinkPad' },
-    { title: 'ThinkPad P15 (Used)', price: 150000, priceDisplay: 'Rs. 150,000', stock: 'In Stock', img: '', condition: 'Excellent', year: '2022', brand: 'ThinkPad' },
+    // Dell Monitors
+    { title: 'Dell 24" Business Monitor', price: 28000, priceDisplay: 'Rs. 28,000', stock: 'In Stock', img: '', type: 'Business', size: '24', brand: 'Dell' },
+    { title: 'Dell 27" Professional Monitor', price: 55000, priceDisplay: 'Rs. 55,000', stock: 'In Stock', img: '', type: 'Professional', size: '27', brand: 'Dell' },
+    { title: 'Dell 32" 4K Monitor', price: 92000, priceDisplay: 'Rs. 92,000', stock: 'In Stock', img: '', type: 'Professional', size: '32', brand: 'Dell' },
+    { title: 'Dell 34" Ultrawide Monitor', price: 78000, priceDisplay: 'Rs. 78,000', stock: 'In Stock', img: '', type: 'Ultrawide', size: '34', brand: 'Dell' },
+    { title: 'Dell 27" Gaming Monitor', price: 48000, priceDisplay: 'Rs. 48,000', stock: 'In Stock', img: '', type: 'Gaming', size: '27', brand: 'Dell' },
+    { title: 'Dell 24" FHD Monitor', price: 26000, priceDisplay: 'Rs. 26,000', stock: 'In Stock', img: '', type: 'Business', size: '24', brand: 'Dell' },
     
-    // Lenovo Used Laptops
-    { title: 'Lenovo IdeaPad 3 (Used)', price: 45000, priceDisplay: 'Rs. 45,000', stock: 'In Stock', img: '', condition: 'Good', year: '2020', brand: 'Lenovo' },
-    { title: 'Lenovo Legion 5 (Used)', price: 100000, priceDisplay: 'Rs. 100,000', stock: 'In Stock', img: '', condition: 'Good', year: '2021', brand: 'Lenovo' },
-    { title: 'Lenovo Yoga Slim 7 (Used)', price: 95000, priceDisplay: 'Rs. 95,000', stock: 'In Stock', img: '', condition: 'Excellent', year: '2022', brand: 'Lenovo' },
-    { title: 'Lenovo ThinkBook 15 (Used)', price: 70000, priceDisplay: 'Rs. 70,000', stock: 'In Stock', img: '', condition: 'Good', year: '2021', brand: 'Lenovo' },
-    { title: 'Lenovo V14 (Used)', price: 40000, priceDisplay: 'Rs. 40,000', stock: 'In Stock', img: '', condition: 'Fair', year: '2020', brand: 'Lenovo' },
+    // HP Monitors
+    { title: 'HP 24" Business Monitor', price: 24000, priceDisplay: 'Rs. 24,000', stock: 'In Stock', img: '', type: 'Business', size: '24', brand: 'HP' },
+    { title: 'HP 27" QHD Monitor', price: 38000, priceDisplay: 'Rs. 38,000', stock: 'In Stock', img: '', type: 'Business', size: '27', brand: 'HP' },
+    { title: 'HP 32" 4K Monitor', price: 85000, priceDisplay: 'Rs. 85,000', stock: 'In Stock', img: '', type: 'Professional', size: '32', brand: 'HP' },
+    { title: 'HP 27" Gaming Monitor', price: 52000, priceDisplay: 'Rs. 52,000', stock: 'In Stock', img: '', type: 'Gaming', size: '27', brand: 'HP' },
+    { title: 'HP 24" FHD Monitor', price: 22000, priceDisplay: 'Rs. 22,000', stock: 'In Stock', img: '', type: 'Business', size: '24', brand: 'HP' },
+    { title: 'HP 34" Ultrawide Monitor', price: 82000, priceDisplay: 'Rs. 82,000', stock: 'In Stock', img: '', type: 'Ultrawide', size: '34', brand: 'HP' },
     
-    // Asus Used Laptops
-    { title: 'Asus VivoBook 15 (Used)', price: 50000, priceDisplay: 'Rs. 50,000', stock: 'In Stock', img: '', condition: 'Good', year: '2020', brand: 'Asus' },
-    { title: 'Asus ZenBook 14 (Used)', price: 85000, priceDisplay: 'Rs. 85,000', stock: 'In Stock', img: '', condition: 'Excellent', year: '2021', brand: 'Asus' },
-    { title: 'Asus ROG Zephyrus G14 (Used)', price: 140000, priceDisplay: 'Rs. 140,000', stock: 'In Stock', img: '', condition: 'Good', year: '2022', brand: 'Asus' },
-    { title: 'Asus TUF Gaming F15 (Used)', price: 90000, priceDisplay: 'Rs. 90,000', stock: 'In Stock', img: '', condition: 'Good', year: '2021', brand: 'Asus' },
-    { title: 'Asus ExpertBook B9 (Used)', price: 120000, priceDisplay: 'Rs. 120,000', stock: 'In Stock', img: '', condition: 'Excellent', year: '2022', brand: 'Asus' }
+    // Asus Monitors
+    { title: 'Asus 24" Gaming Monitor', price: 35000, priceDisplay: 'Rs. 35,000', stock: 'In Stock', img: '', type: 'Gaming', size: '24', brand: 'Asus' },
+    { title: 'Asus 27" ROG Gaming Monitor', price: 68000, priceDisplay: 'Rs. 68,000', stock: 'In Stock', img: '', type: 'Gaming', size: '27', brand: 'Asus' },
+    { title: 'Asus 32" 4K Monitor', price: 95000, priceDisplay: 'Rs. 95,000', stock: 'In Stock', img: '', type: 'Professional', size: '32', brand: 'Asus' },
+    { title: 'Asus 34" Ultrawide Gaming', price: 98000, priceDisplay: 'Rs. 98,000', stock: 'In Stock', img: '', type: 'Ultrawide', size: '34', brand: 'Asus' },
+    { title: 'Asus 27" ProArt Monitor', price: 72000, priceDisplay: 'Rs. 72,000', stock: 'In Stock', img: '', type: 'Professional', size: '27', brand: 'Asus' },
+    { title: 'Asus 24" Business Monitor', price: 25000, priceDisplay: 'Rs. 25,000', stock: 'In Stock', img: '', type: 'Business', size: '24', brand: 'Asus' },
+    
+    // Acer Monitors
+    { title: 'Acer 24" Gaming Monitor', price: 32000, priceDisplay: 'Rs. 32,000', stock: 'In Stock', img: '', type: 'Gaming', size: '24', brand: 'Acer' },
+    { title: 'Acer 27" Predator Gaming', price: 75000, priceDisplay: 'Rs. 75,000', stock: 'In Stock', img: '', type: 'Gaming', size: '27', brand: 'Acer' },
+    { title: 'Acer 32" 4K Monitor', price: 88000, priceDisplay: 'Rs. 88,000', stock: 'In Stock', img: '', type: 'Professional', size: '32', brand: 'Acer' },
+    { title: 'Acer 24" Business Monitor', price: 20000, priceDisplay: 'Rs. 20,000', stock: 'In Stock', img: '', type: 'Business', size: '24', brand: 'Acer' },
+    { title: 'Acer 27" QHD Monitor', price: 42000, priceDisplay: 'Rs. 42,000', stock: 'In Stock', img: '', type: 'Business', size: '27', brand: 'Acer' },
+    { title: 'Acer 34" Ultrawide Monitor', price: 85000, priceDisplay: 'Rs. 85,000', stock: 'In Stock', img: '', type: 'Ultrawide', size: '34', brand: 'Acer' },
+    
+    // BenQ Monitors
+    { title: 'BenQ 24" Gaming Monitor', price: 38000, priceDisplay: 'Rs. 38,000', stock: 'In Stock', img: '', type: 'Gaming', size: '24', brand: 'BenQ' },
+    { title: 'BenQ 27" Professional Monitor', price: 65000, priceDisplay: 'Rs. 65,000', stock: 'In Stock', img: '', type: 'Professional', size: '27', brand: 'BenQ' },
+    { title: 'BenQ 32" 4K Monitor', price: 92000, priceDisplay: 'Rs. 92,000', stock: 'In Stock', img: '', type: 'Professional', size: '32', brand: 'BenQ' }
 ];
 
 let productsPerPage = 20;
 let currentPage = 1;
 let maxPrice = 0;
-let filteredProducts = usedLaptopProducts.slice();
+let filteredProducts = monitorProducts.slice();
 let selectedBrands = [];
-let selectedConditions = [];
-let selectedYears = [];
+let selectedTypes = [];
+let selectedSizes = [];
 
 function filterProducts() {
-    filteredProducts = usedLaptopProducts.filter(p => {
+    filteredProducts = monitorProducts.filter(p => {
         const priceMatch = p.price >= maxPrice;
         const brandMatch = selectedBrands.length === 0 || selectedBrands.includes(p.brand);
-        const conditionMatch = selectedConditions.length === 0 || selectedConditions.includes(p.condition);
-        const yearMatch = selectedYears.length === 0 || selectedYears.includes(p.year);
-        return priceMatch && brandMatch && conditionMatch && yearMatch;
+        const typeMatch = selectedTypes.length === 0 || selectedTypes.includes(p.type);
+        const sizeMatch = selectedSizes.length === 0 || selectedSizes.includes(p.size);
+        return priceMatch && brandMatch && typeMatch && sizeMatch;
     });
 }
 
@@ -200,12 +221,8 @@ function renderProducts(page) {
                     <span class="price">${p.priceDisplay}</span>
                     <span class="stock in-stock">${p.stock}</span>
                 </div>
-                <div class="product-details">
-                    <span class="condition ${p.condition.toLowerCase()}">${p.condition}</span>
-                    <span class="year">${p.year}</span>
-                </div>
                 <div class="product-actions">
-                    <a class="btn btn-blue" href="product-detail.html?id=${i+1}&type=used-laptop">View Product</a>
+                    <a class="btn btn-blue" href="product-detail.html?id=${i+1}&type=monitor">View Product</a>
                     <button class="btn btn-gray add-to-cart-btn" data-id="${i+1}"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
                     <button class="btn btn-gray wishlist-btn" data-id="${i+1}"><i class="far fa-heart"></i> ADD TO WISHLIST</button>
                 </div>
@@ -287,11 +304,11 @@ brandCheckboxes.forEach(cb => {
     });
 });
 
-// Condition filter
-const conditionCheckboxes = document.querySelectorAll('.condition-checkbox');
-conditionCheckboxes.forEach(cb => {
+// Type filter
+const typeCheckboxes = document.querySelectorAll('.type-checkbox');
+typeCheckboxes.forEach(cb => {
     cb.addEventListener('change', function() {
-        selectedConditions = Array.from(conditionCheckboxes).filter(c => c.checked).map(c => c.value);
+        selectedTypes = Array.from(typeCheckboxes).filter(c => c.checked).map(c => c.value);
         currentPage = 1;
         filterProducts();
         renderProducts(currentPage);
@@ -299,11 +316,11 @@ conditionCheckboxes.forEach(cb => {
     });
 });
 
-// Year filter
-const yearCheckboxes = document.querySelectorAll('.year-checkbox');
-yearCheckboxes.forEach(cb => {
+// Size filter
+const sizeCheckboxes = document.querySelectorAll('.size-checkbox');
+sizeCheckboxes.forEach(cb => {
     cb.addEventListener('change', function() {
-        selectedYears = Array.from(yearCheckboxes).filter(c => c.checked).map(c => c.value);
+        selectedSizes = Array.from(sizeCheckboxes).filter(c => c.checked).map(c => c.value);
         currentPage = 1;
         filterProducts();
         renderProducts(currentPage);
@@ -352,7 +369,7 @@ window.addEventListener('DOMContentLoaded', function() {
       if (!card) return;
       const productId = card.getAttribute('data-id');
       if (!productId) return;
-      const product = usedLaptopProducts[parseInt(productId)-1];
+      const product = monitorProducts[parseInt(productId)-1];
       if (!product) return;
       let cart = JSON.parse(localStorage.getItem('cart')) || [];
       if (!cart.find(item => String(item.title) === String(product.title))) {

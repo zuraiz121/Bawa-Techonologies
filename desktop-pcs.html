@@ -9,79 +9,6 @@
     <!-- Font Awesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
-    <style>
-          /* Footer Styles (inline for contact page) */
-          .footer {
-            background: #3a3a3a;
-            color: #fff;
-            padding: 48px 0 24px 0;
-            margin-top: 60px;
-        }
-        .footer-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 40px;
-            justify-content: space-between;
-            padding: 0 16px;
-        }
-        .footer-col {
-            flex: 1 1 220px;
-            min-width: 180px;
-        }
-        .footer-col h4 {
-            font-size: 1.1rem;
-            font-weight: 700;
-            margin-bottom: 18px;
-            color: #fff;
-        }
-        .footer-col ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        .footer-col ul li {
-            margin-bottom: 10px;
-        }
-        .footer-col ul li a {
-            color: #fff;
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-        .footer-col ul li a:hover {
-            color: #0099ff;
-        }
-        .footer-social {
-            margin-top: 18px;
-        }
-        .footer-social a {
-            color: #fff;
-            font-size: 1.3rem;
-            margin-right: 18px;
-            transition: color 0.2s;
-        }
-        .footer-social a:hover {
-            color: #0099ff;
-        }
-        .footer-bottom {
-            text-align: center;
-            color: #bbb;
-            font-size: 0.98rem;
-            margin-top: 32px;
-        }
-        @media (max-width: 1024px) {
-            .footer-container {
-                flex-direction: column;
-                gap: 24px;
-            }
-        }
-        @media (max-width: 600px) {
-            .footer-container {
-                padding: 0 6px;
-            }
-        }
-    </style>
 </head>
 <body>
     <!-- Top Header -->
@@ -126,11 +53,11 @@
             <div class="sidebar-section price-range">
                 <h4>PRICE RANGE</h4>
                 <div class="slider-row">
-                    <input type="range" min="0" max="500000" value="0" class="price-slider" id="price-slider">
+                    <input type="range" min="0" max="800000" value="0" class="price-slider" id="price-slider">
                     <div class="price-values">
                         <span>0</span>
                         <span id="selected-price">0</span>
-                        <span style="float:right">500,000</span>
+                        <span style="float:right">800,000</span>
                     </div>
                 </div>
                 <button class="btn btn-blue" id="price-go">GO</button>
@@ -141,15 +68,22 @@
                 <label><input type="checkbox" class="brand-checkbox" value="Dell"> Dell</label>
                 <label><input type="checkbox" class="brand-checkbox" value="Lenovo"> Lenovo</label>
                 <label><input type="checkbox" class="brand-checkbox" value="Asus"> Asus</label>
-                <label><input type="checkbox" class="brand-checkbox" value="Acer"> Acer</label>
+                <label><input type="checkbox" class="brand-checkbox" value="Custom"> Custom Built</label>
+            </div>
+            <div class="sidebar-section category-filter">
+                <h4>CATEGORY</h4>
+                <label><input type="checkbox" class="category-checkbox" value="Gaming"> Gaming PCs</label>
+                <label><input type="checkbox" class="category-checkbox" value="Business"> Business PCs</label>
+                <label><input type="checkbox" class="category-checkbox" value="Home"> Home PCs</label>
+                <label><input type="checkbox" class="category-checkbox" value="Workstation"> Workstations</label>
             </div>
         </aside>
         <!-- Main Content -->
         <main class="main-area">
             <h1 class="page-title">Desktop PCs</h1>
-            <div class="banner-text">High-performance desktop computers for gaming, work, and creative tasks.</div>
+            <div class="banner-text">High-performance desktop computers for gaming, work, and everyday computing needs.</div>
             <div class="results-bar">
-                <span class="results-info" id="results-info">Showing 1-20 of 40</span>
+                <span class="results-info" id="results-info">Showing 1-20 of 35</span>
                 <div class="results-controls">
                     <label>Results Per Page
                         <select class="styled-select" id="results-per-page">
@@ -168,7 +102,7 @@
                 </div>
             </div>
             <div class="product-grid" id="product-grid">
-                <!-- Product cards will be generated by JS for pagination -->
+                <!-- Product cards will be generated by JS -->
             </div>
             <nav class="pagination-bar" id="pagination-bar">
                 <ul class="pagination">
@@ -184,67 +118,70 @@
     <div id="footer"></div>
     <script src="js/script.js"></script>
     <script src="js/include.js"></script>
+    <script src="js/notifications.js"></script>
     <script>
 // Desktop PC product data
-const products = [
+const desktopProducts = [
     // HP Desktop PCs
-    { title: 'HP Pavilion Desktop', price: 120000, priceDisplay: 'Rs. 120,000', stock: 'In Stock', img: '' },
-    { title: 'HP EliteDesk 800', price: 180000, priceDisplay: 'Rs. 180,000', stock: 'In Stock', img: '' },
-    { title: 'HP ProDesk 600', price: 150000, priceDisplay: 'Rs. 150,000', stock: 'In Stock', img: '' },
-    { title: 'HP Z2 Mini Workstation', price: 250000, priceDisplay: 'Rs. 250,000', stock: 'In Stock', img: '' },
-    { title: 'HP OMEN 30L Gaming', price: 350000, priceDisplay: 'Rs. 350,000', stock: 'In Stock', img: '' },
-    { title: 'HP Pavilion Gaming', price: 280000, priceDisplay: 'Rs. 280,000', stock: 'In Stock', img: '' },
-    { title: 'HP ProDesk 405', price: 130000, priceDisplay: 'Rs. 130,000', stock: 'In Stock', img: '' },
-    { title: 'HP EliteDesk 705', price: 160000, priceDisplay: 'Rs. 160,000', stock: 'In Stock', img: '' },
+    { title: 'HP Pavilion Desktop', price: 85000, priceDisplay: 'Rs. 85,000', stock: 'In Stock', img: '', category: 'Home' },
+    { title: 'HP EliteDesk 800', price: 120000, priceDisplay: 'Rs. 120,000', stock: 'In Stock', img: '', category: 'Business' },
+    { title: 'HP OMEN Gaming Desktop', price: 280000, priceDisplay: 'Rs. 280,000', stock: 'In Stock', img: '', category: 'Gaming' },
+    { title: 'HP Z2 Mini Workstation', price: 350000, priceDisplay: 'Rs. 350,000', stock: 'In Stock', img: '', category: 'Workstation' },
+    { title: 'HP ProDesk 600', price: 95000, priceDisplay: 'Rs. 95,000', stock: 'In Stock', img: '', category: 'Business' },
+    { title: 'HP Pavilion Gaming Desktop', price: 180000, priceDisplay: 'Rs. 180,000', stock: 'In Stock', img: '', category: 'Gaming' },
+    { title: 'HP EliteOne 800', price: 140000, priceDisplay: 'Rs. 140,000', stock: 'In Stock', img: '', category: 'Business' },
+    { title: 'HP Z8 G4 Workstation', price: 650000, priceDisplay: 'Rs. 650,000', stock: 'In Stock', img: '', category: 'Workstation' },
+    
     // Dell Desktop PCs
-    { title: 'Dell OptiPlex 7090', price: 170000, priceDisplay: 'Rs. 170,000', stock: 'In Stock', img: '' },
-    { title: 'Dell Precision 3650', price: 220000, priceDisplay: 'Rs. 220,000', stock: 'In Stock', img: '' },
-    { title: 'Dell XPS 8940', price: 300000, priceDisplay: 'Rs. 300,000', stock: 'In Stock', img: '' },
-    { title: 'Dell Inspiron 3880', price: 140000, priceDisplay: 'Rs. 140,000', stock: 'In Stock', img: '' },
-    { title: 'Dell Alienware Aurora', price: 400000, priceDisplay: 'Rs. 400,000', stock: 'In Stock', img: '' },
-    { title: 'Dell Vostro 3681', price: 120000, priceDisplay: 'Rs. 120,000', stock: 'In Stock', img: '' },
-    { title: 'Dell Precision 5820', price: 350000, priceDisplay: 'Rs. 350,000', stock: 'In Stock', img: '' },
-    { title: 'Dell OptiPlex 3080', price: 150000, priceDisplay: 'Rs. 150,000', stock: 'In Stock', img: '' },
+    { title: 'Dell Inspiron Desktop', price: 75000, priceDisplay: 'Rs. 75,000', stock: 'In Stock', img: '', category: 'Home' },
+    { title: 'Dell OptiPlex 7090', price: 110000, priceDisplay: 'Rs. 110,000', stock: 'In Stock', img: '', category: 'Business' },
+    { title: 'Dell Alienware Aurora', price: 420000, priceDisplay: 'Rs. 420,000', stock: 'In Stock', img: '', category: 'Gaming' },
+    { title: 'Dell Precision 3650', price: 280000, priceDisplay: 'Rs. 280,000', stock: 'In Stock', img: '', category: 'Workstation' },
+    { title: 'Dell Vostro Desktop', price: 85000, priceDisplay: 'Rs. 85,000', stock: 'In Stock', img: '', category: 'Business' },
+    { title: 'Dell XPS Desktop', price: 320000, priceDisplay: 'Rs. 320,000', stock: 'In Stock', img: '', category: 'Home' },
+    { title: 'Dell Precision 5820', price: 450000, priceDisplay: 'Rs. 450,000', stock: 'In Stock', img: '', category: 'Workstation' },
+    { title: 'Dell G5 Gaming Desktop', price: 220000, priceDisplay: 'Rs. 220,000', stock: 'In Stock', img: '', category: 'Gaming' },
+    
     // Lenovo Desktop PCs
-    { title: 'Lenovo ThinkCentre M90t', price: 160000, priceDisplay: 'Rs. 160,000', stock: 'In Stock', img: '' },
-    { title: 'Lenovo IdeaCentre 5', price: 180000, priceDisplay: 'Rs. 180,000', stock: 'In Stock', img: '' },
-    { title: 'Lenovo Legion Tower 5', price: 320000, priceDisplay: 'Rs. 320,000', stock: 'In Stock', img: '' },
-    { title: 'Lenovo ThinkStation P350', price: 280000, priceDisplay: 'Rs. 280,000', stock: 'In Stock', img: '' },
-    { title: 'Lenovo V50t', price: 140000, priceDisplay: 'Rs. 140,000', stock: 'In Stock', img: '' },
-    { title: 'Lenovo ThinkCentre M80t', price: 170000, priceDisplay: 'Rs. 170,000', stock: 'In Stock', img: '' },
-    { title: 'Lenovo IdeaCentre 3', price: 130000, priceDisplay: 'Rs. 130,000', stock: 'In Stock', img: '' },
-    { title: 'Lenovo Legion Tower 7', price: 380000, priceDisplay: 'Rs. 380,000', stock: 'In Stock', img: '' },
+    { title: 'Lenovo IdeaCentre Desktop', price: 70000, priceDisplay: 'Rs. 70,000', stock: 'In Stock', img: '', category: 'Home' },
+    { title: 'Lenovo ThinkCentre M90', price: 100000, priceDisplay: 'Rs. 100,000', stock: 'In Stock', img: '', category: 'Business' },
+    { title: 'Lenovo Legion Gaming Desktop', price: 250000, priceDisplay: 'Rs. 250,000', stock: 'In Stock', img: '', category: 'Gaming' },
+    { title: 'Lenovo ThinkStation P350', price: 320000, priceDisplay: 'Rs. 320,000', stock: 'In Stock', img: '', category: 'Workstation' },
+    { title: 'Lenovo V530 Desktop', price: 80000, priceDisplay: 'Rs. 80,000', stock: 'In Stock', img: '', category: 'Home' },
+    { title: 'Lenovo ThinkCentre M80', price: 95000, priceDisplay: 'Rs. 95,000', stock: 'In Stock', img: '', category: 'Business' },
+    { title: 'Lenovo Legion 5 Desktop', price: 200000, priceDisplay: 'Rs. 200,000', stock: 'In Stock', img: '', category: 'Gaming' },
+    { title: 'Lenovo ThinkStation P360', price: 380000, priceDisplay: 'Rs. 380,000', stock: 'In Stock', img: '', category: 'Workstation' },
+    
     // Asus Desktop PCs
-    { title: 'Asus ProArt Station', price: 290000, priceDisplay: 'Rs. 290,000', stock: 'In Stock', img: '' },
-    { title: 'Asus ExpertCenter D7', price: 200000, priceDisplay: 'Rs. 200,000', stock: 'In Stock', img: '' },
-    { title: 'Asus ROG Strix G15', price: 360000, priceDisplay: 'Rs. 360,000', stock: 'In Stock', img: '' },
-    { title: 'Asus VivoMini VC66', price: 160000, priceDisplay: 'Rs. 160,000', stock: 'In Stock', img: '' },
-    { title: 'Asus ExpertCenter D5', price: 180000, priceDisplay: 'Rs. 180,000', stock: 'In Stock', img: '' },
-    { title: 'Asus ProArt Station D9', price: 320000, priceDisplay: 'Rs. 320,000', stock: 'In Stock', img: '' },
-    { title: 'Asus ROG Strix G10', price: 340000, priceDisplay: 'Rs. 340,000', stock: 'In Stock', img: '' },
-    { title: 'Asus ExpertCenter D3', price: 150000, priceDisplay: 'Rs. 150,000', stock: 'In Stock', img: '' },
-    // Acer Desktop PCs
-    { title: 'Acer Aspire TC', price: 140000, priceDisplay: 'Rs. 140,000', stock: 'In Stock', img: '' },
-    { title: 'Acer Veriton X', price: 190000, priceDisplay: 'Rs. 190,000', stock: 'In Stock', img: '' },
-    { title: 'Acer Predator Orion', price: 370000, priceDisplay: 'Rs. 370,000', stock: 'In Stock', img: '' },
-    { title: 'Acer Aspire S24', price: 220000, priceDisplay: 'Rs. 220,000', stock: 'In Stock', img: '' },
-    { title: 'Acer Veriton N', price: 170000, priceDisplay: 'Rs. 170,000', stock: 'In Stock', img: '' },
-    { title: 'Acer Predator Helios', price: 350000, priceDisplay: 'Rs. 350,000', stock: 'In Stock', img: '' },
-    { title: 'Acer Aspire Z', price: 200000, priceDisplay: 'Rs. 200,000', stock: 'In Stock', img: '' },
-    { title: 'Acer Veriton M', price: 160000, priceDisplay: 'Rs. 160,000', stock: 'In Stock', img: '' },
+    { title: 'Asus VivoPC Desktop', price: 65000, priceDisplay: 'Rs. 65,000', stock: 'In Stock', img: '', category: 'Home' },
+    { title: 'Asus ProArt Station', price: 280000, priceDisplay: 'Rs. 280,000', stock: 'In Stock', img: '', category: 'Workstation' },
+    { title: 'Asus ROG Strix Gaming', price: 300000, priceDisplay: 'Rs. 300,000', stock: 'In Stock', img: '', category: 'Gaming' },
+    { title: 'Asus ExpertCenter', price: 90000, priceDisplay: 'Rs. 90,000', stock: 'In Stock', img: '', category: 'Business' },
+    { title: 'Asus Zen AiO Desktop', price: 180000, priceDisplay: 'Rs. 180,000', stock: 'In Stock', img: '', category: 'Home' },
+    { title: 'Asus ROG Gaming Desktop', price: 350000, priceDisplay: 'Rs. 350,000', stock: 'In Stock', img: '', category: 'Gaming' },
+    { title: 'Asus ProArt Station D9', price: 420000, priceDisplay: 'Rs. 420,000', stock: 'In Stock', img: '', category: 'Workstation' },
+    { title: 'Asus VivoMini Desktop', price: 55000, priceDisplay: 'Rs. 55,000', stock: 'In Stock', img: '', category: 'Home' },
+    
+    // Custom Built PCs
+    { title: 'Custom Gaming PC RTX 4070', price: 450000, priceDisplay: 'Rs. 450,000', stock: 'In Stock', img: '', category: 'Gaming' },
+    { title: 'Custom Workstation PC', price: 380000, priceDisplay: 'Rs. 380,000', stock: 'In Stock', img: '', category: 'Workstation' },
+    { title: 'Custom Office PC', price: 85000, priceDisplay: 'Rs. 85,000', stock: 'In Stock', img: '', category: 'Business' },
+    { title: 'Custom Home PC', price: 70000, priceDisplay: 'Rs. 70,000', stock: 'In Stock', img: '', category: 'Home' }
 ];
 
 let productsPerPage = 20;
 let currentPage = 1;
 let maxPrice = 0;
-let filteredProducts = products.slice();
+let filteredProducts = desktopProducts.slice();
 let selectedBrands = [];
+let selectedCategories = [];
 
 function filterProducts() {
-    filteredProducts = products.filter(p => {
+    filteredProducts = desktopProducts.filter(p => {
         const priceMatch = p.price >= maxPrice;
         const brandMatch = selectedBrands.length === 0 || selectedBrands.some(b => p.title.toLowerCase().includes(b.toLowerCase()));
-        return priceMatch && brandMatch;
+        const categoryMatch = selectedCategories.length === 0 || selectedCategories.includes(p.category);
+        return priceMatch && brandMatch && categoryMatch;
     });
 }
 
@@ -265,9 +202,9 @@ function renderProducts(page) {
                     <span class="stock in-stock">${p.stock}</span>
                 </div>
                 <div class="product-actions">
-                    <a class="btn btn-blue" href="product-detail.html?id=${i+1}">View Product</a>
+                    <a class="btn btn-blue" href="product-detail.html?id=${i+1}&type=desktop">View Product</a>
                     <button class="btn btn-gray add-to-cart-btn" data-id="${i+1}"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
-                    <button class="btn btn-gray"><i class="far fa-heart"></i> ADD TO WISHLIST</button>
+                    <button class="btn btn-gray wishlist-btn" data-id="${i+1}"><i class="far fa-heart"></i> ADD TO WISHLIST</button>
                 </div>
             </div>
         </div>`;
@@ -335,7 +272,45 @@ priceSlider.addEventListener('input', function() {
     renderPagination();
 });
 
-// On page load, set slider to min and update selected price
+// Brand filter
+const brandCheckboxes = document.querySelectorAll('.brand-checkbox');
+brandCheckboxes.forEach(cb => {
+    cb.addEventListener('change', function() {
+        selectedBrands = Array.from(brandCheckboxes).filter(c => c.checked).map(c => c.value);
+        currentPage = 1;
+        filterProducts();
+        renderProducts(currentPage);
+        renderPagination();
+    });
+});
+
+// Category filter
+const categoryCheckboxes = document.querySelectorAll('.category-checkbox');
+categoryCheckboxes.forEach(cb => {
+    cb.addEventListener('change', function() {
+        selectedCategories = Array.from(categoryCheckboxes).filter(c => c.checked).map(c => c.value);
+        currentPage = 1;
+        filterProducts();
+        renderProducts(currentPage);
+        renderPagination();
+    });
+});
+
+// Sort By dropdown
+const sortBySelect = document.getElementById('sort-by');
+sortBySelect.addEventListener('change', function() {
+    const sortValue = this.value;
+    if (sortValue === 'low-high') {
+        filteredProducts.sort((a, b) => a.price - b.price);
+    } else if (sortValue === 'high-low') {
+        filteredProducts.sort((a, b) => b.price - a.price);
+    }
+    currentPage = 1;
+    renderProducts(currentPage);
+    renderPagination();
+});
+
+// On page load
 window.addEventListener('DOMContentLoaded', function() {
     priceSlider.value = 0;
     selectedPrice.textContent = '0';
@@ -354,39 +329,6 @@ document.getElementById('price-go').addEventListener('click', function() {
     renderPagination();
 });
 
-// Brand filter
-const brandCheckboxes = document.querySelectorAll('.brand-checkbox');
-brandCheckboxes.forEach(cb => {
-    cb.addEventListener('change', function() {
-        selectedBrands = Array.from(brandCheckboxes).filter(c => c.checked).map(c => c.value);
-        currentPage = 1;
-        filterProducts();
-        renderProducts(currentPage);
-        renderPagination();
-    });
-});
-
-// Sort By dropdown
-const sortBySelect = document.getElementById('sort-by');
-sortBySelect.addEventListener('change', function() {
-    const sortValue = this.value;
-    if (sortValue === 'low-high') {
-        filteredProducts.sort((a, b) => a.price - b.price);
-    } else if (sortValue === 'high-low') {
-        filteredProducts.sort((a, b) => b.price - a.price);
-    } else {
-        // Newest or default: no sorting or implement your own logic
-    }
-    currentPage = 1;
-    renderProducts(currentPage);
-    renderPagination();
-});
-
-// Initial render
-filterProducts();
-renderProducts(currentPage);
-renderPagination();
-
 // Add to Cart global handler
 window.addEventListener('DOMContentLoaded', function() {
   document.body.addEventListener('click', function(e) {
@@ -395,7 +337,7 @@ window.addEventListener('DOMContentLoaded', function() {
       if (!card) return;
       const productId = card.getAttribute('data-id');
       if (!productId) return;
-      const product = products[parseInt(productId)-1];
+      const product = desktopProducts[parseInt(productId)-1];
       if (!product) return;
       let cart = JSON.parse(localStorage.getItem('cart')) || [];
       if (!cart.find(item => String(item.title) === String(product.title))) {

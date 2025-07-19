@@ -4,25 +4,25 @@ const navbarHTML = `<nav class="navbar" id="navbar-main">
     <ul class="nav-menu" id="nav-menu">
       <li><a href="index.html">Home</a></li>
       <li><a href="laptop.html">Laptops</a></li>
-      <li><a href="#">Desktop PCs</a></li>
-      <li><a href="#">Drives</a></li>
-      <li><a href="#">Moniter</a></li>
+      <li><a href="desktop-pcs.html">Desktop PCs</a></li>
+      <li><a href="drives.html">Drives</a></li>
+      <li><a href="monitors.html">Monitor</a></li>
       <li class="dropdown">
         <a href="#" class="dropdown-toggle">Used <i class="fas fa-angle-double-right dropdown-arrow"></i></a>
         <ul class="dropdown-menu">
-          <li><a href="#">Laptops</a></li>
-          <li><a href="#">Desktop PCs</a></li>
-          <li><a href="#">Accessories</a></li>
-          <li><a href="#">LCDs</a></li>
+          <li><a href="used-laptops.html">Laptops</a></li>
+          <li><a href="used-desktop-pcs.html">Desktop PCs</a></li>
+          <li><a href="used-accessories.html">Accessories</a></li>
+          <li><a href="used-lcds.html">LCDs</a></li>
         </ul>
       </li>
       <li class="dropdown">
         <a href="#" class="dropdown-toggle">More <i class="fas fa-angle-right dropdown-arrow"></i></a>
         <ul class="dropdown-menu more-menu">
-          <li><a href="#">Graphic Cards</a></li>
-          <li><a href="#">Headphones</a></li>
-          <li><a href="#">Laptop Memories</a></li>
-          <li><a href="#">Desktop Memories</a></li>
+          <li><a href="graphic-cards.html">Graphic Cards</a></li>
+          <li><a href="headphones.html">Headphones</a></li>
+          <li><a href="laptop-memories.html">Laptop Memories</a></li>
+          <li><a href="desktop-memories.html">Desktop Memories</a></li>
           <li><a href="#">Motherboards</a></li>
           <li><a href="#">Mouse</a></li>
           <li><a href="#">PC Casing</a></li>
@@ -59,9 +59,9 @@ const footerHTML = `<footer class="footer">
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="laptop.html">Laptops</a></li>
-        <li><a href="#">Desktop PCs</a></li>
-        <li><a href="#">Drives</a></li>
-        <li><a href="#">Moniter</a></li>
+        <li><a href="desktop-pcs.html">Desktop PCs</a></li>
+        <li><a href="drives.html">Drives</a></li>
+        <li><a href="monitors.html">Monitor</a></li>
         <li><a href="#">Used - Laptops</a></li>
         <li><a href="#">Used - Desktop PCs</a></li>
         <li><a href="#">Used - Accessories</a></li>

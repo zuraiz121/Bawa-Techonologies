@@ -3,15 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Used Laptops | Bawa Computers</title>
-    <!-- Google Fonts: Poppins -->
+    <title>Toner Cartridges | Bawa Computers</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <!-- Font Awesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <!-- Top Header -->
     <div class="top-header">
         <div class="container">
             <div class="tagline">Reliable Tech Since 2005</div>
@@ -22,7 +19,6 @@
             </div>
         </div>
     </div>
-    <!-- Main Header -->
     <header class="main-header">
         <div class="container header-flex">
             <div class="logo">Bawa Computers</div>
@@ -35,29 +31,25 @@
             </div>
         </div>
     </header>
-    <!-- Navbar -->
     <div id="navbar"></div>
-    <!-- Breadcrumb -->
     <div class="breadcrumb-bar">
         <div class="container">
-            <span class="breadcrumb" href="">Home / Used / <span class="current">Laptops</span></span>
+            <span class="breadcrumb">Home / More / <span class="current">Toner Cartridges</span></span>
         </div>
     </div>
-    <!-- Main Content Layout -->
     <div class="container page-layout">
-        <!-- Sidebar -->
         <aside class="sidebar">
             <div class="sidebar-section category">
-                <h3>USED LAPTOPS</h3>
+                <h3>TONER CARTRIDGES</h3>
             </div>
             <div class="sidebar-section price-range">
                 <h4>PRICE RANGE</h4>
                 <div class="slider-row">
-                    <input type="range" min="0" max="200000" value="0" class="price-slider" id="price-slider">
+                    <input type="range" min="0" max="25000" value="0" class="price-slider" id="price-slider">
                     <div class="price-values">
                         <span>0</span>
                         <span id="selected-price">0</span>
-                        <span style="float:right">200,000</span>
+                        <span style="float:right">25,000</span>
                     </div>
                 </div>
                 <button class="btn btn-blue" id="price-go">GO</button>
@@ -65,33 +57,30 @@
             <div class="sidebar-section brand-filter">
                 <h4>BRAND</h4>
                 <label><input type="checkbox" class="brand-checkbox" value="HP"> HP</label>
-                <label><input type="checkbox" class="brand-checkbox" value="Dell"> Dell</label>
-                <label><input type="checkbox" class="brand-checkbox" value="ThinkPad"> ThinkPad</label>
-                <label><input type="checkbox" class="brand-checkbox" value="Lenovo"> Lenovo</label>
-                <label><input type="checkbox" class="brand-checkbox" value="Asus"> Asus</label>
+                <label><input type="checkbox" class="brand-checkbox" value="Canon"> Canon</label>
+                <label><input type="checkbox" class="brand-checkbox" value="Brother"> Brother</label>
+                <label><input type="checkbox" class="brand-checkbox" value="Samsung"> Samsung</label>
+                <label><input type="checkbox" class="brand-checkbox" value="Xerox"> Xerox</label>
             </div>
-            <div class="sidebar-section condition-filter">
-                <h4>CONDITION</h4>
-                <label><input type="checkbox" class="condition-checkbox" value="Excellent"> Excellent</label>
-                <label><input type="checkbox" class="condition-checkbox" value="Good"> Good</label>
-                <label><input type="checkbox" class="condition-checkbox" value="Fair"> Fair</label>
-                <label><input type="checkbox" class="condition-checkbox" value="Refurbished"> Refurbished</label>
+            <div class="sidebar-section color-filter">
+                <h4>COLOR</h4>
+                <label><input type="checkbox" class="color-checkbox" value="Black"> Black</label>
+                <label><input type="checkbox" class="color-checkbox" value="Cyan"> Cyan</label>
+                <label><input type="checkbox" class="color-checkbox" value="Magenta"> Magenta</label>
+                <label><input type="checkbox" class="color-checkbox" value="Yellow"> Yellow</label>
             </div>
-            <div class="sidebar-section year-filter">
-                <h4>YEAR</h4>
-                <label><input type="checkbox" class="year-checkbox" value="2023"> 2023</label>
-                <label><input type="checkbox" class="year-checkbox" value="2022"> 2022</label>
-                <label><input type="checkbox" class="year-checkbox" value="2021"> 2021</label>
-                <label><input type="checkbox" class="year-checkbox" value="2020"> 2020</label>
-                <label><input type="checkbox" class="year-checkbox" value="2019"> 2019</label>
+            <div class="sidebar-section type-filter">
+                <h4>TYPE</h4>
+                <label><input type="checkbox" class="type-checkbox" value="Original"> Original</label>
+                <label><input type="checkbox" class="type-checkbox" value="Compatible"> Compatible</label>
+                <label><input type="checkbox" class="type-checkbox" value="Refilled"> Refilled</label>
             </div>
         </aside>
-        <!-- Main Content -->
         <main class="main-area">
-            <h1 class="page-title">Used Laptops</h1>
-            <div class="banner-text">Quality pre-owned laptops at affordable prices. All used laptops are tested and come with warranty.</div>
+            <h1 class="page-title">Toner Cartridges</h1>
+            <div class="banner-text">High-quality toner cartridges for laser printers and copiers.</div>
             <div class="results-bar">
-                <span class="results-info" id="results-info">Showing 1-20 of 25</span>
+                <span class="results-info" id="results-info">Showing 1-20 of 18</span>
                 <div class="results-controls">
                     <label>Results Per Page
                         <select class="styled-select" id="results-per-page">
@@ -109,9 +98,7 @@
                     </label>
                 </div>
             </div>
-            <div class="product-grid" id="product-grid">
-                <!-- Product cards will be generated by JS -->
-            </div>
+            <div class="product-grid" id="product-grid"></div>
             <nav class="pagination-bar" id="pagination-bar">
                 <ul class="pagination">
                     <li class="page-item disabled" id="prev-page"><a href="#">&laquo; Prev</a></li>
@@ -122,68 +109,47 @@
             </nav>
         </main>
     </div>
-    <!-- Footer -->
     <div id="footer"></div>
     <script src="js/script.js"></script>
     <script src="js/include.js"></script>
     <script src="js/notifications.js"></script>
     <script>
-// Used Laptops product data
-const usedLaptopProducts = [
-    // HP Used Laptops
-    { title: 'HP EliteBook 840 G6 (Used)', price: 85000, priceDisplay: 'Rs. 85,000', stock: 'In Stock', img: '', condition: 'Excellent', year: '2021', brand: 'HP' },
-    { title: 'HP Pavilion 15 (Used)', price: 65000, priceDisplay: 'Rs. 65,000', stock: 'In Stock', img: '', condition: 'Good', year: '2020', brand: 'HP' },
-    { title: 'HP Spectre x360 (Used)', price: 120000, priceDisplay: 'Rs. 120,000', stock: 'In Stock', img: '', condition: 'Excellent', year: '2022', brand: 'HP' },
-    { title: 'HP Envy 13 (Used)', price: 75000, priceDisplay: 'Rs. 75,000', stock: 'In Stock', img: '', condition: 'Good', year: '2021', brand: 'HP' },
-    { title: 'HP ProBook 450 (Used)', price: 70000, priceDisplay: 'Rs. 70,000', stock: 'In Stock', img: '', condition: 'Fair', year: '2020', brand: 'HP' },
-    
-    // Dell Used Laptops
-    { title: 'Dell Inspiron 15 (Used)', price: 60000, priceDisplay: 'Rs. 60,000', stock: 'In Stock', img: '', condition: 'Good', year: '2020', brand: 'Dell' },
-    { title: 'Dell XPS 13 (Used)', price: 110000, priceDisplay: 'Rs. 110,000', stock: 'In Stock', img: '', condition: 'Excellent', year: '2022', brand: 'Dell' },
-    { title: 'Dell Latitude 5420 (Used)', price: 85000, priceDisplay: 'Rs. 85,000', stock: 'In Stock', img: '', condition: 'Good', year: '2021', brand: 'Dell' },
-    { title: 'Dell Vostro 3500 (Used)', price: 55000, priceDisplay: 'Rs. 55,000', stock: 'In Stock', img: '', condition: 'Fair', year: '2020', brand: 'Dell' },
-    { title: 'Dell G5 15 (Used)', price: 95000, priceDisplay: 'Rs. 95,000', stock: 'In Stock', img: '', condition: 'Good', year: '2021', brand: 'Dell' },
-    
-    // ThinkPad Used Laptops
-    { title: 'ThinkPad X1 Carbon (Used)', price: 130000, priceDisplay: 'Rs. 130,000', stock: 'In Stock', img: '', condition: 'Excellent', year: '2022', brand: 'ThinkPad' },
-    { title: 'ThinkPad T14 (Used)', price: 90000, priceDisplay: 'Rs. 90,000', stock: 'In Stock', img: '', condition: 'Good', year: '2021', brand: 'ThinkPad' },
-    { title: 'ThinkPad L13 Yoga (Used)', price: 75000, priceDisplay: 'Rs. 75,000', stock: 'In Stock', img: '', condition: 'Good', year: '2021', brand: 'ThinkPad' },
-    { title: 'ThinkPad E15 (Used)', price: 65000, priceDisplay: 'Rs. 65,000', stock: 'In Stock', img: '', condition: 'Fair', year: '2020', brand: 'ThinkPad' },
-    { title: 'ThinkPad P15 (Used)', price: 150000, priceDisplay: 'Rs. 150,000', stock: 'In Stock', img: '', condition: 'Excellent', year: '2022', brand: 'ThinkPad' },
-    
-    // Lenovo Used Laptops
-    { title: 'Lenovo IdeaPad 3 (Used)', price: 45000, priceDisplay: 'Rs. 45,000', stock: 'In Stock', img: '', condition: 'Good', year: '2020', brand: 'Lenovo' },
-    { title: 'Lenovo Legion 5 (Used)', price: 100000, priceDisplay: 'Rs. 100,000', stock: 'In Stock', img: '', condition: 'Good', year: '2021', brand: 'Lenovo' },
-    { title: 'Lenovo Yoga Slim 7 (Used)', price: 95000, priceDisplay: 'Rs. 95,000', stock: 'In Stock', img: '', condition: 'Excellent', year: '2022', brand: 'Lenovo' },
-    { title: 'Lenovo ThinkBook 15 (Used)', price: 70000, priceDisplay: 'Rs. 70,000', stock: 'In Stock', img: '', condition: 'Good', year: '2021', brand: 'Lenovo' },
-    { title: 'Lenovo V14 (Used)', price: 40000, priceDisplay: 'Rs. 40,000', stock: 'In Stock', img: '', condition: 'Fair', year: '2020', brand: 'Lenovo' },
-    
-    // Asus Used Laptops
-    { title: 'Asus VivoBook 15 (Used)', price: 50000, priceDisplay: 'Rs. 50,000', stock: 'In Stock', img: '', condition: 'Good', year: '2020', brand: 'Asus' },
-    { title: 'Asus ZenBook 14 (Used)', price: 85000, priceDisplay: 'Rs. 85,000', stock: 'In Stock', img: '', condition: 'Excellent', year: '2021', brand: 'Asus' },
-    { title: 'Asus ROG Zephyrus G14 (Used)', price: 140000, priceDisplay: 'Rs. 140,000', stock: 'In Stock', img: '', condition: 'Good', year: '2022', brand: 'Asus' },
-    { title: 'Asus TUF Gaming F15 (Used)', price: 90000, priceDisplay: 'Rs. 90,000', stock: 'In Stock', img: '', condition: 'Good', year: '2021', brand: 'Asus' },
-    { title: 'Asus ExpertBook B9 (Used)', price: 120000, priceDisplay: 'Rs. 120,000', stock: 'In Stock', img: '', condition: 'Excellent', year: '2022', brand: 'Asus' }
+const tonerProducts = [
+    { title: 'HP 12A Black Original', price: 6500, priceDisplay: 'Rs. 6,500', stock: 'In Stock', brand: 'HP', color: 'Black', type: 'Original' },
+    { title: 'HP 83A Black Compatible', price: 3500, priceDisplay: 'Rs. 3,500', stock: 'In Stock', brand: 'HP', color: 'Black', type: 'Compatible' },
+    { title: 'Canon 337 Black Original', price: 7000, priceDisplay: 'Rs. 7,000', stock: 'In Stock', brand: 'Canon', color: 'Black', type: 'Original' },
+    { title: 'Canon 328 Black Compatible', price: 3200, priceDisplay: 'Rs. 3,200', stock: 'In Stock', brand: 'Canon', color: 'Black', type: 'Compatible' },
+    { title: 'Brother TN-2280 Black Original', price: 8000, priceDisplay: 'Rs. 8,000', stock: 'In Stock', brand: 'Brother', color: 'Black', type: 'Original' },
+    { title: 'Brother TN-2280 Black Compatible', price: 4000, priceDisplay: 'Rs. 4,000', stock: 'In Stock', brand: 'Brother', color: 'Black', type: 'Compatible' },
+    { title: 'Samsung MLT-D111S Black Original', price: 6000, priceDisplay: 'Rs. 6,000', stock: 'In Stock', brand: 'Samsung', color: 'Black', type: 'Original' },
+    { title: 'Samsung MLT-D111S Black Compatible', price: 3000, priceDisplay: 'Rs. 3,000', stock: 'In Stock', brand: 'Samsung', color: 'Black', type: 'Compatible' },
+    { title: 'Xerox 106R02777 Black Original', price: 9000, priceDisplay: 'Rs. 9,000', stock: 'In Stock', brand: 'Xerox', color: 'Black', type: 'Original' },
+    { title: 'Xerox 106R02777 Black Compatible', price: 4500, priceDisplay: 'Rs. 4,500', stock: 'In Stock', brand: 'Xerox', color: 'Black', type: 'Compatible' },
+    { title: 'HP 126A Cyan Original', price: 8000, priceDisplay: 'Rs. 8,000', stock: 'In Stock', brand: 'HP', color: 'Cyan', type: 'Original' },
+    { title: 'HP 126A Magenta Original', price: 8000, priceDisplay: 'Rs. 8,000', stock: 'In Stock', brand: 'HP', color: 'Magenta', type: 'Original' },
+    { title: 'HP 126A Yellow Original', price: 8000, priceDisplay: 'Rs. 8,000', stock: 'In Stock', brand: 'HP', color: 'Yellow', type: 'Original' },
+    { title: 'Canon 331 Cyan Original', price: 8500, priceDisplay: 'Rs. 8,500', stock: 'In Stock', brand: 'Canon', color: 'Cyan', type: 'Original' },
+    { title: 'Canon 331 Magenta Original', price: 8500, priceDisplay: 'Rs. 8,500', stock: 'In Stock', brand: 'Canon', color: 'Magenta', type: 'Original' },
+    { title: 'Canon 331 Yellow Original', price: 8500, priceDisplay: 'Rs. 8,500', stock: 'In Stock', brand: 'Canon', color: 'Yellow', type: 'Original' },
+    { title: 'HP 12A Black Refilled', price: 1800, priceDisplay: 'Rs. 1,800', stock: 'In Stock', brand: 'HP', color: 'Black', type: 'Refilled' },
+    { title: 'Canon 328 Black Refilled', price: 1500, priceDisplay: 'Rs. 1,500', stock: 'In Stock', brand: 'Canon', color: 'Black', type: 'Refilled' }
 ];
-
 let productsPerPage = 20;
 let currentPage = 1;
 let maxPrice = 0;
-let filteredProducts = usedLaptopProducts.slice();
+let filteredProducts = tonerProducts.slice();
 let selectedBrands = [];
-let selectedConditions = [];
-let selectedYears = [];
-
+let selectedColors = [];
+let selectedTypes = [];
 function filterProducts() {
-    filteredProducts = usedLaptopProducts.filter(p => {
+    filteredProducts = tonerProducts.filter(p => {
         const priceMatch = p.price >= maxPrice;
         const brandMatch = selectedBrands.length === 0 || selectedBrands.includes(p.brand);
-        const conditionMatch = selectedConditions.length === 0 || selectedConditions.includes(p.condition);
-        const yearMatch = selectedYears.length === 0 || selectedYears.includes(p.year);
-        return priceMatch && brandMatch && conditionMatch && yearMatch;
+        const colorMatch = selectedColors.length === 0 || selectedColors.includes(p.color);
+        const typeMatch = selectedTypes.length === 0 || selectedTypes.includes(p.type);
+        return priceMatch && brandMatch && colorMatch && typeMatch;
     });
 }
-
 function renderProducts(page) {
     const grid = document.getElementById('product-grid');
     grid.innerHTML = '';
@@ -201,11 +167,12 @@ function renderProducts(page) {
                     <span class="stock in-stock">${p.stock}</span>
                 </div>
                 <div class="product-details">
-                    <span class="condition ${p.condition.toLowerCase()}">${p.condition}</span>
-                    <span class="year">${p.year}</span>
+                    <span class="brand">${p.brand}</span>
+                    <span class="color">${p.color}</span>
+                    <span class="type">${p.type}</span>
                 </div>
                 <div class="product-actions">
-                    <a class="btn btn-blue" href="product-detail.html?id=${i+1}&type=used-laptop">View Product</a>
+                    <a class="btn btn-blue" href="product-detail.html?id=${i+1}&type=toner">View Product</a>
                     <button class="btn btn-gray add-to-cart-btn" data-id="${i+1}"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
                     <button class="btn btn-gray wishlist-btn" data-id="${i+1}"><i class="far fa-heart"></i> ADD TO WISHLIST</button>
                 </div>
@@ -215,7 +182,6 @@ function renderProducts(page) {
     if(filteredProducts.length === 0) {
         grid.innerHTML = '<div style="padding:40px;text-align:center;color:#888;">No products found in this price range.</div>';
     }
-    // Update results info
     const info = document.getElementById('results-info');
     if(filteredProducts.length === 0) {
         info.textContent = 'No products found';
@@ -223,7 +189,6 @@ function renderProducts(page) {
         info.textContent = `Showing ${filteredProducts.length === 0 ? 0 : start+1}-${end} of ${filteredProducts.length}`;
     }
 }
-
 function renderPagination() {
     const bar = document.getElementById('pagination-bar');
     const totalPages = Math.max(1, Math.ceil(filteredProducts.length/productsPerPage));
@@ -235,7 +200,6 @@ function renderPagination() {
     html += `<li class="page-item${currentPage===totalPages?' disabled':''}" id="next-page"><a href="#">Next &raquo;</a></li>`;
     html += '</ul>';
     bar.innerHTML = html;
-    // Add event listeners
     bar.querySelectorAll('.page-item:not(.active):not(.disabled) a').forEach((a, idx, arr) => {
         a.onclick = function(e) {
             e.preventDefault();
@@ -253,8 +217,6 @@ function renderPagination() {
         };
     });
 }
-
-// Results per page dropdown
 const resultsSelect = document.getElementById('results-per-page');
 resultsSelect.addEventListener('change', function() {
     productsPerPage = parseInt(this.value);
@@ -262,8 +224,6 @@ resultsSelect.addEventListener('change', function() {
     renderProducts(currentPage);
     renderPagination();
 });
-
-// Price range slider
 const priceSlider = document.getElementById('price-slider');
 const selectedPrice = document.getElementById('selected-price');
 priceSlider.addEventListener('input', function() {
@@ -274,8 +234,6 @@ priceSlider.addEventListener('input', function() {
     renderProducts(currentPage);
     renderPagination();
 });
-
-// Brand filter
 const brandCheckboxes = document.querySelectorAll('.brand-checkbox');
 brandCheckboxes.forEach(cb => {
     cb.addEventListener('change', function() {
@@ -286,32 +244,26 @@ brandCheckboxes.forEach(cb => {
         renderPagination();
     });
 });
-
-// Condition filter
-const conditionCheckboxes = document.querySelectorAll('.condition-checkbox');
-conditionCheckboxes.forEach(cb => {
+const colorCheckboxes = document.querySelectorAll('.color-checkbox');
+colorCheckboxes.forEach(cb => {
     cb.addEventListener('change', function() {
-        selectedConditions = Array.from(conditionCheckboxes).filter(c => c.checked).map(c => c.value);
+        selectedColors = Array.from(colorCheckboxes).filter(c => c.checked).map(c => c.value);
         currentPage = 1;
         filterProducts();
         renderProducts(currentPage);
         renderPagination();
     });
 });
-
-// Year filter
-const yearCheckboxes = document.querySelectorAll('.year-checkbox');
-yearCheckboxes.forEach(cb => {
+const typeCheckboxes = document.querySelectorAll('.type-checkbox');
+typeCheckboxes.forEach(cb => {
     cb.addEventListener('change', function() {
-        selectedYears = Array.from(yearCheckboxes).filter(c => c.checked).map(c => c.value);
+        selectedTypes = Array.from(typeCheckboxes).filter(c => c.checked).map(c => c.value);
         currentPage = 1;
         filterProducts();
         renderProducts(currentPage);
         renderPagination();
     });
 });
-
-// Sort By dropdown
 const sortBySelect = document.getElementById('sort-by');
 sortBySelect.addEventListener('change', function() {
     const sortValue = this.value;
@@ -324,8 +276,6 @@ sortBySelect.addEventListener('change', function() {
     renderProducts(currentPage);
     renderPagination();
 });
-
-// On page load
 window.addEventListener('DOMContentLoaded', function() {
     priceSlider.value = 0;
     selectedPrice.textContent = '0';
@@ -335,7 +285,6 @@ window.addEventListener('DOMContentLoaded', function() {
     renderProducts(currentPage);
     renderPagination();
 });
-
 document.getElementById('price-go').addEventListener('click', function() {
     maxPrice = parseInt(priceSlider.value);
     filterProducts();
@@ -343,8 +292,6 @@ document.getElementById('price-go').addEventListener('click', function() {
     renderProducts(currentPage);
     renderPagination();
 });
-
-// Add to Cart global handler
 window.addEventListener('DOMContentLoaded', function() {
   document.body.addEventListener('click', function(e) {
     if (e.target.classList.contains('add-to-cart-btn')) {
@@ -352,7 +299,7 @@ window.addEventListener('DOMContentLoaded', function() {
       if (!card) return;
       const productId = card.getAttribute('data-id');
       if (!productId) return;
-      const product = usedLaptopProducts[parseInt(productId)-1];
+      const product = tonerProducts[parseInt(productId)-1];
       if (!product) return;
       let cart = JSON.parse(localStorage.getItem('cart')) || [];
       if (!cart.find(item => String(item.title) === String(product.title))) {

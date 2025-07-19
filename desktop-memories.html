@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Used Laptops | Bawa Computers</title>
+    <title>Desktop Memories | Bawa Computers</title>
     <!-- Google Fonts: Poppins -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <!-- Font Awesome CDN -->
@@ -40,7 +40,7 @@
     <!-- Breadcrumb -->
     <div class="breadcrumb-bar">
         <div class="container">
-            <span class="breadcrumb" href="">Home / Used / <span class="current">Laptops</span></span>
+            <span class="breadcrumb" href="">Home / More / <span class="current">Desktop Memories</span></span>
         </div>
     </div>
     <!-- Main Content Layout -->
@@ -48,50 +48,48 @@
         <!-- Sidebar -->
         <aside class="sidebar">
             <div class="sidebar-section category">
-                <h3>USED LAPTOPS</h3>
+                <h3>DESKTOP MEMORIES</h3>
             </div>
             <div class="sidebar-section price-range">
                 <h4>PRICE RANGE</h4>
                 <div class="slider-row">
-                    <input type="range" min="0" max="200000" value="0" class="price-slider" id="price-slider">
+                    <input type="range" min="0" max="40000" value="0" class="price-slider" id="price-slider">
                     <div class="price-values">
                         <span>0</span>
                         <span id="selected-price">0</span>
-                        <span style="float:right">200,000</span>
+                        <span style="float:right">40,000</span>
                     </div>
                 </div>
                 <button class="btn btn-blue" id="price-go">GO</button>
             </div>
             <div class="sidebar-section brand-filter">
                 <h4>BRAND</h4>
-                <label><input type="checkbox" class="brand-checkbox" value="HP"> HP</label>
-                <label><input type="checkbox" class="brand-checkbox" value="Dell"> Dell</label>
-                <label><input type="checkbox" class="brand-checkbox" value="ThinkPad"> ThinkPad</label>
-                <label><input type="checkbox" class="brand-checkbox" value="Lenovo"> Lenovo</label>
-                <label><input type="checkbox" class="brand-checkbox" value="Asus"> Asus</label>
+                <label><input type="checkbox" class="brand-checkbox" value="Corsair"> Corsair</label>
+                <label><input type="checkbox" class="brand-checkbox" value="G.Skill"> G.Skill</label>
+                <label><input type="checkbox" class="brand-checkbox" value="Kingston"> Kingston</label>
+                <label><input type="checkbox" class="brand-checkbox" value="Crucial"> Crucial</label>
+                <label><input type="checkbox" class="brand-checkbox" value="Team Group"> Team Group</label>
+                <label><input type="checkbox" class="brand-checkbox" value="ADATA"> ADATA</label>
             </div>
-            <div class="sidebar-section condition-filter">
-                <h4>CONDITION</h4>
-                <label><input type="checkbox" class="condition-checkbox" value="Excellent"> Excellent</label>
-                <label><input type="checkbox" class="condition-checkbox" value="Good"> Good</label>
-                <label><input type="checkbox" class="condition-checkbox" value="Fair"> Fair</label>
-                <label><input type="checkbox" class="condition-checkbox" value="Refurbished"> Refurbished</label>
+            <div class="sidebar-section capacity-filter">
+                <h4>CAPACITY</h4>
+                <label><input type="checkbox" class="capacity-checkbox" value="8GB"> 8GB</label>
+                <label><input type="checkbox" class="capacity-checkbox" value="16GB"> 16GB</label>
+                <label><input type="checkbox" class="capacity-checkbox" value="32GB"> 32GB</label>
+                <label><input type="checkbox" class="capacity-checkbox" value="64GB"> 64GB</label>
             </div>
-            <div class="sidebar-section year-filter">
-                <h4>YEAR</h4>
-                <label><input type="checkbox" class="year-checkbox" value="2023"> 2023</label>
-                <label><input type="checkbox" class="year-checkbox" value="2022"> 2022</label>
-                <label><input type="checkbox" class="year-checkbox" value="2021"> 2021</label>
-                <label><input type="checkbox" class="year-checkbox" value="2020"> 2020</label>
-                <label><input type="checkbox" class="year-checkbox" value="2019"> 2019</label>
+            <div class="sidebar-section speed-filter">
+                <h4>SPEED</h4>
+                <label><input type="checkbox" class="speed-checkbox" value="DDR4"> DDR4</label>
+                <label><input type="checkbox" class="speed-checkbox" value="DDR5"> DDR5</label>
             </div>
         </aside>
         <!-- Main Content -->
         <main class="main-area">
-            <h1 class="page-title">Used Laptops</h1>
-            <div class="banner-text">Quality pre-owned laptops at affordable prices. All used laptops are tested and come with warranty.</div>
+            <h1 class="page-title">Desktop Memories</h1>
+            <div class="banner-text">High-performance desktop RAM modules for gaming, content creation, and professional workstations.</div>
             <div class="results-bar">
-                <span class="results-info" id="results-info">Showing 1-20 of 25</span>
+                <span class="results-info" id="results-info">Showing 1-20 of 35</span>
                 <div class="results-controls">
                     <label>Results Per Page
                         <select class="styled-select" id="results-per-page">
@@ -128,59 +126,72 @@
     <script src="js/include.js"></script>
     <script src="js/notifications.js"></script>
     <script>
-// Used Laptops product data
-const usedLaptopProducts = [
-    // HP Used Laptops
-    { title: 'HP EliteBook 840 G6 (Used)', price: 85000, priceDisplay: 'Rs. 85,000', stock: 'In Stock', img: '', condition: 'Excellent', year: '2021', brand: 'HP' },
-    { title: 'HP Pavilion 15 (Used)', price: 65000, priceDisplay: 'Rs. 65,000', stock: 'In Stock', img: '', condition: 'Good', year: '2020', brand: 'HP' },
-    { title: 'HP Spectre x360 (Used)', price: 120000, priceDisplay: 'Rs. 120,000', stock: 'In Stock', img: '', condition: 'Excellent', year: '2022', brand: 'HP' },
-    { title: 'HP Envy 13 (Used)', price: 75000, priceDisplay: 'Rs. 75,000', stock: 'In Stock', img: '', condition: 'Good', year: '2021', brand: 'HP' },
-    { title: 'HP ProBook 450 (Used)', price: 70000, priceDisplay: 'Rs. 70,000', stock: 'In Stock', img: '', condition: 'Fair', year: '2020', brand: 'HP' },
+// Desktop Memories product data
+const desktopMemoryProducts = [
+    // Corsair Desktop RAM
+    { title: 'Corsair Vengeance 8GB DDR4', price: 3500, priceDisplay: 'Rs. 3,500', stock: 'In Stock', img: '', capacity: '8GB', speed: 'DDR4', brand: 'Corsair' },
+    { title: 'Corsair Vengeance 16GB DDR4', price: 6500, priceDisplay: 'Rs. 6,500', stock: 'In Stock', img: '', capacity: '16GB', speed: 'DDR4', brand: 'Corsair' },
+    { title: 'Corsair Vengeance 32GB DDR4', price: 12000, priceDisplay: 'Rs. 12,000', stock: 'In Stock', img: '', capacity: '32GB', speed: 'DDR4', brand: 'Corsair' },
+    { title: 'Corsair Dominator 64GB DDR4', price: 22000, priceDisplay: 'Rs. 22,000', stock: 'In Stock', img: '', capacity: '64GB', speed: 'DDR4', brand: 'Corsair' },
+    { title: 'Corsair Vengeance 16GB DDR5', price: 18000, priceDisplay: 'Rs. 18,000', stock: 'In Stock', img: '', capacity: '16GB', speed: 'DDR5', brand: 'Corsair' },
+    { title: 'Corsair Dominator 32GB DDR5', price: 35000, priceDisplay: 'Rs. 35,000', stock: 'In Stock', img: '', capacity: '32GB', speed: 'DDR5', brand: 'Corsair' },
     
-    // Dell Used Laptops
-    { title: 'Dell Inspiron 15 (Used)', price: 60000, priceDisplay: 'Rs. 60,000', stock: 'In Stock', img: '', condition: 'Good', year: '2020', brand: 'Dell' },
-    { title: 'Dell XPS 13 (Used)', price: 110000, priceDisplay: 'Rs. 110,000', stock: 'In Stock', img: '', condition: 'Excellent', year: '2022', brand: 'Dell' },
-    { title: 'Dell Latitude 5420 (Used)', price: 85000, priceDisplay: 'Rs. 85,000', stock: 'In Stock', img: '', condition: 'Good', year: '2021', brand: 'Dell' },
-    { title: 'Dell Vostro 3500 (Used)', price: 55000, priceDisplay: 'Rs. 55,000', stock: 'In Stock', img: '', condition: 'Fair', year: '2020', brand: 'Dell' },
-    { title: 'Dell G5 15 (Used)', price: 95000, priceDisplay: 'Rs. 95,000', stock: 'In Stock', img: '', condition: 'Good', year: '2021', brand: 'Dell' },
+    // G.Skill Desktop RAM
+    { title: 'G.Skill Ripjaws V 8GB DDR4', price: 3200, priceDisplay: 'Rs. 3,200', stock: 'In Stock', img: '', capacity: '8GB', speed: 'DDR4', brand: 'G.Skill' },
+    { title: 'G.Skill Ripjaws V 16GB DDR4', price: 6000, priceDisplay: 'Rs. 6,000', stock: 'In Stock', img: '', capacity: '16GB', speed: 'DDR4', brand: 'G.Skill' },
+    { title: 'G.Skill Ripjaws V 32GB DDR4', price: 11500, priceDisplay: 'Rs. 11,500', stock: 'In Stock', img: '', capacity: '32GB', speed: 'DDR4', brand: 'G.Skill' },
+    { title: 'G.Skill Trident Z 64GB DDR4', price: 21000, priceDisplay: 'Rs. 21,000', stock: 'In Stock', img: '', capacity: '64GB', speed: 'DDR4', brand: 'G.Skill' },
+    { title: 'G.Skill Trident Z5 16GB DDR5', price: 17500, priceDisplay: 'Rs. 17,500', stock: 'In Stock', img: '', capacity: '16GB', speed: 'DDR5', brand: 'G.Skill' },
+    { title: 'G.Skill Trident Z5 32GB DDR5', price: 34000, priceDisplay: 'Rs. 34,000', stock: 'In Stock', img: '', capacity: '32GB', speed: 'DDR5', brand: 'G.Skill' },
     
-    // ThinkPad Used Laptops
-    { title: 'ThinkPad X1 Carbon (Used)', price: 130000, priceDisplay: 'Rs. 130,000', stock: 'In Stock', img: '', condition: 'Excellent', year: '2022', brand: 'ThinkPad' },
-    { title: 'ThinkPad T14 (Used)', price: 90000, priceDisplay: 'Rs. 90,000', stock: 'In Stock', img: '', condition: 'Good', year: '2021', brand: 'ThinkPad' },
-    { title: 'ThinkPad L13 Yoga (Used)', price: 75000, priceDisplay: 'Rs. 75,000', stock: 'In Stock', img: '', condition: 'Good', year: '2021', brand: 'ThinkPad' },
-    { title: 'ThinkPad E15 (Used)', price: 65000, priceDisplay: 'Rs. 65,000', stock: 'In Stock', img: '', condition: 'Fair', year: '2020', brand: 'ThinkPad' },
-    { title: 'ThinkPad P15 (Used)', price: 150000, priceDisplay: 'Rs. 150,000', stock: 'In Stock', img: '', condition: 'Excellent', year: '2022', brand: 'ThinkPad' },
+    // Kingston Desktop RAM
+    { title: 'Kingston Fury Beast 8GB DDR4', price: 3300, priceDisplay: 'Rs. 3,300', stock: 'In Stock', img: '', capacity: '8GB', speed: 'DDR4', brand: 'Kingston' },
+    { title: 'Kingston Fury Beast 16GB DDR4', price: 6200, priceDisplay: 'Rs. 6,200', stock: 'In Stock', img: '', capacity: '16GB', speed: 'DDR4', brand: 'Kingston' },
+    { title: 'Kingston Fury Beast 32GB DDR4', price: 11800, priceDisplay: 'Rs. 11,800', stock: 'In Stock', img: '', capacity: '32GB', speed: 'DDR4', brand: 'Kingston' },
+    { title: 'Kingston Fury Beast 64GB DDR4', price: 21500, priceDisplay: 'Rs. 21,500', stock: 'In Stock', img: '', capacity: '64GB', speed: 'DDR4', brand: 'Kingston' },
+    { title: 'Kingston Fury Beast 16GB DDR5', price: 17200, priceDisplay: 'Rs. 17,200', stock: 'In Stock', img: '', capacity: '16GB', speed: 'DDR5', brand: 'Kingston' },
+    { title: 'Kingston Fury Beast 32GB DDR5', price: 33500, priceDisplay: 'Rs. 33,500', stock: 'In Stock', img: '', capacity: '32GB', speed: 'DDR5', brand: 'Kingston' },
     
-    // Lenovo Used Laptops
-    { title: 'Lenovo IdeaPad 3 (Used)', price: 45000, priceDisplay: 'Rs. 45,000', stock: 'In Stock', img: '', condition: 'Good', year: '2020', brand: 'Lenovo' },
-    { title: 'Lenovo Legion 5 (Used)', price: 100000, priceDisplay: 'Rs. 100,000', stock: 'In Stock', img: '', condition: 'Good', year: '2021', brand: 'Lenovo' },
-    { title: 'Lenovo Yoga Slim 7 (Used)', price: 95000, priceDisplay: 'Rs. 95,000', stock: 'In Stock', img: '', condition: 'Excellent', year: '2022', brand: 'Lenovo' },
-    { title: 'Lenovo ThinkBook 15 (Used)', price: 70000, priceDisplay: 'Rs. 70,000', stock: 'In Stock', img: '', condition: 'Good', year: '2021', brand: 'Lenovo' },
-    { title: 'Lenovo V14 (Used)', price: 40000, priceDisplay: 'Rs. 40,000', stock: 'In Stock', img: '', condition: 'Fair', year: '2020', brand: 'Lenovo' },
+    // Crucial Desktop RAM
+    { title: 'Crucial Ballistix 8GB DDR4', price: 3100, priceDisplay: 'Rs. 3,100', stock: 'In Stock', img: '', capacity: '8GB', speed: 'DDR4', brand: 'Crucial' },
+    { title: 'Crucial Ballistix 16GB DDR4', price: 5800, priceDisplay: 'Rs. 5,800', stock: 'In Stock', img: '', capacity: '16GB', speed: 'DDR4', brand: 'Crucial' },
+    { title: 'Crucial Ballistix 32GB DDR4', price: 11200, priceDisplay: 'Rs. 11,200', stock: 'In Stock', img: '', capacity: '32GB', speed: 'DDR4', brand: 'Crucial' },
+    { title: 'Crucial Ballistix 64GB DDR4', price: 20800, priceDisplay: 'Rs. 20,800', stock: 'In Stock', img: '', capacity: '64GB', speed: 'DDR4', brand: 'Crucial' },
+    { title: 'Crucial Ballistix 16GB DDR5', price: 16800, priceDisplay: 'Rs. 16,800', stock: 'In Stock', img: '', capacity: '16GB', speed: 'DDR5', brand: 'Crucial' },
+    { title: 'Crucial Ballistix 32GB DDR5', price: 32500, priceDisplay: 'Rs. 32,500', stock: 'In Stock', img: '', capacity: '32GB', speed: 'DDR5', brand: 'Crucial' },
     
-    // Asus Used Laptops
-    { title: 'Asus VivoBook 15 (Used)', price: 50000, priceDisplay: 'Rs. 50,000', stock: 'In Stock', img: '', condition: 'Good', year: '2020', brand: 'Asus' },
-    { title: 'Asus ZenBook 14 (Used)', price: 85000, priceDisplay: 'Rs. 85,000', stock: 'In Stock', img: '', condition: 'Excellent', year: '2021', brand: 'Asus' },
-    { title: 'Asus ROG Zephyrus G14 (Used)', price: 140000, priceDisplay: 'Rs. 140,000', stock: 'In Stock', img: '', condition: 'Good', year: '2022', brand: 'Asus' },
-    { title: 'Asus TUF Gaming F15 (Used)', price: 90000, priceDisplay: 'Rs. 90,000', stock: 'In Stock', img: '', condition: 'Good', year: '2021', brand: 'Asus' },
-    { title: 'Asus ExpertBook B9 (Used)', price: 120000, priceDisplay: 'Rs. 120,000', stock: 'In Stock', img: '', condition: 'Excellent', year: '2022', brand: 'Asus' }
+    // Team Group Desktop RAM
+    { title: 'Team Group T-Force 8GB DDR4', price: 3000, priceDisplay: 'Rs. 3,000', stock: 'In Stock', img: '', capacity: '8GB', speed: 'DDR4', brand: 'Team Group' },
+    { title: 'Team Group T-Force 16GB DDR4', price: 5600, priceDisplay: 'Rs. 5,600', stock: 'In Stock', img: '', capacity: '16GB', speed: 'DDR4', brand: 'Team Group' },
+    { title: 'Team Group T-Force 32GB DDR4', price: 10800, priceDisplay: 'Rs. 10,800', stock: 'In Stock', img: '', capacity: '32GB', speed: 'DDR4', brand: 'Team Group' },
+    { title: 'Team Group T-Force 64GB DDR4', price: 20000, priceDisplay: 'Rs. 20,000', stock: 'In Stock', img: '', capacity: '64GB', speed: 'DDR4', brand: 'Team Group' },
+    { title: 'Team Group T-Force 16GB DDR5', price: 16500, priceDisplay: 'Rs. 16,500', stock: 'In Stock', img: '', capacity: '16GB', speed: 'DDR5', brand: 'Team Group' },
+    { title: 'Team Group T-Force 32GB DDR5', price: 32000, priceDisplay: 'Rs. 32,000', stock: 'In Stock', img: '', capacity: '32GB', speed: 'DDR5', brand: 'Team Group' },
+    
+    // ADATA Desktop RAM
+    { title: 'ADATA XPG Gammix 8GB DDR4', price: 3200, priceDisplay: 'Rs. 3,200', stock: 'In Stock', img: '', capacity: '8GB', speed: 'DDR4', brand: 'ADATA' },
+    { title: 'ADATA XPG Gammix 16GB DDR4', price: 6000, priceDisplay: 'Rs. 6,000', stock: 'In Stock', img: '', capacity: '16GB', speed: 'DDR4', brand: 'ADATA' },
+    { title: 'ADATA XPG Gammix 32GB DDR4', price: 11500, priceDisplay: 'Rs. 11,500', stock: 'In Stock', img: '', capacity: '32GB', speed: 'DDR4', brand: 'ADATA' },
+    { title: 'ADATA XPG Gammix 64GB DDR4', price: 21000, priceDisplay: 'Rs. 21,000', stock: 'In Stock', img: '', capacity: '64GB', speed: 'DDR4', brand: 'ADATA' },
+    { title: 'ADATA XPG Lancer 16GB DDR5', price: 17000, priceDisplay: 'Rs. 17,000', stock: 'In Stock', img: '', capacity: '16GB', speed: 'DDR5', brand: 'ADATA' },
+    { title: 'ADATA XPG Lancer 32GB DDR5', price: 33000, priceDisplay: 'Rs. 33,000', stock: 'In Stock', img: '', capacity: '32GB', speed: 'DDR5', brand: 'ADATA' }
 ];
 
 let productsPerPage = 20;
 let currentPage = 1;
 let maxPrice = 0;
-let filteredProducts = usedLaptopProducts.slice();
+let filteredProducts = desktopMemoryProducts.slice();
 let selectedBrands = [];
-let selectedConditions = [];
-let selectedYears = [];
+let selectedCapacities = [];
+let selectedSpeeds = [];
 
 function filterProducts() {
-    filteredProducts = usedLaptopProducts.filter(p => {
+    filteredProducts = desktopMemoryProducts.filter(p => {
         const priceMatch = p.price >= maxPrice;
         const brandMatch = selectedBrands.length === 0 || selectedBrands.includes(p.brand);
-        const conditionMatch = selectedConditions.length === 0 || selectedConditions.includes(p.condition);
-        const yearMatch = selectedYears.length === 0 || selectedYears.includes(p.year);
-        return priceMatch && brandMatch && conditionMatch && yearMatch;
+        const capacityMatch = selectedCapacities.length === 0 || selectedCapacities.includes(p.capacity);
+        const speedMatch = selectedSpeeds.length === 0 || selectedSpeeds.includes(p.speed);
+        return priceMatch && brandMatch && capacityMatch && speedMatch;
     });
 }
 
@@ -201,11 +212,11 @@ function renderProducts(page) {
                     <span class="stock in-stock">${p.stock}</span>
                 </div>
                 <div class="product-details">
-                    <span class="condition ${p.condition.toLowerCase()}">${p.condition}</span>
-                    <span class="year">${p.year}</span>
+                    <span class="capacity">${p.capacity}</span>
+                    <span class="speed">${p.speed}</span>
                 </div>
                 <div class="product-actions">
-                    <a class="btn btn-blue" href="product-detail.html?id=${i+1}&type=used-laptop">View Product</a>
+                    <a class="btn btn-blue" href="product-detail.html?id=${i+1}&type=desktop-memory">View Product</a>
                     <button class="btn btn-gray add-to-cart-btn" data-id="${i+1}"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
                     <button class="btn btn-gray wishlist-btn" data-id="${i+1}"><i class="far fa-heart"></i> ADD TO WISHLIST</button>
                 </div>
@@ -287,11 +298,11 @@ brandCheckboxes.forEach(cb => {
     });
 });
 
-// Condition filter
-const conditionCheckboxes = document.querySelectorAll('.condition-checkbox');
-conditionCheckboxes.forEach(cb => {
+// Capacity filter
+const capacityCheckboxes = document.querySelectorAll('.capacity-checkbox');
+capacityCheckboxes.forEach(cb => {
     cb.addEventListener('change', function() {
-        selectedConditions = Array.from(conditionCheckboxes).filter(c => c.checked).map(c => c.value);
+        selectedCapacities = Array.from(capacityCheckboxes).filter(c => c.checked).map(c => c.value);
         currentPage = 1;
         filterProducts();
         renderProducts(currentPage);
@@ -299,11 +310,11 @@ conditionCheckboxes.forEach(cb => {
     });
 });
 
-// Year filter
-const yearCheckboxes = document.querySelectorAll('.year-checkbox');
-yearCheckboxes.forEach(cb => {
+// Speed filter
+const speedCheckboxes = document.querySelectorAll('.speed-checkbox');
+speedCheckboxes.forEach(cb => {
     cb.addEventListener('change', function() {
-        selectedYears = Array.from(yearCheckboxes).filter(c => c.checked).map(c => c.value);
+        selectedSpeeds = Array.from(speedCheckboxes).filter(c => c.checked).map(c => c.value);
         currentPage = 1;
         filterProducts();
         renderProducts(currentPage);
@@ -352,7 +363,7 @@ window.addEventListener('DOMContentLoaded', function() {
       if (!card) return;
       const productId = card.getAttribute('data-id');
       if (!productId) return;
-      const product = usedLaptopProducts[parseInt(productId)-1];
+      const product = desktopMemoryProducts[parseInt(productId)-1];
       if (!product) return;
       let cart = JSON.parse(localStorage.getItem('cart')) || [];
       if (!cart.find(item => String(item.title) === String(product.title))) {
