@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Used Laptops | Bawa Computers</title>
+    <!-- Google Fonts: Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+          /* Footer Styles (inline for contact page) */
+          .footer {
+            background: #3a3a3a;
+            color: #fff;
+            padding: 48px 0 24px 0;
+            margin-top: 60px;
+        }
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            justify-content: space-between;
+            padding: 0 16px;
+        }
+        .footer-col {
+            flex: 1 1 220px;
+            min-width: 180px;
+        }
+        .footer-col h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 18px;
+            color: #fff;
+        }
+        .footer-col ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+        .footer-col ul li a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .footer-col ul li a:hover {
+            color: #0099ff;
+        }
+        .footer-social {
+            margin-top: 18px;
+        }
+        .footer-social a {
+            color: #fff;
+            font-size: 1.3rem;
+            margin-right: 18px;
+            transition: color 0.2s;
+        }
+        .footer-social a:hover {
+            color: #0099ff;
+        }
+        .footer-bottom {
+            text-align: center;
+            color: #bbb;
+            font-size: 0.98rem;
+            margin-top: 32px;
+        }
+        @media (max-width: 1024px) {
+            .footer-container {
+                flex-direction: column;
+                gap: 24px;
+            }
+        }
+        @media (max-width: 600px) {
+            .footer-container {
+                padding: 0 6px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Header -->
+    <div class="top-header">
+        <div class="container">
+            <div class="tagline">Reliable Tech Since 2005</div>
+            <div class="account-links">
+                <a href="#">My Account</a>
+                <a href="#">Login</a>
+                <a href="#">Register</a>
+            </div>
+        </div>
+    </div>
+    <!-- Main Header -->
+    <header class="main-header">
+        <div class="container header-flex">
+            <div class="logo">Bawa Computers</div>
+            <div class="search-bar">
+                <input type="text" placeholder="Search products...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+            <div class="cart-icon">
+                <a href="cart.html" id="cart-link"><i class="fas fa-shopping-cart"></i></a>
+            </div>
+        </div>
+    </header>
+    <!-- Navbar -->
+    <div id="navbar"></div>
+    <!-- Breadcrumb -->
+    <div class="breadcrumb-bar">
+        <div class="container">
+            <span class="breadcrumb" href="">Home / Used / <span class="current">Used Laptops</span></span>
+        </div>
+    </div>
+    <!-- Main Content Layout -->
+    <div class="container page-layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-section category">
+                <h3>USED LAPTOPS</h3>
+            </div>
+            <div class="sidebar-section price-range">
+                <h4>PRICE RANGE</h4>
+                <div class="slider-row">
+                    <input type="range" min="0" max="200000" value="0" class="price-slider" id="price-slider">
+                    <div class="price-values">
+                        <span>0</span>
+                        <span id="selected-price">0</span>
+                        <span style="float:right">200,000</span>
+                    </div>
+                </div>
+                <button class="btn btn-blue" id="price-go">GO</button>
+            </div>
+            <div class="sidebar-section brand-filter">
+                <h4>BRAND</h4>
+                <label><input type="checkbox" class="brand-checkbox" value="HP"> HP</label>
+                <label><input type="checkbox" class="brand-checkbox" value="Dell"> Dell</label>
+                <label><input type="checkbox" class="brand-checkbox" value="ThinkPad"> ThinkPad</label>
+                <label><input type="checkbox" class="brand-checkbox" value="Lenovo"> Lenovo</label>
+                <label><input type="checkbox" class="brand-checkbox" value="Asus"> Asus</label>
+            </div>
+        </aside>
+        <!-- Main Content -->
+        <main class="main-area">
+            <h1 class="page-title">Used Laptops</h1>
+            <div class="banner-text">Quality pre-owned laptops at affordable prices with warranty.</div>
+            <div class="results-bar">
+                <span class="results-info" id="results-info">Showing 1-20 of 40</span>
+                <div class="results-controls">
+                    <label>Results Per Page
+                        <select class="styled-select" id="results-per-page">
+                            <option value="5">5</option>
+                            <option value="10">10</option>
+                            <option value="20" selected>20</option>
+                        </select>
+                    </label>
+                    <label>Sort By
+                        <select class="styled-select" id="sort-by">
+                            <option value="low-high">Price Low to High</option>
+                            <option value="high-low">Price High to Low</option>
+                            <option value="newest">Newest</option>
+                        </select>
+                    </label>
+                </div>
+            </div>
+            <div class="product-grid" id="product-grid">
+                <!-- Product cards will be generated by JS for pagination -->
+            </div>
+            <nav class="pagination-bar" id="pagination-bar">
+                <ul class="pagination">
+                    <li class="page-item disabled" id="prev-page"><a href="#">&laquo; Prev</a></li>
+                    <li class="page-item active"><a href="#">1</a></li>
+                    <li class="page-item"><a href="#">2</a></li>
+                    <li class="page-item" id="next-page"><a href="#">Next &raquo;</a></li>
+                </ul>
+            </nav>
+        </main>
+    </div>
+    <!-- Footer -->
+    <div id="footer"></div>
+    <script src="js/script.js"></script>
+    <script src="js/include.js"></script>
+    <script>
+// Used Laptops product data
+const products = [
+    // HP Used Laptops
+    { title: 'HP EliteBook 840 (Used)', price: 120000, priceDisplay: 'Rs. 120,000', stock: 'In Stock', img: '' },
+    { title: 'HP Pavilion 15 (Used)', price: 85000, priceDisplay: 'Rs. 85,000', stock: 'In Stock', img: '' },
+    { title: 'HP Spectre x360 (Used)', price: 160000, priceDisplay: 'Rs. 160,000', stock: 'In Stock', img: '' },
+    { title: 'HP Envy 13 (Used)', price: 105000, priceDisplay: 'Rs. 105,000', stock: 'In Stock', img: '' },
+    { title: 'HP ProBook 450 (Used)', price: 95000, priceDisplay: 'Rs. 95,000', stock: 'In Stock', img: '' },
+    { title: 'HP Omen 16 (Used)', price: 175000, priceDisplay: 'Rs. 175,000', stock: 'In Stock', img: '' },
+    { title: 'HP Chromebook 14 (Used)', price: 60000, priceDisplay: 'Rs. 60,000', stock: 'In Stock', img: '' },
+    { title: 'HP ZBook Firefly (Used)', price: 200000, priceDisplay: 'Rs. 200,000', stock: 'In Stock', img: '' },
+    // Dell Used Laptops
+    { title: 'Dell Inspiron 15 (Used)', price: 85000, priceDisplay: 'Rs. 85,000', stock: 'In Stock', img: '' },
+    { title: 'Dell XPS 13 (Used)', price: 165000, priceDisplay: 'Rs. 165,000', stock: 'In Stock', img: '' },
+    { title: 'Dell Latitude 5420 (Used)', price: 110000, priceDisplay: 'Rs. 110,000', stock: 'In Stock', img: '' },
+    { title: 'Dell Vostro 3500 (Used)', price: 80000, priceDisplay: 'Rs. 80,000', stock: 'In Stock', img: '' },
+    { title: 'Dell G5 15 (Used)', price: 140000, priceDisplay: 'Rs. 140,000', stock: 'In Stock', img: '' },
+    { title: 'Dell Alienware m15 (Used)', price: 225000, priceDisplay: 'Rs. 225,000', stock: 'In Stock', img: '' },
+    { title: 'Dell Precision 5550 (Used)', price: 195000, priceDisplay: 'Rs. 195,000', stock: 'In Stock', img: '' },
+    { title: 'Dell XPS 17 (Used)', price: 205000, priceDisplay: 'Rs. 205,000', stock: 'In Stock', img: '' },
+    // ThinkPad Used Laptops
+    { title: 'ThinkPad X1 Carbon (Used)', price: 170000, priceDisplay: 'Rs. 170,000', stock: 'In Stock', img: '' },
+    { title: 'ThinkPad T14 (Used)', price: 115000, priceDisplay: 'Rs. 115,000', stock: 'In Stock', img: '' },
+    { title: 'ThinkPad L13 Yoga (Used)', price: 100000, priceDisplay: 'Rs. 100,000', stock: 'In Stock', img: '' },
+    { title: 'ThinkPad E15 (Used)', price: 90000, priceDisplay: 'Rs. 90,000', stock: 'In Stock', img: '' },
+    { title: 'ThinkPad P15 (Used)', price: 185000, priceDisplay: 'Rs. 185,000', stock: 'In Stock', img: '' },
+    { title: 'ThinkPad X13 (Used)', price: 105000, priceDisplay: 'Rs. 105,000', stock: 'In Stock', img: '' },
+    { title: 'ThinkPad L14 (Used)', price: 80000, priceDisplay: 'Rs. 80,000', stock: 'In Stock', img: '' },
+    { title: 'ThinkPad E14 (Used)', price: 87500, priceDisplay: 'Rs. 87,500', stock: 'In Stock', img: '' },
+    // Lenovo Used Laptops
+    { title: 'Lenovo IdeaPad 3 (Used)', price: 70000, priceDisplay: 'Rs. 70,000', stock: 'In Stock', img: '' },
+    { title: 'Lenovo Legion 5 (Used)', price: 130000, priceDisplay: 'Rs. 130,000', stock: 'In Stock', img: '' },
+    { title: 'Lenovo Yoga Slim 7 (Used)', price: 145000, priceDisplay: 'Rs. 145,000', stock: 'In Stock', img: '' },
+    { title: 'Lenovo ThinkBook 15 (Used)', price: 92500, priceDisplay: 'Rs. 92,500', stock: 'In Stock', img: '' },
+    { title: 'Lenovo V14 (Used)', price: 62500, priceDisplay: 'Rs. 62,500', stock: 'In Stock', img: '' },
+    { title: 'Lenovo Flex 5 (Used)', price: 105000, priceDisplay: 'Rs. 105,000', stock: 'In Stock', img: '' },
+    { title: 'Lenovo Legion 7 (Used)', price: 210000, priceDisplay: 'Rs. 210,000', stock: 'In Stock', img: '' },
+    { title: 'Lenovo Yoga 9i (Used)', price: 175000, priceDisplay: 'Rs. 175,000', stock: 'In Stock', img: '' },
+    // Asus Used Laptops
+    { title: 'Asus VivoBook 15 (Used)', price: 77500, priceDisplay: 'Rs. 77,500', stock: 'In Stock', img: '' },
+    { title: 'Asus ZenBook 14 (Used)', price: 105000, priceDisplay: 'Rs. 105,000', stock: 'In Stock', img: '' },
+    { title: 'Asus ROG Zephyrus G14 (Used)', price: 185000, priceDisplay: 'Rs. 185,000', stock: 'In Stock', img: '' },
+    { title: 'Asus TUF Gaming F15 (Used)', price: 120000, priceDisplay: 'Rs. 120,000', stock: 'In Stock', img: '' },
+    { title: 'Asus ExpertBook B9 (Used)', price: 160000, priceDisplay: 'Rs. 160,000', stock: 'In Stock', img: '' },
+    { title: 'Asus Chromebook Flip (Used)', price: 65000, priceDisplay: 'Rs. 65,000', stock: 'In Stock', img: '' },
+    { title: 'Asus ProArt StudioBook (Used)', price: 205000, priceDisplay: 'Rs. 205,000', stock: 'In Stock', img: '' },
+    { title: 'Asus ZenBook Duo (Used)', price: 180000, priceDisplay: 'Rs. 180,000', stock: 'In Stock', img: '' },
+];
+
+let productsPerPage = 20;
+let currentPage = 1;
+let maxPrice = 0;
+let filteredProducts = products.slice();
+let selectedBrands = [];
+
+function filterProducts() {
+    filteredProducts = products.filter(p => {
+        const priceMatch = p.price >= maxPrice;
+        const brandMatch = selectedBrands.length === 0 || selectedBrands.some(b => p.title.toLowerCase().includes(b.toLowerCase()));
+        return priceMatch && brandMatch;
+    });
+}
+
+function renderProducts(page) {
+    const grid = document.getElementById('product-grid');
+    grid.innerHTML = '';
+    const start = (page-1)*productsPerPage;
+    const end = Math.min(start+productsPerPage, filteredProducts.length);
+    for(let i=start; i<end; i++) {
+        const p = filteredProducts[i];
+        grid.innerHTML += `
+        <div class="product-card" data-id="${i+1}">
+            <div class="product-img"></div>
+            <div class="product-info">
+                <h2 class="product-title">${p.title}</h2>
+                <div class="product-meta">
+                    <span class="price">${p.priceDisplay}</span>
+                    <span class="stock in-stock">${p.stock}</span>
+                </div>
+                <div class="product-actions">
+                    <a class="btn btn-blue" href="product-detail.html?id=${i+1}">View Product</a>
+                    <button class="btn btn-gray add-to-cart-btn" data-id="${i+1}"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                    <button class="btn btn-gray"><i class="far fa-heart"></i> ADD TO WISHLIST</button>
+                </div>
+            </div>
+        </div>`;
+    }
+    if(filteredProducts.length === 0) {
+        grid.innerHTML = '<div style="padding:40px;text-align:center;color:#888;">No products found in this price range.</div>';
+    }
+    // Update results info
+    const info = document.getElementById('results-info');
+    if(filteredProducts.length === 0) {
+        info.textContent = 'No products found';
+    } else {
+        info.textContent = `Showing ${filteredProducts.length === 0 ? 0 : start+1}-${end} of ${filteredProducts.length}`;
+    }
+}
+
+function renderPagination() {
+    const bar = document.getElementById('pagination-bar');
+    const totalPages = Math.max(1, Math.ceil(filteredProducts.length/productsPerPage));
+    let html = '<ul class="pagination">';
+    html += `<li class="page-item${currentPage===1?' disabled':''}" id="prev-page"><a href="#">&laquo; Prev</a></li>`;
+    for(let i=1; i<=totalPages; i++) {
+        html += `<li class="page-item${i===currentPage?' active':''}"><a href="#">${i}</a></li>`;
+    }
+    html += `<li class="page-item${currentPage===totalPages?' disabled':''}" id="next-page"><a href="#">Next &raquo;</a></li>`;
+    html += '</ul>';
+    bar.innerHTML = html;
+    // Add event listeners
+    bar.querySelectorAll('.page-item:not(.active):not(.disabled) a').forEach((a, idx, arr) => {
+        a.onclick = function(e) {
+            e.preventDefault();
+            const text = a.textContent.trim();
+            const totalPages = Math.max(1, Math.ceil(filteredProducts.length/productsPerPage));
+            if(text === '« Prev') {
+                if(currentPage > 1) currentPage--;
+            } else if(text === 'Next »') {
+                if(currentPage < totalPages) currentPage++;
+            } else {
+                currentPage = parseInt(text);
+            }
+            renderProducts(currentPage);
+            renderPagination();
+        };
+    });
+}
+
+// Results per page dropdown
+const resultsSelect = document.getElementById('results-per-page');
+resultsSelect.addEventListener('change', function() {
+    productsPerPage = parseInt(this.value);
+    currentPage = 1;
+    renderProducts(currentPage);
+    renderPagination();
+});
+
+// Price range slider
+const priceSlider = document.getElementById('price-slider');
+const selectedPrice = document.getElementById('selected-price');
+priceSlider.addEventListener('input', function() {
+    selectedPrice.textContent = parseInt(this.value).toLocaleString();
+    maxPrice = parseInt(this.value);
+    filterProducts();
+    currentPage = 1;
+    renderProducts(currentPage);
+    renderPagination();
+});
+
+// On page load, set slider to min and update selected price
+window.addEventListener('DOMContentLoaded', function() {
+    priceSlider.value = 0;
+    selectedPrice.textContent = '0';
+    maxPrice = 0;
+    filterProducts();
+    currentPage = 1;
+    renderProducts(currentPage);
+    renderPagination();
+});
+
+document.getElementById('price-go').addEventListener('click', function() {
+    maxPrice = parseInt(priceSlider.value);
+    filterProducts();
+    currentPage = 1;
+    renderProducts(currentPage);
+    renderPagination();
+});
+
+// Brand filter
+const brandCheckboxes = document.querySelectorAll('.brand-checkbox');
+brandCheckboxes.forEach(cb => {
+    cb.addEventListener('change', function() {
+        selectedBrands = Array.from(brandCheckboxes).filter(c => c.checked).map(c => c.value);
+        currentPage = 1;
+        filterProducts();
+        renderProducts(currentPage);
+        renderPagination();
+    });
+});
+
+// Sort By dropdown
+const sortBySelect = document.getElementById('sort-by');
+sortBySelect.addEventListener('change', function() {
+    const sortValue = this.value;
+    if (sortValue === 'low-high') {
+        filteredProducts.sort((a, b) => a.price - b.price);
+    } else if (sortValue === 'high-low') {
+        filteredProducts.sort((a, b) => b.price - a.price);
+    } else {
+        // Newest or default: no sorting or implement your own logic
+    }
+    currentPage = 1;
+    renderProducts(currentPage);
+    renderPagination();
+});
+
+// Initial render
+filterProducts();
+renderProducts(currentPage);
+renderPagination();
+
+// Add to Cart global handler
+window.addEventListener('DOMContentLoaded', function() {
+  document.body.addEventListener('click', function(e) {
+    if (e.target.classList.contains('add-to-cart-btn')) {
+      const card = e.target.closest('.product-card');
+      if (!card) return;
+      const productId = card.getAttribute('data-id');
+      if (!productId) return;
+      const product = products[parseInt(productId)-1];
+      if (!product) return;
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      if (!cart.find(item => String(item.title) === String(product.title))) {
+        cart.push(product);
+        localStorage.setItem('cart', JSON.stringify(cart));
+      }
+      window.location.href = 'cart.html';
+    }
+  });
+});
+</script>
+</body>
+</html> 
