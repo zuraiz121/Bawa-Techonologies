@@ -366,6 +366,14 @@ body {
         transform: translateY(-10px);
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
+    
+    /* Mobile responsive for More menu */
+    .dropdown-menu.more-menu {
+        display: block;
+        grid-template-columns: 1fr;
+        min-width: auto;
+        padding: 0;
+    }
     .dropdown-menu a {
         padding: 16px 32px 16px 32px;
         font-size: 1rem;
