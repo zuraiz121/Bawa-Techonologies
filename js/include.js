@@ -18,7 +18,7 @@ const navbarHTML = `<nav class="navbar" id="navbar-main">
       </li>
       <li class="dropdown">
         <a href="#" class="dropdown-toggle">More <i class="fas fa-angle-right dropdown-arrow"></i></a>
-        <ul class="dropdown-menu">
+        <ul class="dropdown-menu more-menu">
           <li><a href="#">Graphic Cards</a></li>
           <li><a href="#">Headphones</a></li>
           <li><a href="#">Laptop Memories</a></li>
@@ -109,6 +109,11 @@ function loadHTML(selector, url) {
     .then(html => {
       document.querySelector(selector).innerHTML = html;
       console.log(`Loaded ${url} into ${selector}`);
+      
+      // Initialize navbar functionality after loading
+      if (selector === '#navbar') {
+        initializeNavbar();
+      }
     })
     .catch(error => {
       console.error(`Error loading ${url}:`, error);
@@ -116,11 +121,76 @@ function loadHTML(selector, url) {
       if (selector === '#navbar') {
         document.querySelector(selector).innerHTML = navbarHTML;
         console.log('Using fallback navbar HTML');
+        initializeNavbar();
       } else if (selector === '#footer') {
         document.querySelector(selector).innerHTML = footerHTML;
         console.log('Using fallback footer HTML');
       }
     });
+}
+
+// Initialize navbar functionality
+function initializeNavbar() {
+  console.log('Initializing navbar functionality...');
+  
+  const hamburger = document.getElementById('hamburger');
+  const navMenu = document.getElementById('nav-menu');
+  const navOverlay = document.querySelector('.nav-overlay');
+
+  function closeNavMenu() {
+    if (navMenu) navMenu.classList.remove('open');
+    if (hamburger) hamburger.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  if (hamburger && navMenu) {
+    console.log('Hamburger and nav menu found, adding event listeners...');
+    hamburger.addEventListener('click', () => {
+      console.log('Hamburger clicked!');
+      navMenu.classList.toggle('open');
+      hamburger.classList.toggle('active');
+      if (navMenu.classList.contains('open')) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = '';
+      }
+    });
+  } else {
+    console.log('Hamburger or nav menu not found');
+  }
+
+  if (navOverlay) {
+    navOverlay.addEventListener('click', closeNavMenu);
+  }
+
+  // Dropdown toggle for mobile
+  const dropdowns = document.querySelectorAll('.dropdown');
+  const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+
+  dropdownToggles.forEach(function(toggle, idx) {
+    toggle.addEventListener('click', function(e) {
+      if (window.innerWidth <= 768) {
+        e.preventDefault();
+        // Close all dropdowns except this one
+        dropdowns.forEach((d, i) => {
+          if (i !== idx) d.classList.remove('open');
+        });
+        dropdowns[idx].classList.toggle('open');
+      }
+    });
+  });
+
+  // Close dropdown when clicking outside (mobile)
+  document.addEventListener('click', function(e) {
+    if (window.innerWidth > 768) return;
+    let isDropdown = false;
+    dropdowns.forEach(d => {
+      if (d.contains(e.target)) isDropdown = true;
+    });
+    if (!isDropdown) {
+      dropdowns.forEach(d => d.classList.remove('open'));
+    }
+  });
 }
 
 document.addEventListener('DOMContentLoaded', function() {

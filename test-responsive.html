@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test Responsive Navbar</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    .test-content {
+      padding: 50px 20px;
+      text-align: center;
+      min-height: 100vh;
+    }
+    .test-info {
+      background: #f5f5f5;
+      padding: 20px;
+      border-radius: 8px;
+      margin: 20px 0;
+      text-align: left;
+    }
+    .test-info h3 {
+      color: #32658a;
+      margin-bottom: 10px;
+    }
+    .test-info ul {
+      margin: 10px 0;
+      padding-left: 20px;
+    }
+    .test-info li {
+      margin: 5px 0;
+    }
+  </style>
+</head>
+<body>
+  <!-- Top Header -->
+  <div class="top-header">
+    <div class="container">
+      <div class="tagline">Reliable Tech Since 2005</div>
+      <div class="account-links">
+        <a href="#">My Account</a>
+        <a href="#">Login</a>
+        <a href="#">Register</a>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Main Header -->
+  <header class="main-header">
+    <div class="container header-flex">
+      <div class="logo">Bawa Computers</div>
+      <div class="search-bar">
+        <input type="text" placeholder="Search products...">
+        <button><i class="fas fa-search"></i></button>
+      </div>
+      <div class="cart-icon">
+        <a href="cart.html" id="cart-link"><i class="fas fa-shopping-cart"></i></a>
+      </div>
+    </div>
+  </header>
+  
+  <!-- Navbar -->
+  <div id="navbar"></div>
+  
+  <!-- Test Content -->
+  <div class="test-content">
+    <h1>Responsive Navbar Test</h1>
+    <p>Resize your browser window to test the responsive navbar functionality.</p>
+    
+    <div class="test-info">
+      <h3>What to test:</h3>
+      <ul>
+        <li><strong>Desktop (>768px):</strong> Normal horizontal menu with hover dropdowns</li>
+        <li><strong>Mobile (≤768px):</strong> Hamburger menu on the right side</li>
+        <li><strong>Hamburger Button:</strong> Should be visible on mobile, click to open/close</li>
+        <li><strong>Menu Animation:</strong> Smooth slide-in from left</li>
+        <li><strong>Overlay:</strong> Dark background when menu is open</li>
+        <li><strong>Dropdowns:</strong> Click to open/close on mobile</li>
+      </ul>
+    </div>
+    
+    <div class="test-info">
+      <h3>Console Messages:</h3>
+      <p>Open browser console (F12) to see debug messages about navbar loading and functionality.</p>
+    </div>
+    
+    <div class="test-info">
+      <h3>Current Window Size:</h3>
+      <p id="window-size">Loading...</p>
+    </div>
+  </div>
+  
+  <!-- Footer -->
+  <div id="footer"></div>
+  
+  <script src="js/script.js"></script>
+  <script src="js/include.js"></script>
+  <script>
+    // Display current window size
+    function updateWindowSize() {
+      const sizeElement = document.getElementById('window-size');
+      sizeElement.textContent = `${window.innerWidth}px × ${window.innerHeight}px`;
+    }
+    
+    window.addEventListener('resize', updateWindowSize);
+    updateWindowSize();
+  </script>
+</body>
+</html> 
