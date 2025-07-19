@@ -46,7 +46,7 @@
         </div>
     </div>
     <!-- Main Content Layout -->
-    <div class="container page-layout">
+    <div class="page-layout-centered page-layout">
         <!-- Sidebar -->
         <aside class="sidebar">
             <div class="sidebar-section category">
@@ -133,68 +133,18 @@
     <script src="js/include.js"></script>
     <script src="js/notifications.js"></script>
     <script>
-// Headphones product data
-const headphonesProducts = [
-    // Sony Headphones
-    { title: 'Sony WH-1000XM4 Wireless', price: 45000, priceDisplay: 'Rs. 45,000', stock: 'In Stock', img: '', type: 'Over-Ear', features: ['Noise Cancelling', 'Bluetooth'], brand: 'Sony' },
-    { title: 'Sony WH-1000XM5 Wireless', price: 52000, priceDisplay: 'Rs. 52,000', stock: 'In Stock', img: '', type: 'Over-Ear', features: ['Noise Cancelling', 'Bluetooth'], brand: 'Sony' },
-    { title: 'Sony WF-1000XM4 Earbuds', price: 35000, priceDisplay: 'Rs. 35,000', stock: 'In Stock', img: '', type: 'In-Ear', features: ['Noise Cancelling', 'Bluetooth'], brand: 'Sony' },
-    { title: 'Sony MDR-7506 Professional', price: 18000, priceDisplay: 'Rs. 18,000', stock: 'In Stock', img: '', type: 'Over-Ear', features: ['Microphone'], brand: 'Sony' },
-    
-    // Bose Headphones
-    { title: 'Bose QuietComfort 45', price: 48000, priceDisplay: 'Rs. 48,000', stock: 'In Stock', img: '', type: 'Over-Ear', features: ['Noise Cancelling', 'Bluetooth'], brand: 'Bose' },
-    { title: 'Bose QuietComfort Earbuds', price: 38000, priceDisplay: 'Rs. 38,000', stock: 'In Stock', img: '', type: 'In-Ear', features: ['Noise Cancelling', 'Bluetooth'], brand: 'Bose' },
-    { title: 'Bose SoundLink Around-Ear', price: 25000, priceDisplay: 'Rs. 25,000', stock: 'In Stock', img: '', type: 'Over-Ear', features: ['Bluetooth'], brand: 'Bose' },
-    
-    // Sennheiser Headphones
-    { title: 'Sennheiser HD 660S', price: 42000, priceDisplay: 'Rs. 42,000', stock: 'In Stock', img: '', type: 'Over-Ear', features: [], brand: 'Sennheiser' },
-    { title: 'Sennheiser Momentum 3 Wireless', price: 38000, priceDisplay: 'Rs. 38,000', stock: 'In Stock', img: '', type: 'Over-Ear', features: ['Noise Cancelling', 'Bluetooth'], brand: 'Sennheiser' },
-    { title: 'Sennheiser HD 280 Pro', price: 15000, priceDisplay: 'Rs. 15,000', stock: 'In Stock', img: '', type: 'Over-Ear', features: ['Microphone'], brand: 'Sennheiser' },
-    
-    // Audio-Technica Headphones
-    { title: 'Audio-Technica ATH-M50x', price: 22000, priceDisplay: 'Rs. 22,000', stock: 'In Stock', img: '', type: 'Over-Ear', features: ['Microphone'], brand: 'Audio-Technica' },
-    { title: 'Audio-Technica ATH-M40x', price: 15000, priceDisplay: 'Rs. 15,000', stock: 'In Stock', img: '', type: 'Over-Ear', features: ['Microphone'], brand: 'Audio-Technica' },
-    { title: 'Audio-Technica ATH-SR50BT', price: 18000, priceDisplay: 'Rs. 18,000', stock: 'In Stock', img: '', type: 'On-Ear', features: ['Bluetooth'], brand: 'Audio-Technica' },
-    
-    // JBL Headphones
-    { title: 'JBL Live 650BTNC', price: 12000, priceDisplay: 'Rs. 12,000', stock: 'In Stock', img: '', type: 'Over-Ear', features: ['Noise Cancelling', 'Bluetooth'], brand: 'JBL' },
-    { title: 'JBL Tune 750BTNC', price: 8000, priceDisplay: 'Rs. 8,000', stock: 'In Stock', img: '', type: 'On-Ear', features: ['Noise Cancelling', 'Bluetooth'], brand: 'JBL' },
-    { title: 'JBL Endurance Run', price: 3000, priceDisplay: 'Rs. 3,000', stock: 'In Stock', img: '', type: 'In-Ear', features: ['Water Resistant'], brand: 'JBL' },
-    
-    // Beats Headphones
-    { title: 'Beats Studio3 Wireless', price: 35000, priceDisplay: 'Rs. 35,000', stock: 'In Stock', img: '', type: 'Over-Ear', features: ['Noise Cancelling', 'Bluetooth'], brand: 'Beats' },
-    { title: 'Beats Solo3 Wireless', price: 25000, priceDisplay: 'Rs. 25,000', stock: 'In Stock', img: '', type: 'On-Ear', features: ['Bluetooth'], brand: 'Beats' },
-    { title: 'Beats Powerbeats Pro', price: 28000, priceDisplay: 'Rs. 28,000', stock: 'In Stock', img: '', type: 'In-Ear', features: ['Bluetooth', 'Water Resistant'], brand: 'Beats' },
-    
-    // Logitech Gaming Headphones
-    { title: 'Logitech G Pro X Gaming', price: 18000, priceDisplay: 'Rs. 18,000', stock: 'In Stock', img: '', type: 'Gaming', features: ['Microphone'], brand: 'Logitech' },
-    { title: 'Logitech G733 Wireless Gaming', price: 22000, priceDisplay: 'Rs. 22,000', stock: 'In Stock', img: '', type: 'Gaming', features: ['Bluetooth', 'Microphone'], brand: 'Logitech' },
-    { title: 'Logitech G635 Gaming', price: 15000, priceDisplay: 'Rs. 15,000', stock: 'In Stock', img: '', type: 'Gaming', features: ['Microphone'], brand: 'Logitech' },
-    
-    // Razer Gaming Headphones
-    { title: 'Razer BlackShark V2 Pro', price: 25000, priceDisplay: 'Rs. 25,000', stock: 'In Stock', img: '', type: 'Gaming', features: ['Bluetooth', 'Microphone'], brand: 'Razer' },
-    { title: 'Razer Kraken X Gaming', price: 8000, priceDisplay: 'Rs. 8,000', stock: 'In Stock', img: '', type: 'Gaming', features: ['Microphone'], brand: 'Razer' },
-    { title: 'Razer Hammerhead Pro', price: 12000, priceDisplay: 'Rs. 12,000', stock: 'In Stock', img: '', type: 'In-Ear', features: ['Microphone'], brand: 'Razer' },
-    
-    // Additional Headphones
-    { title: 'SteelSeries Arctis 7 Gaming', price: 20000, priceDisplay: 'Rs. 20,000', stock: 'In Stock', img: '', type: 'Gaming', features: ['Bluetooth', 'Microphone'], brand: 'SteelSeries' },
-    { title: 'Corsair HS70 Pro Gaming', price: 16000, priceDisplay: 'Rs. 16,000', stock: 'In Stock', img: '', type: 'Gaming', features: ['Bluetooth', 'Microphone'], brand: 'Corsair' },
-    { title: 'HyperX Cloud II Gaming', price: 14000, priceDisplay: 'Rs. 14,000', stock: 'In Stock', img: '', type: 'Gaming', features: ['Microphone'], brand: 'HyperX' },
-    { title: 'Samsung Galaxy Buds Pro', price: 22000, priceDisplay: 'Rs. 22,000', stock: 'In Stock', img: '', type: 'In-Ear', features: ['Noise Cancelling', 'Bluetooth'], brand: 'Samsung' },
-    { title: 'Apple AirPods Pro', price: 35000, priceDisplay: 'Rs. 35,000', stock: 'In Stock', img: '', type: 'In-Ear', features: ['Noise Cancelling', 'Bluetooth'], brand: 'Apple' },
-    { title: 'Jabra Elite 85t', price: 28000, priceDisplay: 'Rs. 28,000', stock: 'In Stock', img: '', type: 'In-Ear', features: ['Noise Cancelling', 'Bluetooth'], brand: 'Jabra' }
-];
-
+// Use centralized product data from data.js
+const products = headphonesProducts;
 let productsPerPage = 20;
 let currentPage = 1;
 let maxPrice = 0;
-let filteredProducts = headphonesProducts.slice();
+let filteredProducts = products.slice();
 let selectedBrands = [];
 let selectedTypes = [];
 let selectedFeatures = [];
 
 function filterProducts() {
-    filteredProducts = headphonesProducts.filter(p => {
+    filteredProducts = products.filter(p => {
         const priceMatch = p.price >= maxPrice;
         const brandMatch = selectedBrands.length === 0 || selectedBrands.includes(p.brand);
         const typeMatch = selectedTypes.length === 0 || selectedTypes.includes(p.type);

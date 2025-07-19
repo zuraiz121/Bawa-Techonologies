@@ -46,7 +46,7 @@
         </div>
     </div>
     <!-- Main Content Layout -->
-    <div class="container page-layout">
+    <div class="page-layout-centered page-layout">
         <!-- Sidebar -->
         <aside class="sidebar">
             <div class="sidebar-section category">
@@ -129,76 +129,22 @@
     </div>
     <!-- Footer -->
     <div id="footer"></div>
-    <script src="js/script.js"></script>
+    <script src="js/cart-wishlist.js"></script>
     <script src="js/include.js"></script>
     <script src="js/notifications.js"></script>
     <script>
-// Monitor product data
-const monitorProducts = [
-    // Samsung Monitors
-    { title: 'Samsung 24" FHD Monitor', price: 25000, priceDisplay: 'Rs. 25,000', stock: 'In Stock', img: '', type: 'Business', size: '24', brand: 'Samsung' },
-    { title: 'Samsung 27" QHD Gaming Monitor', price: 45000, priceDisplay: 'Rs. 45,000', stock: 'In Stock', img: '', type: 'Gaming', size: '27', brand: 'Samsung' },
-    { title: 'Samsung 32" 4K Monitor', price: 85000, priceDisplay: 'Rs. 85,000', stock: 'In Stock', img: '', type: 'Professional', size: '32', brand: 'Samsung' },
-    { title: 'Samsung 34" Ultrawide Curved', price: 95000, priceDisplay: 'Rs. 95,000', stock: 'In Stock', img: '', type: 'Curved', size: '34', brand: 'Samsung' },
-    { title: 'Samsung 49" Super Ultrawide', price: 140000, priceDisplay: 'Rs. 140,000', stock: 'In Stock', img: '', type: 'Ultrawide', size: '49', brand: 'Samsung' },
-    { title: 'Samsung 24" Business Monitor', price: 22000, priceDisplay: 'Rs. 22,000', stock: 'In Stock', img: '', type: 'Business', size: '24', brand: 'Samsung' },
-    
-    // LG Monitors
-    { title: 'LG 24" FHD Monitor', price: 23000, priceDisplay: 'Rs. 23,000', stock: 'In Stock', img: '', type: 'Business', size: '24', brand: 'LG' },
-    { title: 'LG 27" 4K Monitor', price: 75000, priceDisplay: 'Rs. 75,000', stock: 'In Stock', img: '', type: 'Professional', size: '27', brand: 'LG' },
-    { title: 'LG 34" Ultrawide Curved', price: 88000, priceDisplay: 'Rs. 88,000', stock: 'In Stock', img: '', type: 'Curved', size: '34', brand: 'LG' },
-    { title: 'LG 32" Gaming Monitor', price: 65000, priceDisplay: 'Rs. 65,000', stock: 'In Stock', img: '', type: 'Gaming', size: '32', brand: 'LG' },
-    { title: 'LG 27" QHD Monitor', price: 42000, priceDisplay: 'Rs. 42,000', stock: 'In Stock', img: '', type: 'Business', size: '27', brand: 'LG' },
-    { title: 'LG 49" Ultrawide Gaming', price: 135000, priceDisplay: 'Rs. 135,000', stock: 'In Stock', img: '', type: 'Ultrawide', size: '49', brand: 'LG' },
-    
-    // Dell Monitors
-    { title: 'Dell 24" Business Monitor', price: 28000, priceDisplay: 'Rs. 28,000', stock: 'In Stock', img: '', type: 'Business', size: '24', brand: 'Dell' },
-    { title: 'Dell 27" Professional Monitor', price: 55000, priceDisplay: 'Rs. 55,000', stock: 'In Stock', img: '', type: 'Professional', size: '27', brand: 'Dell' },
-    { title: 'Dell 32" 4K Monitor', price: 92000, priceDisplay: 'Rs. 92,000', stock: 'In Stock', img: '', type: 'Professional', size: '32', brand: 'Dell' },
-    { title: 'Dell 34" Ultrawide Monitor', price: 78000, priceDisplay: 'Rs. 78,000', stock: 'In Stock', img: '', type: 'Ultrawide', size: '34', brand: 'Dell' },
-    { title: 'Dell 27" Gaming Monitor', price: 48000, priceDisplay: 'Rs. 48,000', stock: 'In Stock', img: '', type: 'Gaming', size: '27', brand: 'Dell' },
-    { title: 'Dell 24" FHD Monitor', price: 26000, priceDisplay: 'Rs. 26,000', stock: 'In Stock', img: '', type: 'Business', size: '24', brand: 'Dell' },
-    
-    // HP Monitors
-    { title: 'HP 24" Business Monitor', price: 24000, priceDisplay: 'Rs. 24,000', stock: 'In Stock', img: '', type: 'Business', size: '24', brand: 'HP' },
-    { title: 'HP 27" QHD Monitor', price: 38000, priceDisplay: 'Rs. 38,000', stock: 'In Stock', img: '', type: 'Business', size: '27', brand: 'HP' },
-    { title: 'HP 32" 4K Monitor', price: 85000, priceDisplay: 'Rs. 85,000', stock: 'In Stock', img: '', type: 'Professional', size: '32', brand: 'HP' },
-    { title: 'HP 27" Gaming Monitor', price: 52000, priceDisplay: 'Rs. 52,000', stock: 'In Stock', img: '', type: 'Gaming', size: '27', brand: 'HP' },
-    { title: 'HP 24" FHD Monitor', price: 22000, priceDisplay: 'Rs. 22,000', stock: 'In Stock', img: '', type: 'Business', size: '24', brand: 'HP' },
-    { title: 'HP 34" Ultrawide Monitor', price: 82000, priceDisplay: 'Rs. 82,000', stock: 'In Stock', img: '', type: 'Ultrawide', size: '34', brand: 'HP' },
-    
-    // Asus Monitors
-    { title: 'Asus 24" Gaming Monitor', price: 35000, priceDisplay: 'Rs. 35,000', stock: 'In Stock', img: '', type: 'Gaming', size: '24', brand: 'Asus' },
-    { title: 'Asus 27" ROG Gaming Monitor', price: 68000, priceDisplay: 'Rs. 68,000', stock: 'In Stock', img: '', type: 'Gaming', size: '27', brand: 'Asus' },
-    { title: 'Asus 32" 4K Monitor', price: 95000, priceDisplay: 'Rs. 95,000', stock: 'In Stock', img: '', type: 'Professional', size: '32', brand: 'Asus' },
-    { title: 'Asus 34" Ultrawide Gaming', price: 98000, priceDisplay: 'Rs. 98,000', stock: 'In Stock', img: '', type: 'Ultrawide', size: '34', brand: 'Asus' },
-    { title: 'Asus 27" ProArt Monitor', price: 72000, priceDisplay: 'Rs. 72,000', stock: 'In Stock', img: '', type: 'Professional', size: '27', brand: 'Asus' },
-    { title: 'Asus 24" Business Monitor', price: 25000, priceDisplay: 'Rs. 25,000', stock: 'In Stock', img: '', type: 'Business', size: '24', brand: 'Asus' },
-    
-    // Acer Monitors
-    { title: 'Acer 24" Gaming Monitor', price: 32000, priceDisplay: 'Rs. 32,000', stock: 'In Stock', img: '', type: 'Gaming', size: '24', brand: 'Acer' },
-    { title: 'Acer 27" Predator Gaming', price: 75000, priceDisplay: 'Rs. 75,000', stock: 'In Stock', img: '', type: 'Gaming', size: '27', brand: 'Acer' },
-    { title: 'Acer 32" 4K Monitor', price: 88000, priceDisplay: 'Rs. 88,000', stock: 'In Stock', img: '', type: 'Professional', size: '32', brand: 'Acer' },
-    { title: 'Acer 24" Business Monitor', price: 20000, priceDisplay: 'Rs. 20,000', stock: 'In Stock', img: '', type: 'Business', size: '24', brand: 'Acer' },
-    { title: 'Acer 27" QHD Monitor', price: 42000, priceDisplay: 'Rs. 42,000', stock: 'In Stock', img: '', type: 'Business', size: '27', brand: 'Acer' },
-    { title: 'Acer 34" Ultrawide Monitor', price: 85000, priceDisplay: 'Rs. 85,000', stock: 'In Stock', img: '', type: 'Ultrawide', size: '34', brand: 'Acer' },
-    
-    // BenQ Monitors
-    { title: 'BenQ 24" Gaming Monitor', price: 38000, priceDisplay: 'Rs. 38,000', stock: 'In Stock', img: '', type: 'Gaming', size: '24', brand: 'BenQ' },
-    { title: 'BenQ 27" Professional Monitor', price: 65000, priceDisplay: 'Rs. 65,000', stock: 'In Stock', img: '', type: 'Professional', size: '27', brand: 'BenQ' },
-    { title: 'BenQ 32" 4K Monitor', price: 92000, priceDisplay: 'Rs. 92,000', stock: 'In Stock', img: '', type: 'Professional', size: '32', brand: 'BenQ' }
-];
-
+// Use centralized product data from data.js
+const products = monitorProducts;
 let productsPerPage = 20;
 let currentPage = 1;
 let maxPrice = 0;
-let filteredProducts = monitorProducts.slice();
+let filteredProducts = products.slice();
 let selectedBrands = [];
 let selectedTypes = [];
 let selectedSizes = [];
 
 function filterProducts() {
-    filteredProducts = monitorProducts.filter(p => {
+    filteredProducts = products.filter(p => {
         const priceMatch = p.price >= maxPrice;
         const brandMatch = selectedBrands.length === 0 || selectedBrands.includes(p.brand);
         const typeMatch = selectedTypes.length === 0 || selectedTypes.includes(p.type);

@@ -46,7 +46,7 @@
         </div>
     </div>
     <!-- Main Content Layout -->
-    <div class="container page-layout">
+    <div class="page-layout-centered page-layout">
         <!-- Sidebar -->
         <aside class="sidebar">
             <div class="sidebar-section category">
@@ -118,68 +118,21 @@
     </div>
     <!-- Footer -->
     <div id="footer"></div>
-    <script src="js/script.js"></script>
+    <script src="js/cart-wishlist.js"></script>
     <script src="js/include.js"></script>
     <script src="js/notifications.js"></script>
     <script>
-// Desktop PC product data
-const desktopProducts = [
-    // HP Desktop PCs
-    { title: 'HP Pavilion Desktop', price: 85000, priceDisplay: 'Rs. 85,000', stock: 'In Stock', img: '', category: 'Home' },
-    { title: 'HP EliteDesk 800', price: 120000, priceDisplay: 'Rs. 120,000', stock: 'In Stock', img: '', category: 'Business' },
-    { title: 'HP OMEN Gaming Desktop', price: 280000, priceDisplay: 'Rs. 280,000', stock: 'In Stock', img: '', category: 'Gaming' },
-    { title: 'HP Z2 Mini Workstation', price: 350000, priceDisplay: 'Rs. 350,000', stock: 'In Stock', img: '', category: 'Workstation' },
-    { title: 'HP ProDesk 600', price: 95000, priceDisplay: 'Rs. 95,000', stock: 'In Stock', img: '', category: 'Business' },
-    { title: 'HP Pavilion Gaming Desktop', price: 180000, priceDisplay: 'Rs. 180,000', stock: 'In Stock', img: '', category: 'Gaming' },
-    { title: 'HP EliteOne 800', price: 140000, priceDisplay: 'Rs. 140,000', stock: 'In Stock', img: '', category: 'Business' },
-    { title: 'HP Z8 G4 Workstation', price: 650000, priceDisplay: 'Rs. 650,000', stock: 'In Stock', img: '', category: 'Workstation' },
-    
-    // Dell Desktop PCs
-    { title: 'Dell Inspiron Desktop', price: 75000, priceDisplay: 'Rs. 75,000', stock: 'In Stock', img: '', category: 'Home' },
-    { title: 'Dell OptiPlex 7090', price: 110000, priceDisplay: 'Rs. 110,000', stock: 'In Stock', img: '', category: 'Business' },
-    { title: 'Dell Alienware Aurora', price: 420000, priceDisplay: 'Rs. 420,000', stock: 'In Stock', img: '', category: 'Gaming' },
-    { title: 'Dell Precision 3650', price: 280000, priceDisplay: 'Rs. 280,000', stock: 'In Stock', img: '', category: 'Workstation' },
-    { title: 'Dell Vostro Desktop', price: 85000, priceDisplay: 'Rs. 85,000', stock: 'In Stock', img: '', category: 'Business' },
-    { title: 'Dell XPS Desktop', price: 320000, priceDisplay: 'Rs. 320,000', stock: 'In Stock', img: '', category: 'Home' },
-    { title: 'Dell Precision 5820', price: 450000, priceDisplay: 'Rs. 450,000', stock: 'In Stock', img: '', category: 'Workstation' },
-    { title: 'Dell G5 Gaming Desktop', price: 220000, priceDisplay: 'Rs. 220,000', stock: 'In Stock', img: '', category: 'Gaming' },
-    
-    // Lenovo Desktop PCs
-    { title: 'Lenovo IdeaCentre Desktop', price: 70000, priceDisplay: 'Rs. 70,000', stock: 'In Stock', img: '', category: 'Home' },
-    { title: 'Lenovo ThinkCentre M90', price: 100000, priceDisplay: 'Rs. 100,000', stock: 'In Stock', img: '', category: 'Business' },
-    { title: 'Lenovo Legion Gaming Desktop', price: 250000, priceDisplay: 'Rs. 250,000', stock: 'In Stock', img: '', category: 'Gaming' },
-    { title: 'Lenovo ThinkStation P350', price: 320000, priceDisplay: 'Rs. 320,000', stock: 'In Stock', img: '', category: 'Workstation' },
-    { title: 'Lenovo V530 Desktop', price: 80000, priceDisplay: 'Rs. 80,000', stock: 'In Stock', img: '', category: 'Home' },
-    { title: 'Lenovo ThinkCentre M80', price: 95000, priceDisplay: 'Rs. 95,000', stock: 'In Stock', img: '', category: 'Business' },
-    { title: 'Lenovo Legion 5 Desktop', price: 200000, priceDisplay: 'Rs. 200,000', stock: 'In Stock', img: '', category: 'Gaming' },
-    { title: 'Lenovo ThinkStation P360', price: 380000, priceDisplay: 'Rs. 380,000', stock: 'In Stock', img: '', category: 'Workstation' },
-    
-    // Asus Desktop PCs
-    { title: 'Asus VivoPC Desktop', price: 65000, priceDisplay: 'Rs. 65,000', stock: 'In Stock', img: '', category: 'Home' },
-    { title: 'Asus ProArt Station', price: 280000, priceDisplay: 'Rs. 280,000', stock: 'In Stock', img: '', category: 'Workstation' },
-    { title: 'Asus ROG Strix Gaming', price: 300000, priceDisplay: 'Rs. 300,000', stock: 'In Stock', img: '', category: 'Gaming' },
-    { title: 'Asus ExpertCenter', price: 90000, priceDisplay: 'Rs. 90,000', stock: 'In Stock', img: '', category: 'Business' },
-    { title: 'Asus Zen AiO Desktop', price: 180000, priceDisplay: 'Rs. 180,000', stock: 'In Stock', img: '', category: 'Home' },
-    { title: 'Asus ROG Gaming Desktop', price: 350000, priceDisplay: 'Rs. 350,000', stock: 'In Stock', img: '', category: 'Gaming' },
-    { title: 'Asus ProArt Station D9', price: 420000, priceDisplay: 'Rs. 420,000', stock: 'In Stock', img: '', category: 'Workstation' },
-    { title: 'Asus VivoMini Desktop', price: 55000, priceDisplay: 'Rs. 55,000', stock: 'In Stock', img: '', category: 'Home' },
-    
-    // Custom Built PCs
-    { title: 'Custom Gaming PC RTX 4070', price: 450000, priceDisplay: 'Rs. 450,000', stock: 'In Stock', img: '', category: 'Gaming' },
-    { title: 'Custom Workstation PC', price: 380000, priceDisplay: 'Rs. 380,000', stock: 'In Stock', img: '', category: 'Workstation' },
-    { title: 'Custom Office PC', price: 85000, priceDisplay: 'Rs. 85,000', stock: 'In Stock', img: '', category: 'Business' },
-    { title: 'Custom Home PC', price: 70000, priceDisplay: 'Rs. 70,000', stock: 'In Stock', img: '', category: 'Home' }
-];
-
+// Use centralized product data from data.js
+const products = desktopPCProducts;
 let productsPerPage = 20;
 let currentPage = 1;
 let maxPrice = 0;
-let filteredProducts = desktopProducts.slice();
+let filteredProducts = products.slice();
 let selectedBrands = [];
 let selectedCategories = [];
 
 function filterProducts() {
-    filteredProducts = desktopProducts.filter(p => {
+    filteredProducts = products.filter(p => {
         const priceMatch = p.price >= maxPrice;
         const brandMatch = selectedBrands.length === 0 || selectedBrands.some(b => p.title.toLowerCase().includes(b.toLowerCase()));
         const categoryMatch = selectedCategories.length === 0 || selectedCategories.includes(p.category);

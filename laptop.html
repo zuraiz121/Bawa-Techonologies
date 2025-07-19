@@ -47,7 +47,7 @@
         </div>
     </div>
     <!-- Main Content Layout -->
-    <div class="container page-layout">
+    <div class="page-layout-centered page-layout">
         <!-- Sidebar -->
         <aside class="sidebar">
             <div class="sidebar-section category">
@@ -114,7 +114,7 @@
     <!-- Footer -->
     <div id="footer"></div>
     <script src="js/data.js"></script>
-    <script src="js/script.js"></script>
+    <script src="js/cart-wishlist.js"></script>
     <script src="js/include.js"></script>
     <script src="js/notifications.js"></script>
     <script>
@@ -207,95 +207,7 @@ function renderPagination() {
 }
     // Results per page dropdown
     
-    // Cart and Wishlist Functions
-    function addToCart(productId) {
-        const product = products[productId - 1];
-        if (product) {
-            let cart = JSON.parse(localStorage.getItem('cart') || '[]');
-            const existingItem = cart.find(item => item.id === productId);
-            
-            if (existingItem) {
-                existingItem.quantity += 1;
-            } else {
-                cart.push({
-                    id: productId,
-                    title: product.title,
-                    price: product.price,
-                    priceDisplay: product.priceDisplay,
-                    quantity: 1
-                });
-            }
-            
-            localStorage.setItem('cart', JSON.stringify(cart));
-            showNotification('Product added to cart successfully!', 'success');
-            updateCartCounter();
-        }
-    }
-    
-    function addToWishlist(productId) {
-        const product = products[productId - 1];
-        if (product) {
-            let wishlist = JSON.parse(localStorage.getItem('wishlist') || '[]');
-            const existingItem = wishlist.find(item => item.id === productId);
-            
-            if (!existingItem) {
-                wishlist.push({
-                    id: productId,
-                    title: product.title,
-                    price: product.price,
-                    priceDisplay: product.priceDisplay
-                });
-                localStorage.setItem('wishlist', JSON.stringify(wishlist));
-                showNotification('Product added to wishlist!', 'success');
-            } else {
-                showNotification('Product already in wishlist!', 'info');
-            }
-        }
-    }
-    
-    function toggleWishlist(productId) {
-        const heartIcon = event.target;
-        heartIcon.classList.toggle('active');
-        
-        if (heartIcon.classList.contains('active')) {
-            addToWishlist(productId);
-        } else {
-            // Remove from wishlist
-            let wishlist = JSON.parse(localStorage.getItem('wishlist') || '[]');
-            wishlist = wishlist.filter(item => item.id !== productId);
-            localStorage.setItem('wishlist', JSON.stringify(wishlist));
-            showNotification('Product removed from wishlist!', 'info');
-        }
-    }
-    
-    function updateCartCounter() {
-        const cart = JSON.parse(localStorage.getItem('cart') || '[]');
-        const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-        const cartLink = document.getElementById('cart-link');
-        if (cartLink) {
-            cartLink.innerHTML = `<i class="fas fa-shopping-cart"></i>${totalItems > 0 ? ` <span style="background: red; color: white; border-radius: 50%; padding: 2px 6px; font-size: 12px;">${totalItems}</span>` : ''}`;
-        }
-    }
-    
-    function showNotification(message, type = 'info') {
-        const notification = document.createElement('div');
-        notification.className = `notification ${type}`;
-        notification.innerHTML = `
-            <div class="icon">${type === 'success' ? '✓' : type === 'error' ? '✗' : 'ℹ'}</div>
-            <div class="message">${message}</div>
-            <div class="close" onclick="this.parentElement.remove()">×</div>
-        `;
-        document.body.appendChild(notification);
-        
-        setTimeout(() => {
-            notification.classList.add('show');
-        }, 100);
-        
-        setTimeout(() => {
-            notification.classList.remove('show');
-            setTimeout(() => notification.remove(), 300);
-        }, 3000);
-    }
+    // Cart and wishlist functions are now handled by cart-wishlist.js
 const resultsSelect = document.getElementById('results-per-page');
 resultsSelect.addEventListener('change', function() {
     productsPerPage = parseInt(this.value);
@@ -361,7 +273,6 @@ sortBySelect.addEventListener('change', function() {
 filterProducts();
 renderProducts(currentPage);
 renderPagination();
-updateCartCounter();
 // Add to Cart global handler - now handled by notifications.js
 // The new system will show notifications and handle cart operations automatically
 </script>
