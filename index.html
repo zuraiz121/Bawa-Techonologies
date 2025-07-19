@@ -127,69 +127,6 @@
             border-color: var(--hover-accent);
             opacity: 1;
         }
-        /* Featured Products */
-        .featured-section {
-            max-width: 1200px;
-            margin: 60px auto 0 auto;
-            padding: 0 16px;
-        }
-        .featured-title {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--primary-blue);
-            margin-bottom: 32px;
-            text-align: center;
-        }
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 32px;
-        }
-        .product-card {
-            background: #fff;
-            border-radius: 16px;
-            box-shadow: 0 2px 12px rgba(50,101,138,0.07);
-            padding: 28px 18px 22px 18px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            transition: box-shadow 0.2s, border 0.2s;
-            border: 2px solid transparent;
-        }
-        .product-card:hover {
-            border: 2px solid var(--hover-accent);
-            box-shadow: 0 6px 24px rgba(0,153,255,0.10);
-        }
-        .product-img {
-            width: 90px; height: 90px;
-            background: #e0e0e0;
-            border-radius: 12px;
-            margin-bottom: 18px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.2rem;
-            color: #bbb;
-        }
-        .product-title {
-            font-size: 1.15rem;
-            font-weight: 600;
-            color: var(--primary-blue);
-            margin-bottom: 8px;
-            text-align: center;
-        }
-        .product-desc {
-            font-size: 0.98rem;
-            color: #3a3a3a;
-            margin-bottom: 12px;
-            text-align: center;
-        }
-        .product-price {
-            font-size: 1.08rem;
-            font-weight: 700;
-            color: var(--dark-gray);
-            margin-bottom: 16px;
-        }
         .buy-btn {
             background: var(--primary-blue);
             color: #fff;
@@ -204,268 +141,517 @@
         .buy-btn:hover {
             background: var(--hover-accent);
         }
-        /* Footer */
-        .footer {
-            background: var(--dark-gray);
-            color: #fff;
-            padding: 48px 0 24px 0;
-            margin-top: 60px;
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            text-align: center;
+            margin-bottom: 40px;
         }
-        .footer-container {
-            max-width: 1200px;
-            margin: 0 auto;
+        
+        .product-card {
+            width: 100%;
+            position: relative;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 10px;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(45deg, #18181B, #27272A);
+            color: white;
+            padding: 6px 12px;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-radius: 12px;
+            z-index: 10;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .product-tilt-effect {
+            overflow: hidden;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+        .product-image {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+
+        .product-info {
+            padding: 20px;
+            position: relative;
+        }
+
+        .product-category {
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #71717A;
+            margin-bottom: 8px;
+        }
+
+        .product-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #18181B;
+            margin: 0 0 12px 0;
+            letter-spacing: -0.5px;
+            line-height: 1.2;
+        }
+
+        .product-description p {
+            font-size: 13px;
+            color: #52525B;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        .product-features {
             display: flex;
             flex-wrap: wrap;
-            gap: 40px;
+            gap: 6px;
+            margin-bottom: 15px;
+        }
+
+        .feature {
+            font-size: 10px;
+            background-color: #F4F4F5;
+            color: #71717A;
+            padding: 3px 8px;
+            border-radius: 10px;
+            font-weight: 500;
+        }
+
+        .product-bottom {
+            display: flex;
             justify-content: space-between;
-            padding: 0 16px;
+            align-items: center;
+            margin-bottom: 15px;
         }
-        .footer-col {
-            flex: 1 1 220px;
-            min-width: 180px;
+
+        .product-price {
+            display: flex;
+            flex-direction: column;
         }
-        .footer-col h4 {
-            font-size: 1.1rem;
+
+        .price-was {
+            font-size: 12px;
+            text-decoration: line-through;
+            color: #A1A1AA;
+            margin-bottom: 2px;
+        }
+
+        .price-now {
+            font-size: 18px;
             font-weight: 700;
-            margin-bottom: 18px;
-            color: #fff;
+            color: #18181B;
         }
-        .footer-col ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
+
+        .product-button {
+            background: linear-gradient(45deg, #18181B, #27272A);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            padding: 8px 14px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
         }
-        .footer-col ul li {
-            margin-bottom: 10px;
+
+        .product-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: all 0.6s ease;
         }
-        .footer-col ul li a {
-            color: #fff;
-            text-decoration: none;
-            transition: color 0.2s;
+
+        .product-button:hover {
+            background: linear-gradient(45deg, #27272A, #3F3F46);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
         }
-        .footer-col ul li a:hover {
-            color: var(--hover-accent);
+
+        .product-button:hover::before {
+            left: 100%;
         }
-        .footer-social {
-            margin-top: 18px;
+
+        .button-icon {
+            transition: transform 0.3s ease;
         }
-        .footer-social a {
-            color: #fff;
-            font-size: 1.3rem;
-            margin-right: 18px;
-            transition: color 0.2s;
+
+        .product-button:hover .button-icon {
+            transform: rotate(-10deg) scale(1.1);
         }
-        .footer-social a:hover {
-            color: var(--hover-accent);
+
+        .product-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #F4F4F5;
+            padding-top: 12px;
         }
-        .footer-bottom {
-            text-align: center;
-            color: #bbb;
-            font-size: 0.98rem;
-            margin-top: 32px;
+
+        .product-rating {
+            display: flex;
+            align-items: center;
+            gap: 2px;
         }
-        /* Responsive */
-        @media (max-width: 1200px) {
-            .hero-carousel {
-                min-height: 50vh;
-            }
-            .carousel-content {
-                padding: 30px 24px;
-                max-width: 500px;
-            }
-            .carousel-content h1 {
-                font-size: 2.2rem;
-            }
-            .carousel-content p {
-                font-size: 1.1rem;
-            }
+
+        .rating-count {
+            margin-left: 6px;
+            font-size: 11px;
+            color: #71717A;
         }
-        
-        @media (max-width: 1024px) {
-            .hero-carousel {
-                min-height: 45vh;
-            }
-            .carousel-content {
-                padding: 25px 20px;
-                max-width: 450px;
-            }
-            .carousel-content h1 {
-                font-size: 2rem;
-            }
-            .carousel-content p {
-                font-size: 1rem;
-                margin-bottom: 20px;
-            }
-            .carousel-arrow {
-                width: 40px;
-                height: 40px;
-                font-size: 1.5rem;
-            }
-            .carousel-arrow.prev { left: 20px; }
-            .carousel-arrow.next { right: 20px; }
-            .product-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .footer-container {
-                flex-direction: column;
-                gap: 24px;
-            }
+
+        .product-stock {
+            font-size: 11px;
+            font-weight: 600;
+            color: #22C55E;
         }
         
-        @media (max-width: 768px) {
-            .hero-carousel {
-                min-height: 40vh;
-            }
-            .carousel-content {
-                padding: 20px 16px;
-                max-width: 400px;
-            }
-            .carousel-content h1 {
-                font-size: 1.6rem;
-                margin-bottom: 12px;
-            }
-            .carousel-content p {
-                font-size: 0.95rem;
-                margin-bottom: 18px;
-            }
-            .carousel-content .cta-btn {
-                padding: 12px 30px;
-                font-size: 1rem;
-            }
-            .carousel-arrow {
-                width: 36px;
-                height: 36px;
-                font-size: 1.3rem;
-            }
-            .carousel-arrow.prev { left: 15px; }
-            .carousel-arrow.next { right: 15px; }
-            .carousel-dots {
-                bottom: 20px;
-                gap: 8px;
-            }
-            .carousel-dot {
-                width: 12px;
-                height: 12px;
-            }
-        }
+                 /* Featured Sections */
+         .featured-headphones-section,
+         .featured-laptops-section,
+         .featured-desktops-section,
+         .featured-accessories-section,
+         .featured-monitors-section {
+             max-width: 1400px;
+             margin: 60px auto;
+             padding: 0 20px;
+         }
+         
+         .headphones-grid,
+         .laptops-grid,
+         .desktops-grid,
+         .accessories-grid,
+         .monitors-grid {
+             display: grid;
+             grid-template-columns: repeat(4, 1fr);
+             gap: 80px !important;
+             margin-bottom: 40px;
+         }
+         
+         /* Responsive Design */
+         @media (max-width: 1200px) {
+             .headphones-grid,
+             .laptops-grid,
+             .desktops-grid,
+             .accessories-grid,
+             .monitors-grid {
+                 grid-template-columns: repeat(3, 1fr);
+                 gap: 60px !important;
+             }
+         }
         
-        @media (max-width: 600px) {
-            .hero-carousel {
-                min-height: 35vh;
-            }
-            .carousel-content {
-                padding: 18px 12px;
-                max-width: 350px;
-            }
-            .carousel-content h1 {
-                font-size: 1.4rem;
-                margin-bottom: 10px;
-            }
-            .carousel-content p {
-                font-size: 0.9rem;
-                margin-bottom: 15px;
-            }
-            .carousel-content .cta-btn {
-                padding: 10px 24px;
-                font-size: 0.9rem;
-            }
-            .carousel-arrow {
-                width: 32px;
-                height: 32px;
-                font-size: 1.1rem;
-            }
-            .carousel-arrow.prev { left: 10px; }
-            .carousel-arrow.next { right: 10px; }
-            .carousel-dots {
-                bottom: 15px;
-                gap: 6px;
-            }
-            .carousel-dot {
-                width: 10px;
-                height: 10px;
-            }
-            .product-grid {
-                grid-template-columns: 1fr;
-                gap: 18px;
-            }
-            .footer-container {
-                padding: 0 6px;
-            }
-        }
+                 @media (max-width: 1024px) {
+             .headphones-grid,
+             .laptops-grid,
+             .desktops-grid,
+             .accessories-grid,
+             .monitors-grid {
+                 grid-template-columns: repeat(2, 1fr);
+                 gap: 35px !important;
+             }
+             
+             .product-image {
+                 height: 180px;
+             }
+             
+             .product-info {
+                 padding: 16px;
+             }
+             
+             .product-title {
+                 font-size: 16px;
+             }
+         }
         
-        @media (max-width: 480px) {
-            .hero-carousel {
-                min-height: 30vh;
-            }
-            .carousel-content {
-                padding: 15px 10px;
-                max-width: 300px;
-            }
-            .carousel-content h1 {
-                font-size: 1.2rem;
-                margin-bottom: 8px;
-            }
-            .carousel-content p {
-                font-size: 0.85rem;
-                margin-bottom: 12px;
-            }
-            .carousel-content .cta-btn {
-                padding: 8px 20px;
-                font-size: 0.85rem;
-            }
-            .carousel-arrow {
-                width: 28px;
-                height: 28px;
-                font-size: 1rem;
-            }
-            .carousel-arrow.prev { left: 8px; }
-            .carousel-arrow.next { right: 8px; }
-            .carousel-dots {
-                bottom: 12px;
-                gap: 5px;
-            }
-            .carousel-dot {
-                width: 8px;
-                height: 8px;
-            }
-        }
+                 @media (max-width: 768px) {
+             .headphones-grid,
+             .laptops-grid,
+             .desktops-grid,
+             .accessories-grid,
+             .monitors-grid {
+                 grid-template-columns: repeat(2, 1fr);
+                 gap: 30px !important;
+             }
+             
+             .section-title {
+                 font-size: 2rem;
+                 margin-bottom: 30px;
+             }
+             
+             .product-image {
+                 height: 160px;
+             }
+             
+             .product-info {
+                 padding: 14px;
+             }
+             
+             .product-title {
+                 font-size: 15px;
+             }
+             
+             .price-now {
+                 font-size: 16px;
+             }
+         }
         
-        @media (max-width: 360px) {
-            .hero-carousel {
-                min-height: 25vh;
-            }
-            .carousel-content {
-                padding: 12px 8px;
-                max-width: 280px;
-            }
-            .carousel-content h1 {
-                font-size: 1.1rem;
-                margin-bottom: 6px;
-            }
-            .carousel-content p {
-                font-size: 0.8rem;
-                margin-bottom: 10px;
-            }
-            .carousel-content .cta-btn {
-                padding: 6px 16px;
-                font-size: 0.8rem;
-            }
-            .carousel-arrow {
-                width: 24px;
-                height: 24px;
-                font-size: 0.9rem;
-            }
-            .carousel-arrow.prev { left: 5px; }
-            .carousel-arrow.next { right: 5px; }
-            .carousel-dots {
-                bottom: 10px;
-                gap: 4px;
-            }
-            .carousel-dot {
-                width: 6px;
-                height: 6px;
-            }
-        }
+                 @media (max-width: 480px) {
+             .headphones-grid,
+             .laptops-grid,
+             .desktops-grid,
+             .accessories-grid,
+             .monitors-grid {
+                 grid-template-columns: 1fr;
+                 gap: 40px !important;
+             }
+             
+             .product-card {
+                 max-width: 320px;
+                 margin: 0 auto;
+             }
+             
+             .product-image {
+                 height: 200px;
+             }
+             
+             .product-bottom {
+                 flex-direction: column;
+                 align-items: flex-start;
+                 gap: 12px;
+             }
+             
+             .product-button {
+                 width: 100%;
+                 justify-content: center;
+             }
+         }
+         
+         /* Footer */
+         .footer {
+             background: var(--dark-gray);
+             color: #fff;
+             padding: 48px 0 24px 0;
+             margin-top: 60px;
+         }
+         .footer-container {
+             max-width: 1200px;
+             margin: 0 auto;
+             display: flex;
+             flex-wrap: wrap;
+             gap: 40px;
+             justify-content: space-between;
+             padding: 0 16px;
+         }
+         .footer-col {
+             flex: 1 1 220px;
+             min-width: 180px;
+         }
+         .footer-col h4 {
+             font-size: 1.1rem;
+             font-weight: 700;
+             margin-bottom: 18px;
+             color: #fff;
+         }
+         .footer-col ul {
+             list-style: none;
+             padding: 0;
+             margin: 0;
+         }
+         .footer-col ul li {
+             margin-bottom: 10px;
+         }
+         .footer-col ul li a {
+             color: #fff;
+             text-decoration: none;
+             transition: color 0.2s;
+         }
+         .footer-col ul li a:hover {
+             color: var(--hover-accent);
+         }
+         .footer-social {
+             margin-top: 18px;
+         }
+         .footer-social a {
+             color: #fff;
+             font-size: 1.3rem;
+             margin-right: 18px;
+             transition: color 0.2s;
+         }
+         .footer-social a:hover {
+             color: var(--hover-accent);
+         }
+         .footer-bottom {
+             text-align: center;
+             color: #bbb;
+             font-size: 0.98rem;
+             margin-top: 32px;
+         }
+         
+         /* Carousel Responsive */
+         @media (max-width: 1200px) {
+             .hero-carousel {
+                 min-height: 50vh;
+             }
+             .carousel-content {
+                 padding: 30px 24px;
+                 max-width: 500px;
+             }
+             .carousel-content h1 {
+                 font-size: 2.2rem;
+             }
+             .carousel-content p {
+                 font-size: 1.1rem;
+             }
+         }
+         
+         @media (max-width: 1024px) {
+             .hero-carousel {
+                 min-height: 45vh;
+             }
+             .carousel-content {
+                 padding: 25px 20px;
+                 max-width: 450px;
+             }
+             .carousel-content h1 {
+                 font-size: 2rem;
+             }
+             .carousel-content p {
+                 font-size: 1rem;
+                 margin-bottom: 20px;
+             }
+             .carousel-arrow {
+                 width: 40px;
+                 height: 40px;
+                 font-size: 1.5rem;
+             }
+             .carousel-arrow.prev { left: 20px; }
+             .carousel-arrow.next { right: 20px; }
+             .footer-container {
+                 flex-direction: column;
+                 gap: 24px;
+             }
+         }
+         
+         @media (max-width: 768px) {
+             .hero-carousel {
+                 min-height: 40vh;
+             }
+             .carousel-content {
+                 padding: 20px 16px;
+                 max-width: 400px;
+             }
+             .carousel-content h1 {
+                 font-size: 1.6rem;
+                 margin-bottom: 12px;
+             }
+             .carousel-content p {
+                 font-size: 0.95rem;
+                 margin-bottom: 18px;
+             }
+             .carousel-content .cta-btn {
+                 padding: 12px 30px;
+                 font-size: 1rem;
+             }
+             .carousel-arrow {
+                 width: 36px;
+                 height: 36px;
+                 font-size: 1.3rem;
+             }
+             .carousel-arrow.prev { left: 15px; }
+             .carousel-arrow.next { right: 15px; }
+             .carousel-dots {
+                 bottom: 20px;
+                 gap: 8px;
+             }
+             .carousel-dot {
+                 width: 12px;
+                 height: 12px;
+             }
+         }
+         
+         @media (max-width: 600px) {
+             .hero-carousel {
+                 min-height: 35vh;
+             }
+             .carousel-content {
+                 padding: 18px 12px;
+                 max-width: 350px;
+             }
+             .carousel-content h1 {
+                 font-size: 1.4rem;
+                 margin-bottom: 10px;
+             }
+             .carousel-content p {
+                 font-size: 0.9rem;
+                 margin-bottom: 15px;
+             }
+             .carousel-content .cta-btn {
+                 padding: 10px 24px;
+                 font-size: 0.9rem;
+             }
+             .carousel-arrow {
+                 width: 32px;
+                 height: 32px;
+                 font-size: 1.1rem;
+             }
+             .carousel-arrow.prev { left: 10px; }
+             .carousel-arrow.next { right: 10px; }
+             .carousel-dots {
+                 bottom: 15px;
+                 gap: 6px;
+             }
+             .carousel-dot {
+                 width: 10px;
+                 height: 10px;
+             }
+             .footer-container {
+                 padding: 0 6px;
+             }
+         }
     </style>
 </head>
 <body>
@@ -527,126 +713,49 @@
         </div>
         <button class="carousel-arrow prev" id="carousel-prev"><i class="fas fa-chevron-left"></i></button>
         <button class="carousel-arrow next" id="carousel-next"><i class="fas fa-chevron-right"></i></button>
-        <div class="carousel-dots" id="carousel-dots"></div>
+                <div class="carousel-dots" id="carousel-dots"></div>
     </section>
-    <!-- Featured Products -->
-    <section class="featured-section">
-        <div class="featured-title">Featured Products</div>
-        <div class="product-grid">
-            <div class="product-card">
-                <div class="product-img"><i class="fas fa-laptop"></i></div>
-                <div class="product-info">
-                    <h2 class="product-title">HP EliteBook 840</h2>
-                    <div class="product-meta">
-                        <span class="price">Rs. 250,000</span>
-                        <span class="stock in-stock">In Stock</span>
-                    </div>
-                    <div class="product-actions">
-                        <button class="btn btn-blue">ADD TO CART</button>
-                        <button class="btn btn-gray"><i class="far fa-heart"></i> ADD TO WISHLIST</button>
-                    </div>
-                </div>
-            </div>
-            <div class="product-card">
-                <div class="product-img"><i class="fas fa-laptop"></i></div>
-                <div class="product-info">
-                    <h2 class="product-title">Dell XPS 13</h2>
-                    <div class="product-meta">
-                        <span class="price">Rs. 330,000</span>
-                        <span class="stock in-stock">In Stock</span>
-                    </div>
-                    <div class="product-actions">
-                        <button class="btn btn-blue">ADD TO CART</button>
-                        <button class="btn btn-gray"><i class="far fa-heart"></i> ADD TO WISHLIST</button>
-                    </div>
-                </div>
-            </div>
-            <div class="product-card">
-                <div class="product-img"><i class="fas fa-desktop"></i></div>
-                <div class="product-info">
-                    <h2 class="product-title">Lenovo ThinkCentre</h2>
-                    <div class="product-meta">
-                        <span class="price">Rs. 120,000</span>
-                        <span class="stock in-stock">In Stock</span>
-                    </div>
-                    <div class="product-actions">
-                        <button class="btn btn-blue">ADD TO CART</button>
-                        <button class="btn btn-gray"><i class="far fa-heart"></i> ADD TO WISHLIST</button>
-                    </div>
-                </div>
-            </div>
-            <div class="product-card">
-                <div class="product-img"><i class="fas fa-keyboard"></i></div>
-                <div class="product-info">
-                    <h2 class="product-title">Logitech Keyboard</h2>
-                    <div class="product-meta">
-                        <span class="price">Rs. 8,500</span>
-                        <span class="stock in-stock">In Stock</span>
-                    </div>
-                    <div class="product-actions">
-                        <button class="btn btn-blue">ADD TO CART</button>
-                        <button class="btn btn-gray"><i class="far fa-heart"></i> ADD TO WISHLIST</button>
-                    </div>
-                </div>
-            </div>
-            <div class="product-card">
-                <div class="product-img"><i class="fas fa-mouse"></i></div>
-                <div class="product-info">
-                    <h2 class="product-title">HP Wireless Mouse</h2>
-                    <div class="product-meta">
-                        <span class="price">Rs. 3,200</span>
-                        <span class="stock in-stock">In Stock</span>
-                    </div>
-                    <div class="product-actions">
-                        <button class="btn btn-blue">ADD TO CART</button>
-                        <button class="btn btn-gray"><i class="far fa-heart"></i> ADD TO WISHLIST</button>
-                    </div>
-                </div>
-            </div>
-            <div class="product-card">
-                <div class="product-img"><i class="fas fa-headphones"></i></div>
-                <div class="product-info">
-                    <h2 class="product-title">Gaming Headset</h2>
-                    <div class="product-meta">
-                        <span class="price">Rs. 14,000</span>
-                        <span class="stock in-stock">In Stock</span>
-                    </div>
-                    <div class="product-actions">
-                        <button class="btn btn-blue">ADD TO CART</button>
-                        <button class="btn btn-gray"><i class="far fa-heart"></i> ADD TO WISHLIST</button>
-                    </div>
-                </div>
-            </div>
-            <div class="product-card">
-                <div class="product-img"><i class="fas fa-laptop-code"></i></div>
-                <div class="product-info">
-                    <h2 class="product-title">Asus ROG Zephyrus</h2>
-                    <div class="product-meta">
-                        <span class="price">Rs. 370,000</span>
-                        <span class="stock in-stock">In Stock</span>
-                    </div>
-                    <div class="product-actions">
-                        <button class="btn btn-blue">ADD TO CART</button>
-                        <button class="btn btn-gray"><i class="far fa-heart"></i> ADD TO WISHLIST</button>
-                    </div>
-                </div>
-            </div>
-            <div class="product-card">
-                <div class="product-img"><i class="fas fa-desktop"></i></div>
-                <div class="product-info">
-                    <h2 class="product-title">Custom Gaming PC</h2>
-                    <div class="product-meta">
-                        <span class="price">Rs. 450,000</span>
-                        <span class="stock in-stock">In Stock</span>
-                    </div>
-                    <div class="product-actions">
-                        <button class="btn btn-blue">ADD TO CART</button>
-                        <button class="btn btn-gray"><i class="far fa-heart"></i> ADD TO WISHLIST</button>
-                    </div>
-                </div>
-            </div>
+    
+    <!-- Featured Headphones Section -->
+    <section class="featured-headphones-section">
+        <h2 class="section-title">Featured Headphones</h2>
+        <div class="headphones-grid" id="headphones-grid">
+            <!-- Headphones will be loaded dynamically -->
         </div>
     </section>
+    
+    <!-- Featured Laptops Section -->
+    <section class="featured-laptops-section">
+        <h2 class="section-title">Featured Laptops</h2>
+        <div class="laptops-grid" id="laptops-grid">
+            <!-- Laptops will be loaded dynamically -->
+        </div>
+    </section>
+    
+    <!-- Featured Desktop PCs Section -->
+    <section class="featured-desktops-section">
+        <h2 class="section-title">Featured Desktop PCs</h2>
+        <div class="desktops-grid" id="desktops-grid">
+            <!-- Desktop PCs will be loaded dynamically -->
+        </div>
+    </section>
+    
+    <!-- Featured Accessories Section -->
+    <section class="featured-accessories-section">
+        <h2 class="section-title">Featured Accessories</h2>
+        <div class="accessories-grid" id="accessories-grid">
+            <!-- Accessories will be loaded dynamically -->
+        </div>
+    </section>
+    
+    <!-- Featured Monitors Section -->
+    <section class="featured-monitors-section">
+        <h2 class="section-title">Featured Monitors</h2>
+        <div class="monitors-grid" id="monitors-grid">
+            <!-- Monitors will be loaded dynamically -->
+        </div>
+    </section>
+ 
     <!-- Footer -->
     <div id="footer"></div>
     <script src="js/script.js"></script>
@@ -706,130 +815,982 @@
         stopAutoSlide();
         startAutoSlide();
     });
-    // Start
+        // Start
     showSlide(0);
     startAutoSlide();
 
-    // Search bar functionality for featured products
-    const searchInput = document.querySelector('.search-bar input');
-    const searchBtn = document.querySelector('.search-bar button');
-    const productGrid = document.querySelector('.product-grid');
-    const allProducts = [
+
+
+    // Laptops data
+    const laptopsData = [
         {
-            icon: '<i class="fas fa-laptop"></i>',
             title: 'HP EliteBook 840',
-            desc: 'Powerful business laptop with sleek design.',
-            price: 'Rs. 250,000'
+            category: 'Business Laptop',
+            description: 'Powerful business laptop with sleek design and premium build quality.',
+            price: 'Rs. 250,000',
+            oldPrice: 'Rs. 280,000',
+            image: 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+            features: ['Intel i5', '8GB RAM', '256GB SSD'],
+            badge: 'Premium',
+            rating: 5,
+            reviews: 89,
+            stock: 'In Stock'
         },
         {
-            icon: '<i class="fas fa-laptop"></i>',
             title: 'Dell XPS 13',
-            desc: 'Ultra-portable, high-performance ultrabook.',
-            price: 'Rs. 330,000'
+            category: 'Ultrabook',
+            description: 'Ultra-portable, high-performance ultrabook with stunning display.',
+            price: 'Rs. 330,000',
+            oldPrice: 'Rs. 360,000',
+            image: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+            features: ['Intel i7', '16GB RAM', '512GB SSD'],
+            badge: 'Premium',
+            rating: 5,
+            reviews: 156,
+            stock: 'In Stock'
         },
         {
-            icon: '<i class="fas fa-desktop"></i>',
-            title: 'Lenovo ThinkCentre',
-            desc: 'Reliable desktop for office and home.',
-            price: 'Rs. 120,000'
+            title: 'Lenovo ThinkPad X1 Carbon',
+            category: 'Business Laptop',
+            description: 'Lightweight business laptop with exceptional durability and performance.',
+            price: 'Rs. 340,000',
+            oldPrice: 'Rs. 380,000',
+            image: 'https://images.unsplash.com/photo-1541807084-5c52b6b3adef?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+            features: ['Intel i7', '16GB RAM', '1TB SSD'],
+            badge: 'Premium',
+            rating: 5,
+            reviews: 203,
+            stock: 'In Stock'
         },
         {
-            icon: '<i class="fas fa-keyboard"></i>',
-            title: 'Logitech Keyboard',
-            desc: 'Ergonomic keyboard for comfortable typing.',
-            price: 'Rs. 8,500'
+            title: 'MacBook Pro 14"',
+            category: 'Professional Laptop',
+            description: 'Professional laptop with M2 chip for creative professionals.',
+            price: 'Rs. 450,000',
+            oldPrice: 'Rs. 480,000',
+            image: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+            features: ['M2 Chip', '16GB RAM', '512GB SSD'],
+            badge: 'Premium',
+            rating: 5,
+            reviews: 312,
+            stock: 'In Stock'
         },
         {
-            icon: '<i class="fas fa-mouse"></i>',
-            title: 'HP Wireless Mouse',
-            desc: 'Smooth, precise, and wireless control.',
-            price: 'Rs. 3,200'
+            title: 'ASUS ROG Strix',
+            category: 'Gaming Laptop',
+            description: 'High-performance gaming laptop with RGB lighting and powerful graphics.',
+            price: 'Rs. 280,000',
+            oldPrice: 'Rs. 320,000',
+            image: 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+            features: ['Intel i7', '16GB RAM', 'RTX 4060'],
+            badge: 'Gaming',
+            rating: 5,
+            reviews: 178,
+            stock: 'In Stock'
         },
         {
-            icon: '<i class="fas fa-headphones"></i>',
-            title: 'Gaming Headset',
-            desc: 'Immersive sound for gaming and music.',
-            price: 'Rs. 14,000'
+            title: 'Acer Swift 3',
+            category: 'Budget Laptop',
+            description: 'Affordable laptop perfect for students and everyday use.',
+            price: 'Rs. 120,000',
+            oldPrice: 'Rs. 140,000',
+            image: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+            features: ['Intel i5', '8GB RAM', '512GB SSD'],
+            badge: 'Value',
+            rating: 4,
+            reviews: 234,
+            stock: 'In Stock'
         },
         {
-            icon: '<i class="fas fa-laptop-code"></i>',
-            title: 'Asus ROG Zephyrus',
-            desc: 'High-end gaming laptop for enthusiasts.',
-            price: 'Rs. 370,000'
+            title: 'MSI Creator',
+            category: 'Creator Laptop',
+            description: 'Specialized laptop for content creators and video editors.',
+            price: 'Rs. 380,000',
+            oldPrice: 'Rs. 420,000',
+            image: 'https://images.unsplash.com/photo-1541807084-5c52b6b3adef?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+            features: ['Intel i9', '32GB RAM', 'RTX 4070'],
+            badge: 'Professional',
+            rating: 5,
+            reviews: 95,
+            stock: 'In Stock'
         },
         {
-            icon: '<i class="fas fa-desktop"></i>',
-            title: 'Custom Gaming PC',
-            desc: 'Build your dream gaming rig today.',
-            price: 'Rs. 450,000'
+            title: 'Lenovo IdeaPad',
+            category: 'Student Laptop',
+            description: 'Reliable laptop designed for students and light productivity.',
+            price: 'Rs. 95,000',
+            oldPrice: 'Rs. 110,000',
+            image: 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+            features: ['Intel i3', '8GB RAM', '256GB SSD'],
+            badge: 'Value',
+            rating: 4,
+            reviews: 156,
+            stock: 'In Stock'
         }
     ];
-    function renderProducts(products) {
-        if (products.length === 0) {
-            productGrid.innerHTML = '<div style="grid-column: 1/-1; text-align:center; color:#888; padding:40px 0; font-size:1.2rem;">No products found.</div>';
-            return;
+
+    // Desktop PCs data
+    const desktopsData = [
+        {
+            title: 'Lenovo ThinkCentre',
+            category: 'Business Desktop',
+            description: 'Reliable desktop for office and home use with powerful performance.',
+            price: 'Rs. 120,000',
+            oldPrice: 'Rs. 140,000',
+            image: 'https://images.unsplash.com/photo-1593640408182-31c70c8268f5?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+            features: ['Intel i5', '8GB RAM', '1TB HDD'],
+            badge: 'Value',
+            rating: 4,
+            reviews: 67,
+            stock: 'In Stock'
+        },
+        {
+            title: 'Dell Precision 5550',
+            category: 'Workstation',
+            description: 'Professional workstation for demanding applications and creative work.',
+            price: 'Rs. 390,000',
+            oldPrice: 'Rs. 420,000',
+            image: 'https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+            features: ['Intel i9', '32GB RAM', '2TB SSD'],
+            badge: 'Premium',
+            rating: 5,
+            reviews: 45,
+            stock: 'In Stock'
+        },
+        {
+            title: 'HP Pavilion Gaming',
+            category: 'Gaming Desktop',
+            description: 'High-performance gaming desktop with RGB lighting and powerful graphics.',
+            price: 'Rs. 180,000',
+            oldPrice: 'Rs. 200,000',
+            image: 'https://images.unsplash.com/photo-1593640408182-31c70c8268f5?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+            features: ['Intel i7', '16GB RAM', 'RTX 3060'],
+            badge: 'Gaming',
+            rating: 4,
+            reviews: 123,
+            stock: 'In Stock'
+        },
+        {
+            title: 'Apple iMac 24"',
+            category: 'All-in-One',
+            description: 'Beautiful all-in-one desktop with stunning Retina display.',
+            price: 'Rs. 320,000',
+            oldPrice: 'Rs. 350,000',
+            image: 'https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+            features: ['M1 Chip', '8GB RAM', '256GB SSD'],
+            badge: 'Premium',
+            rating: 5,
+            reviews: 89,
+            stock: 'In Stock'
+        },
+        {
+            title: 'Alienware Aurora',
+            category: 'Gaming Desktop',
+            description: 'Premium gaming desktop with liquid cooling and overclocked performance.',
+            price: 'Rs. 450,000',
+            oldPrice: 'Rs. 500,000',
+            image: 'https://images.unsplash.com/photo-1593640408182-31c70c8268f5?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+            features: ['Intel i9', '32GB RAM', 'RTX 4080'],
+            badge: 'Premium',
+            rating: 5,
+            reviews: 78,
+            stock: 'In Stock'
+        },
+        {
+            title: 'Dell OptiPlex',
+            category: 'Office Desktop',
+            description: 'Compact desktop perfect for office environments and small spaces.',
+            price: 'Rs. 85,000',
+            oldPrice: 'Rs. 100,000',
+            image: 'https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+            features: ['Intel i3', '8GB RAM', '256GB SSD'],
+            badge: 'Value',
+            rating: 4,
+            reviews: 145,
+            stock: 'In Stock'
+        },
+        {
+            title: 'ASUS ProArt',
+            category: 'Creator Desktop',
+            description: 'Professional desktop designed for content creators and designers.',
+            price: 'Rs. 280,000',
+            oldPrice: 'Rs. 320,000',
+            image: 'https://images.unsplash.com/photo-1593640408182-31c70c8268f5?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+            features: ['Intel i7', '16GB RAM', 'RTX 3070'],
+            badge: 'Professional',
+            rating: 5,
+            reviews: 92,
+            stock: 'In Stock'
+        },
+        {
+            title: 'HP EliteDesk',
+            category: 'Business Desktop',
+            description: 'Enterprise-grade desktop with security features and manageability.',
+            price: 'Rs. 150,000',
+            oldPrice: 'Rs. 170,000',
+            image: 'https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+            features: ['Intel i5', '16GB RAM', '512GB SSD'],
+            badge: 'Professional',
+            rating: 4,
+            reviews: 67,
+            stock: 'In Stock'
         }
-        productGrid.innerHTML = products.map(p => `
+    ];
+
+    // Accessories data
+    const accessoriesData = [
+        {
+            title: 'Logitech MX Master 3',
+            category: 'Wireless Mouse',
+            description: 'Premium wireless mouse with precision tracking and ergonomic design.',
+            price: 'Rs. 12,000',
+            oldPrice: 'Rs. 15,000',
+            image: 'https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+            features: ['Wireless', '8000 DPI', '70-day battery'],
+            badge: 'Premium',
+            rating: 5,
+            reviews: 234,
+            stock: 'In Stock'
+        },
+        {
+            title: 'Mechanical Keyboard',
+            category: 'Gaming Keyboard',
+            description: 'RGB mechanical keyboard with tactile switches for gaming and typing.',
+            price: 'Rs. 18,000',
+            oldPrice: 'Rs. 22,000',
+            image: 'https://images.unsplash.com/photo-1541140532154-b024d705b90a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+            features: ['RGB Backlight', 'Mechanical', 'USB-C'],
+            badge: 'Gaming',
+            rating: 4,
+            reviews: 156,
+            stock: 'In Stock'
+        },
+        {
+            title: 'Webcam HD Pro',
+            category: 'Video Camera',
+            description: 'High-definition webcam for professional video calls and streaming.',
+            price: 'Rs. 8,500',
+            oldPrice: 'Rs. 10,000',
+            image: 'https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+            features: ['1080p HD', 'Auto Focus', 'Built-in Mic'],
+            badge: 'Professional',
+            rating: 4,
+            reviews: 89,
+            stock: 'In Stock'
+        },
+        {
+            title: 'USB-C Hub',
+            category: 'Adapter',
+            description: 'Multi-port USB-C hub for expanding connectivity options.',
+            price: 'Rs. 4,500',
+            oldPrice: 'Rs. 6,000',
+            image: 'https://images.unsplash.com/photo-1541140532154-b024d705b90a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+            features: ['7 Ports', '4K HDMI', 'SD Card Reader'],
+            badge: 'Value',
+            rating: 4,
+            reviews: 67,
+            stock: 'In Stock'
+        },
+        {
+            title: 'Gaming Mouse Pad',
+            category: 'Mouse Pad',
+            description: 'Large RGB gaming mouse pad with smooth surface for precision gaming.',
+            price: 'Rs. 3,500',
+            oldPrice: 'Rs. 4,500',
+            image: 'https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+            features: ['RGB Lighting', 'Large Size', 'Anti-slip Base'],
+            badge: 'Gaming',
+            rating: 4,
+            reviews: 123,
+            stock: 'In Stock'
+        },
+        {
+            title: 'Wireless Headset',
+            category: 'Audio Headset',
+            description: 'Wireless gaming headset with noise cancellation and long battery life.',
+            price: 'Rs. 16,000',
+            oldPrice: 'Rs. 20,000',
+            image: 'https://images.unsplash.com/photo-1541140532154-b024d705b90a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+            features: ['Wireless', 'Noise Cancelling', '30hr Battery'],
+            badge: 'Gaming',
+            rating: 5,
+            reviews: 189,
+            stock: 'In Stock'
+        },
+        {
+            title: 'Monitor Stand',
+            category: 'Desk Accessory',
+            description: 'Adjustable monitor stand for ergonomic workspace setup.',
+            price: 'Rs. 6,500',
+            oldPrice: 'Rs. 8,000',
+            image: 'https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+            features: ['Adjustable Height', 'Cable Management', 'VESA Mount'],
+            badge: 'Professional',
+            rating: 4,
+            reviews: 78,
+            stock: 'In Stock'
+        },
+        {
+            title: 'Laptop Cooling Pad',
+            category: 'Cooling Accessory',
+            description: 'USB-powered cooling pad to keep your laptop running cool.',
+            price: 'Rs. 2,500',
+            oldPrice: 'Rs. 3,500',
+            image: 'https://images.unsplash.com/photo-1541140532154-b024d705b90a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+            features: ['USB Powered', 'Adjustable Fan', 'Ergonomic Design'],
+            badge: 'Value',
+            rating: 4,
+            reviews: 145,
+            stock: 'In Stock'
+        }
+    ];
+
+    // Monitors data
+    const monitorsData = [
+        {
+            title: '4K Gaming Monitor',
+            category: 'Gaming Monitor',
+            description: 'Ultra-high definition gaming monitor with fast refresh rate.',
+            price: 'Rs. 85,000',
+            oldPrice: 'Rs. 95,000',
+            image: 'https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+            features: ['4K Resolution', '144Hz', '1ms Response'],
+            badge: 'Gaming',
+            rating: 5,
+            reviews: 178,
+            stock: 'In Stock'
+        },
+        {
+            title: 'Professional Monitor',
+            category: 'Color Monitor',
+            description: 'Color-accurate monitor for professional photo and video editing.',
+            price: 'Rs. 120,000',
+            oldPrice: 'Rs. 135,000',
+            image: 'https://images.unsplash.com/photo-1593642632823-8f785ba67e45?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+            features: ['99% sRGB', 'HDR', 'USB-C'],
+            badge: 'Professional',
+            rating: 5,
+            reviews: 94,
+            stock: 'In Stock'
+        },
+        {
+            title: 'Ultrawide Monitor',
+            category: 'Wide Monitor',
+            description: 'Ultra-wide curved monitor for immersive gaming and productivity.',
+            price: 'Rs. 95,000',
+            oldPrice: 'Rs. 110,000',
+            image: 'https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+            features: ['34" Curved', '1440p', '100Hz'],
+            badge: 'Premium',
+            rating: 5,
+            reviews: 145,
+            stock: 'In Stock'
+        },
+        {
+            title: 'Budget Monitor',
+            category: 'Office Monitor',
+            description: 'Affordable monitor perfect for office work and everyday use.',
+            price: 'Rs. 25,000',
+            oldPrice: 'Rs. 30,000',
+            image: 'https://images.unsplash.com/photo-1593642632823-8f785ba67e45?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+            features: ['24" Display', '1080p', 'IPS Panel'],
+            badge: 'Value',
+            rating: 4,
+            reviews: 89,
+            stock: 'In Stock'
+        },
+        {
+            title: 'Gaming Monitor 27"',
+            category: 'Gaming Monitor',
+            description: 'Fast response gaming monitor with high refresh rate for competitive gaming.',
+            price: 'Rs. 65,000',
+            oldPrice: 'Rs. 75,000',
+            image: 'https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+            features: ['27" Display', '165Hz', '1ms Response'],
+            badge: 'Gaming',
+            rating: 5,
+            reviews: 234,
+            stock: 'In Stock'
+        },
+        {
+            title: '4K HDR Monitor',
+            category: 'Premium Monitor',
+            description: 'Ultra-high definition monitor with HDR for stunning visual experience.',
+            price: 'Rs. 150,000',
+            oldPrice: 'Rs. 170,000',
+            image: 'https://images.unsplash.com/photo-1593642632823-8f785ba67e45?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+            features: ['4K HDR', '32" Display', 'USB-C'],
+            badge: 'Premium',
+            rating: 5,
+            reviews: 67,
+            stock: 'In Stock'
+        },
+        {
+            title: 'Portable Monitor',
+            category: 'Mobile Monitor',
+            description: 'Lightweight portable monitor for on-the-go productivity.',
+            price: 'Rs. 35,000',
+            oldPrice: 'Rs. 42,000',
+            image: 'https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+            features: ['15.6" Display', 'USB-C', 'Portable'],
+            badge: 'Value',
+            rating: 4,
+            reviews: 123,
+            stock: 'In Stock'
+        },
+        {
+            title: 'Curved Gaming Monitor',
+            category: 'Gaming Monitor',
+            description: 'Immersive curved gaming monitor with ultra-wide aspect ratio.',
+            price: 'Rs. 75,000',
+            oldPrice: 'Rs. 85,000',
+            image: 'https://images.unsplash.com/photo-1593642632823-8f785ba67e45?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+            features: ['32" Curved', '1440p', '144Hz'],
+            badge: 'Gaming',
+            rating: 5,
+            reviews: 189,
+            stock: 'In Stock'
+        }
+    ];
+
+    // Headphones data
+    const headphonesData = [
+        {
+            title: 'Sony WH-1000XM4',
+            category: 'Wireless Headphones',
+            description: 'Industry-leading noise canceling with Dual Noise Sensor technology.',
+            price: 'Rs. 45,000',
+            oldPrice: 'Rs. 55,000',
+            image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+            features: ['Noise Cancelling', '30hr Battery', 'Touch Controls'],
+            badge: 'Premium',
+            rating: 5,
+            reviews: 1247,
+            stock: 'In Stock'
+        },
+        {
+            title: 'Bose QuietComfort 45',
+            category: 'Wireless Headphones',
+            description: 'Premium comfort with world-class noise cancellation technology.',
+            price: 'Rs. 52,000',
+            oldPrice: 'Rs. 62,000',
+            image: 'https://images.unsplash.com/photo-1484704849700-f032a568e944?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+            features: ['Active Noise Cancelling', '24hr Battery', 'Premium Audio'],
+            badge: 'Premium',
+            rating: 5,
+            reviews: 892,
+            stock: 'In Stock'
+        },
+        {
+            title: 'Apple AirPods Max',
+            category: 'Wireless Headphones',
+            description: 'High-fidelity audio with computational audio and spatial audio.',
+            price: 'Rs. 75,000',
+            oldPrice: 'Rs. 85,000',
+            image: 'https://images.unsplash.com/photo-1618366712010-f4ae9c647dcb?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+            features: ['Spatial Audio', '20hr Battery', 'Active Noise Cancelling'],
+            badge: 'Premium',
+            rating: 5,
+            reviews: 567,
+            stock: 'In Stock'
+        },
+        {
+            title: 'Sennheiser HD 660S',
+            category: 'Open-Back Headphones',
+            description: 'Reference-class open-back headphones for audiophiles.',
+            price: 'Rs. 38,000',
+            oldPrice: 'Rs. 45,000',
+            image: 'https://images.unsplash.com/photo-1546435770-a3e426bf472b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+            features: ['Open-Back Design', 'Reference Sound', 'Comfortable'],
+            badge: 'Audiophile',
+            rating: 5,
+            reviews: 234,
+            stock: 'In Stock'
+        },
+        {
+            title: 'Audio-Technica ATH-M50x',
+            category: 'Studio Headphones',
+            description: 'Professional studio monitor headphones with exceptional clarity.',
+            price: 'Rs. 18,000',
+            oldPrice: 'Rs. 22,000',
+            image: 'https://images.unsplash.com/photo-1484704849700-f032a568e944?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+            features: ['Studio Monitor', 'Collapsible', 'Detachable Cable'],
+            badge: 'Professional',
+            rating: 5,
+            reviews: 1892,
+            stock: 'In Stock'
+        },
+        {
+            title: 'JBL Live 650BTNC',
+            category: 'Wireless Headphones',
+            description: 'Affordable wireless headphones with active noise cancellation.',
+            price: 'Rs. 12,000',
+            oldPrice: 'Rs. 15,000',
+            image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+            features: ['Wireless', 'Noise Cancelling', '30hr Battery'],
+            badge: 'Value',
+            rating: 4,
+            reviews: 445,
+            stock: 'In Stock'
+        },
+        {
+            title: 'Beyerdynamic DT 770 Pro',
+            category: 'Closed-Back Headphones',
+            description: 'Professional closed-back headphones for studio and gaming.',
+            price: 'Rs. 25,000',
+            oldPrice: 'Rs. 30,000',
+            image: 'https://images.unsplash.com/photo-1546435770-a3e426bf472b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+            features: ['Closed-Back', 'Studio Quality', 'Comfortable'],
+            badge: 'Professional',
+            rating: 5,
+            reviews: 678,
+            stock: 'In Stock'
+        },
+        {
+            title: 'HyperX Cloud Alpha',
+            category: 'Gaming Headphones',
+            description: 'Dual chamber drivers for clear sound and reduced distortion.',
+            price: 'Rs. 16,000',
+            oldPrice: 'Rs. 20,000',
+            image: 'https://images.unsplash.com/photo-1484704849700-f032a568e944?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+            features: ['Gaming Optimized', 'Detachable Mic', 'Dual Chamber'],
+            badge: 'Gaming',
+            rating: 4,
+            reviews: 1234,
+            stock: 'In Stock'
+        }
+    ];
+
+    function renderHeadphones() {
+        const headphonesGrid = document.getElementById('headphones-grid');
+        
+        headphonesGrid.innerHTML = headphonesData.map(headphone => `
             <div class="product-card">
-                <div class="product-img">${p.icon}</div>
-                <div class="product-title">${p.title}</div>
-                <div class="product-desc">${p.desc}</div>
-                <div class="product-price">${p.price}</div>
-                <button class="buy-btn">Buy Now</button>
+                <div class="product-badge">${headphone.badge}</div>
+                <div class="product-tilt-effect">
+                    <div class="product-image">
+                        <img src="${headphone.image}" alt="${headphone.title}">
+                    </div>
+                </div>
+                <div class="product-info">
+                    <div class="product-category">${headphone.category}</div>
+                    <h2 class="product-title">${headphone.title}</h2>
+                    <div class="product-description">
+                        <p>${headphone.description}</p>
+                    </div>
+                    <div class="product-features">
+                        ${headphone.features.map(feature => `<span class="feature">${feature}</span>`).join('')}
+                    </div>
+                    <div class="product-bottom">
+                        <div class="product-price">
+                            <span class="price-was">${headphone.oldPrice}</span>
+                            <span class="price-now">${headphone.price}</span>
+                        </div>
+                        <button class="product-button" onclick="addHeadphoneToCart('${headphone.title}')">
+                            <span class="button-text">Add to Cart</span>
+                            <svg class="button-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                                <line x1="3" y1="6" x2="21" y2="6"></line>
+                                <path d="M16 10a4 4 0 0 1-8 0"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="product-meta">
+                        <div class="product-rating">
+                            ${'<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="#FFD700" stroke="#FFD700" stroke-width="0.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>'.repeat(headphone.rating)}
+                            <span class="rating-count">${headphone.reviews} Reviews</span>
+                        </div>
+                        <div class="product-stock">${headphone.stock}</div>
+                    </div>
+                </div>
             </div>
         `).join('');
     }
-    function slugify(str) {
-        return str.toLowerCase().replace(/[^a-z0-9 ]/g, '').replace(/\s+/g, '-');
-    }
-    function handleSearch() {
-        const term = searchInput.value.trim().toLowerCase();
-        if (!term) {
-            renderProducts(allProducts);
-            return;
-        }
-        // Check for exact match (case-insensitive)
-        const exact = allProducts.find(p => p.title.toLowerCase() === term);
-        if (exact) {
-            // Simulate redirect to product page
-            window.location.href = `product-${slugify(exact.title)}.html`;
-            return;
-        }
-        const filtered = allProducts.filter(p =>
-            p.title.toLowerCase().includes(term) ||
-            p.desc.toLowerCase().includes(term)
-        );
-        renderProducts(filtered);
-    }
-    searchBtn.addEventListener('click', handleSearch);
-    searchInput.addEventListener('keydown', function(e) {
-        if (e.key === 'Enter') handleSearch();
-    });
-    searchInput.addEventListener('input', function() {
-        if (!this.value) renderProducts(allProducts);
-    });
-    // Initial render (in case page is loaded after search)
-    renderProducts(allProducts);
 
-    // Add to Cart functionality for dynamically rendered cards
+    function renderLaptops() {
+        const laptopsGrid = document.getElementById('laptops-grid');
+        
+        laptopsGrid.innerHTML = laptopsData.map(laptop => `
+            <div class="product-card">
+                <div class="product-badge">${laptop.badge}</div>
+                <div class="product-tilt-effect">
+                    <div class="product-image">
+                        <img src="${laptop.image}" alt="${laptop.title}">
+                    </div>
+                </div>
+                <div class="product-info">
+                    <div class="product-category">${laptop.category}</div>
+                    <h2 class="product-title">${laptop.title}</h2>
+                    <div class="product-description">
+                        <p>${laptop.description}</p>
+                    </div>
+                    <div class="product-features">
+                        ${laptop.features.map(feature => `<span class="feature">${feature}</span>`).join('')}
+                    </div>
+                    <div class="product-bottom">
+                        <div class="product-price">
+                            <span class="price-was">${laptop.oldPrice}</span>
+                            <span class="price-now">${laptop.price}</span>
+                        </div>
+                        <button class="product-button" onclick="addLaptopToCart('${laptop.title}')">
+                            <span class="button-text">Add to Cart</span>
+                            <svg class="button-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                                <line x1="3" y1="6" x2="21" y2="6"></line>
+                                <path d="M16 10a4 4 0 0 1-8 0"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="product-meta">
+                        <div class="product-rating">
+                            ${'<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="#FFD700" stroke="#FFD700" stroke-width="0.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>'.repeat(laptop.rating)}
+                            <span class="rating-count">${laptop.reviews} Reviews</span>
+                        </div>
+                        <div class="product-stock">${laptop.stock}</div>
+                    </div>
+                </div>
+            </div>
+        `).join('');
+    }
+
+    function renderDesktops() {
+        const desktopsGrid = document.getElementById('desktops-grid');
+        
+        desktopsGrid.innerHTML = desktopsData.map(desktop => `
+            <div class="product-card">
+                <div class="product-badge">${desktop.badge}</div>
+                <div class="product-tilt-effect">
+                    <div class="product-image">
+                        <img src="${desktop.image}" alt="${desktop.title}">
+                    </div>
+                </div>
+                <div class="product-info">
+                    <div class="product-category">${desktop.category}</div>
+                    <h2 class="product-title">${desktop.title}</h2>
+                    <div class="product-description">
+                        <p>${desktop.description}</p>
+                    </div>
+                    <div class="product-features">
+                        ${desktop.features.map(feature => `<span class="feature">${feature}</span>`).join('')}
+                    </div>
+                    <div class="product-bottom">
+                        <div class="product-price">
+                            <span class="price-was">${desktop.oldPrice}</span>
+                            <span class="price-now">${desktop.price}</span>
+                        </div>
+                        <button class="product-button" onclick="addDesktopToCart('${desktop.title}')">
+                            <span class="button-text">Add to Cart</span>
+                            <svg class="button-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                                <line x1="3" y1="6" x2="21" y2="6"></line>
+                                <path d="M16 10a4 4 0 0 1-8 0"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="product-meta">
+                        <div class="product-rating">
+                            ${'<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="#FFD700" stroke="#FFD700" stroke-width="0.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>'.repeat(desktop.rating)}
+                            <span class="rating-count">${desktop.reviews} Reviews</span>
+                        </div>
+                        <div class="product-stock">${desktop.stock}</div>
+                    </div>
+                </div>
+            </div>
+        `).join('');
+    }
+
+    function renderAccessories() {
+        const accessoriesGrid = document.getElementById('accessories-grid');
+        
+        accessoriesGrid.innerHTML = accessoriesData.map(accessory => `
+            <div class="product-card">
+                <div class="product-badge">${accessory.badge}</div>
+                <div class="product-tilt-effect">
+                    <div class="product-image">
+                        <img src="${accessory.image}" alt="${accessory.title}">
+                    </div>
+                </div>
+                <div class="product-info">
+                    <div class="product-category">${accessory.category}</div>
+                    <h2 class="product-title">${accessory.title}</h2>
+                    <div class="product-description">
+                        <p>${accessory.description}</p>
+                    </div>
+                    <div class="product-features">
+                        ${accessory.features.map(feature => `<span class="feature">${feature}</span>`).join('')}
+                    </div>
+                    <div class="product-bottom">
+                        <div class="product-price">
+                            <span class="price-was">${accessory.oldPrice}</span>
+                            <span class="price-now">${accessory.price}</span>
+                        </div>
+                        <button class="product-button" onclick="addAccessoryToCart('${accessory.title}')">
+                            <span class="button-text">Add to Cart</span>
+                            <svg class="button-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                                <line x1="3" y1="6" x2="21" y2="6"></line>
+                                <path d="M16 10a4 4 0 0 1-8 0"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="product-meta">
+                        <div class="product-rating">
+                            ${'<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="#FFD700" stroke="#FFD700" stroke-width="0.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>'.repeat(accessory.rating)}
+                            <span class="rating-count">${accessory.reviews} Reviews</span>
+                        </div>
+                        <div class="product-stock">${accessory.stock}</div>
+                    </div>
+                </div>
+            </div>
+        `).join('');
+    }
+
+    function renderMonitors() {
+        const monitorsGrid = document.getElementById('monitors-grid');
+        
+        monitorsGrid.innerHTML = monitorsData.map(monitor => `
+            <div class="product-card">
+                <div class="product-badge">${monitor.badge}</div>
+                <div class="product-tilt-effect">
+                    <div class="product-image">
+                        <img src="${monitor.image}" alt="${monitor.title}">
+                    </div>
+                </div>
+                <div class="product-info">
+                    <div class="product-category">${monitor.category}</div>
+                    <h2 class="product-title">${monitor.title}</h2>
+                    <div class="product-description">
+                        <p>${monitor.description}</p>
+                    </div>
+                    <div class="product-features">
+                        ${monitor.features.map(feature => `<span class="feature">${feature}</span>`).join('')}
+                    </div>
+                    <div class="product-bottom">
+                        <div class="product-price">
+                            <span class="price-was">${monitor.oldPrice}</span>
+                            <span class="price-now">${monitor.price}</span>
+                        </div>
+                        <button class="product-button" onclick="addMonitorToCart('${monitor.title}')">
+                            <span class="button-text">Add to Cart</span>
+                            <svg class="button-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                                <line x1="3" y1="6" x2="21" y2="6"></line>
+                                <path d="M16 10a4 4 0 0 1-8 0"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="product-meta">
+                        <div class="product-rating">
+                            ${'<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="#FFD700" stroke="#FFD700" stroke-width="0.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>'.repeat(monitor.rating)}
+                            <span class="rating-count">${monitor.reviews} Reviews</span>
+                        </div>
+                        <div class="product-stock">${monitor.stock}</div>
+                    </div>
+                </div>
+            </div>
+        `).join('');
+    }
+
+    function addHeadphoneToCart(headphoneTitle) {
+        // Find the headphone in our data
+        const headphone = headphonesData.find(h => h.title === headphoneTitle);
+        if (!headphone) return;
+
+        // Create cart item
+        const cartItem = {
+            id: Date.now(), // Generate unique ID
+            name: headphone.title,
+            price: headphone.price,
+            image: headphone.image,
+            category: headphone.category
+        };
+
+        // Get existing cart or create new one
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        
+        // Check if product already exists
+        const existingItem = cart.find(item => item.name === headphoneTitle);
+        if (existingItem) {
+            // Show error message
+            showNotification(`${headphone.title} is already in your cart!`, 'error');
+            return;
+        }
+
+        // Add to cart
+        cart.push(cartItem);
+        localStorage.setItem('cart', JSON.stringify(cart));
+
+        // Show success message
+        showNotification(`${headphone.title} added to cart successfully!`, 'success');
+
+        // Update cart counter
+        updateCartCounter();
+    }
+
+    function addLaptopToCart(laptopTitle) {
+        const laptop = laptopsData.find(l => l.title === laptopTitle);
+        if (!laptop) return;
+
+        const cartItem = {
+            id: Date.now(),
+            name: laptop.title,
+            price: laptop.price,
+            image: laptop.image,
+            category: laptop.category
+        };
+
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        
+        const existingItem = cart.find(item => item.name === laptopTitle);
+        if (existingItem) {
+            showNotification(`${laptop.title} is already in your cart!`, 'error');
+            return;
+        }
+
+        cart.push(cartItem);
+        localStorage.setItem('cart', JSON.stringify(cart));
+        showNotification(`${laptop.title} added to cart successfully!`, 'success');
+        updateCartCounter();
+    }
+
+    function addDesktopToCart(desktopTitle) {
+        const desktop = desktopsData.find(d => d.title === desktopTitle);
+        if (!desktop) return;
+
+        const cartItem = {
+            id: Date.now(),
+            name: desktop.title,
+            price: desktop.price,
+            image: desktop.image,
+            category: desktop.category
+        };
+
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        
+        const existingItem = cart.find(item => item.name === desktopTitle);
+        if (existingItem) {
+            showNotification(`${desktop.title} is already in your cart!`, 'error');
+            return;
+        }
+
+        cart.push(cartItem);
+        localStorage.setItem('cart', JSON.stringify(cart));
+        showNotification(`${desktop.title} added to cart successfully!`, 'success');
+        updateCartCounter();
+    }
+
+    function addAccessoryToCart(accessoryTitle) {
+        const accessory = accessoriesData.find(a => a.title === accessoryTitle);
+        if (!accessory) return;
+
+        const cartItem = {
+            id: Date.now(),
+            name: accessory.title,
+            price: accessory.price,
+            image: accessory.image,
+            category: accessory.category
+        };
+
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        
+        const existingItem = cart.find(item => item.name === accessoryTitle);
+        if (existingItem) {
+            showNotification(`${accessory.title} is already in your cart!`, 'error');
+            return;
+        }
+
+        cart.push(cartItem);
+        localStorage.setItem('cart', JSON.stringify(cart));
+        showNotification(`${accessory.title} added to cart successfully!`, 'success');
+        updateCartCounter();
+    }
+
+    function addMonitorToCart(monitorTitle) {
+        const monitor = monitorsData.find(m => m.title === monitorTitle);
+        if (!monitor) return;
+
+        const cartItem = {
+            id: Date.now(),
+            name: monitor.title,
+            price: monitor.price,
+            image: monitor.image,
+            category: monitor.category
+        };
+
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        
+        const existingItem = cart.find(item => item.name === monitorTitle);
+        if (existingItem) {
+            showNotification(`${monitor.title} is already in your cart!`, 'error');
+            return;
+        }
+
+        cart.push(cartItem);
+        localStorage.setItem('cart', JSON.stringify(cart));
+        showNotification(`${monitor.title} added to cart successfully!`, 'success');
+        updateCartCounter();
+    }
+
+    function showNotification(message, type) {
+        // Create notification element
+        const notification = document.createElement('div');
+        notification.className = `notification ${type}`;
+        notification.textContent = message;
+        
+        // Style the notification
+        notification.style.cssText = `
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 20px;
+            border-radius: 8px;
+            color: white;
+            font-weight: 600;
+            z-index: 1000;
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+            ${type === 'success' ? 'background: #22C55E;' : 'background: #EF4444;'}
+        `;
+        
+        // Add to page
+        document.body.appendChild(notification);
+        
+        // Animate in
+        setTimeout(() => {
+            notification.style.transform = 'translateX(0)';
+        }, 100);
+        
+        // Remove after 3 seconds
+        setTimeout(() => {
+            notification.style.transform = 'translateX(100%)';
+            setTimeout(() => {
+                document.body.removeChild(notification);
+            }, 300);
+        }, 3000);
+    }
+
+    function updateCartCounter() {
+        // Get cart from localStorage
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        
+        // Update cart counter in navbar if it exists
+        const cartCounter = document.querySelector('.cart-counter');
+        if (cartCounter) {
+            cartCounter.textContent = cart.length;
+            cartCounter.style.display = cart.length > 0 ? 'block' : 'none';
+        }
+    }
+
+    // Load all sections when page loads
     document.addEventListener('DOMContentLoaded', function() {
-        document.body.addEventListener('click', function(e) {
-            if (e.target.classList.contains('buy-btn')) {
-                const card = e.target.closest('.product-card');
-                if (!card) return;
-                const productId = card.getAttribute('data-id');
-                if (!productId) return;
-                const product = productsArray.find(p => String(p.id) === String(productId));
-                if (!product) return;
-                let cart = JSON.parse(localStorage.getItem('cart')) || [];
-                if (!cart.find(item => String(item.id) === String(product.id))) {
-                    cart.push(product);
-                    localStorage.setItem('cart', JSON.stringify(cart));
-                }
-                window.location.href = 'cart.html';
-            }
-        });
+        renderHeadphones();
+        renderLaptops();
+        renderDesktops();
+        renderAccessories();
+        renderMonitors();
     });
+
+ 
     </script>
 </body>
 </html>
