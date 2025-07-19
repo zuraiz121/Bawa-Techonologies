@@ -104,41 +104,12 @@
                 <button><i class="fas fa-search"></i></button>
             </div>
             <div class="cart-icon">
-                <a href="#"><i class="fas fa-shopping-cart"></i></a>
+                <a href="cart.html" id="cart-link"><i class="fas fa-shopping-cart"></i></a>
             </div>
         </div>
     </header>
     <!-- Navbar -->
-    <nav class="navbar" id="navbar">
-        <div class="container nav-flex">
-            <ul class="nav-menu" id="nav-menu">
-                <li><a href="index.html">Home</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle">Laptops <i class="fas fa-angle-right dropdown-arrow"></i></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">HP</a></li>
-                        <li><a href="#">Dell</a></li>
-                        <li><a href="#">ThinkPad</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">Desktops</a></li>
-                <li><a href="#">Accessories</a></li>
-                <li><a href="#">Components</a></li>
-                <li><a href="#">Deals</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-            <div class="nav-social">
-                <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
-                <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
-            </div>
-            <div class="hamburger" id="hamburger">
-                <span></span><span></span><span></span>
-            </div>
-        </div>
-    </nav>
-    <div class="nav-overlay"></div>
+    <div id="navbar"></div>
     <!-- Breadcrumb -->
     <div class="breadcrumb-bar">
         <div class="container">
@@ -244,6 +215,7 @@
         <div class="footer-bottom">&copy; 2024 Bawa Computers. All rights reserved.</div>
     </footer>
     <script src="js/script.js"></script>
+    <script src="js/include.js"></script>
     <script>
 // Dummy product data
 const products = [
@@ -315,7 +287,7 @@ function renderProducts(page) {
     for(let i=start; i<end; i++) {
         const p = filteredProducts[i];
         grid.innerHTML += `
-        <div class="product-card">
+        <div class="product-card" data-id="${i+1}">
             <div class="product-img"></div>
             <div class="product-info">
                 <h2 class="product-title">${p.title}</h2>
@@ -324,7 +296,8 @@ function renderProducts(page) {
                     <span class="stock in-stock">${p.stock}</span>
                 </div>
                 <div class="product-actions">
-                    <button class="btn btn-blue">ADD TO CART</button>
+                    <a class="btn btn-blue" href="product-detail.html?id=${i+1}">View Product</a>
+                    <button class="btn btn-gray add-to-cart-btn" data-id="${i+1}"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
                     <button class="btn btn-gray"><i class="far fa-heart"></i> ADD TO WISHLIST</button>
                 </div>
             </div>
@@ -436,6 +409,25 @@ sortBySelect.addEventListener('change', function() {
 filterProducts();
 renderProducts(currentPage);
 renderPagination();
+// Add to Cart global handler
+window.addEventListener('DOMContentLoaded', function() {
+  document.body.addEventListener('click', function(e) {
+    if (e.target.classList.contains('add-to-cart-btn')) {
+      const card = e.target.closest('.product-card');
+      if (!card) return;
+      const productId = card.getAttribute('data-id');
+      if (!productId) return;
+      const product = laptopProducts ? laptopProducts[parseInt(productId)-1] : null;
+      if (!product) return;
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      if (!cart.find(item => String(item.title) === String(product.title))) {
+        cart.push(product);
+        localStorage.setItem('cart', JSON.stringify(cart));
+      }
+      window.location.href = 'cart.html';
+    }
+  });
+});
 </script>
 </body>
 </html> 

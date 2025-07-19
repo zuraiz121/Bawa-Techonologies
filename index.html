@@ -310,41 +310,12 @@
                 <button><i class="fas fa-search"></i></button>
             </div>
             <div class="cart-icon">
-                <a href="#"><i class="fas fa-shopping-cart"></i></a>
+                <a href="cart.html" id="cart-link"><i class="fas fa-shopping-cart"></i></a>
             </div>
         </div>
     </header>
     <!-- Navbar -->
-    <nav class="navbar" id="navbar">
-        <div class="container nav-flex">
-            <ul class="nav-menu" id="nav-menu">
-                <li><a href="index.html" class="active">Home</a></li>
-                <li class="dropdown">
-                    <a href="laptop.html" class="dropdown-toggle">Laptops <i class="fas fa-angle-right dropdown-arrow"></i></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">HP</a></li>
-                        <li><a href="#">Dell</a></li>
-                        <li><a href="#">ThinkPad</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">Desktops</a></li>
-                <li><a href="#">Accessories</a></li>
-                <li><a href="#">Components</a></li>
-                <li><a href="#">Deals</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-            <div class="nav-social">
-                <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
-                <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
-            </div>
-            <div class="hamburger" id="hamburger">
-                <span></span><span></span><span></span>
-            </div>
-        </div>
-    </nav>
-    <div class="nav-overlay"></div>
+    <div id="navbar"></div>
     <!-- Hero Carousel -->
     <section class="hero-carousel" id="hero-carousel">
         <div class="carousel-slide active" style="background-image:url('https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=1200&q=80');">
@@ -385,97 +356,124 @@
         <div class="product-grid">
             <div class="product-card">
                 <div class="product-img"><i class="fas fa-laptop"></i></div>
-                <div class="product-title">HP EliteBook 840</div>
-                <div class="product-desc">Powerful business laptop with sleek design.</div>
-                <div class="product-price">Rs. 250,000</div>
-                <button class="buy-btn">Buy Now</button>
+                <div class="product-info">
+                    <h2 class="product-title">HP EliteBook 840</h2>
+                    <div class="product-meta">
+                        <span class="price">Rs. 250,000</span>
+                        <span class="stock in-stock">In Stock</span>
+                    </div>
+                    <div class="product-actions">
+                        <button class="btn btn-blue">ADD TO CART</button>
+                        <button class="btn btn-gray"><i class="far fa-heart"></i> ADD TO WISHLIST</button>
+                    </div>
+                </div>
             </div>
             <div class="product-card">
                 <div class="product-img"><i class="fas fa-laptop"></i></div>
-                <div class="product-title">Dell XPS 13</div>
-                <div class="product-desc">Ultra-portable, high-performance ultrabook.</div>
-                <div class="product-price">Rs. 330,000</div>
-                <button class="buy-btn">Buy Now</button>
+                <div class="product-info">
+                    <h2 class="product-title">Dell XPS 13</h2>
+                    <div class="product-meta">
+                        <span class="price">Rs. 330,000</span>
+                        <span class="stock in-stock">In Stock</span>
+                    </div>
+                    <div class="product-actions">
+                        <button class="btn btn-blue">ADD TO CART</button>
+                        <button class="btn btn-gray"><i class="far fa-heart"></i> ADD TO WISHLIST</button>
+                    </div>
+                </div>
             </div>
             <div class="product-card">
                 <div class="product-img"><i class="fas fa-desktop"></i></div>
-                <div class="product-title">Lenovo ThinkCentre</div>
-                <div class="product-desc">Reliable desktop for office and home.</div>
-                <div class="product-price">Rs. 120,000</div>
-                <button class="buy-btn">Buy Now</button>
+                <div class="product-info">
+                    <h2 class="product-title">Lenovo ThinkCentre</h2>
+                    <div class="product-meta">
+                        <span class="price">Rs. 120,000</span>
+                        <span class="stock in-stock">In Stock</span>
+                    </div>
+                    <div class="product-actions">
+                        <button class="btn btn-blue">ADD TO CART</button>
+                        <button class="btn btn-gray"><i class="far fa-heart"></i> ADD TO WISHLIST</button>
+                    </div>
+                </div>
             </div>
             <div class="product-card">
                 <div class="product-img"><i class="fas fa-keyboard"></i></div>
-                <div class="product-title">Logitech Keyboard</div>
-                <div class="product-desc">Ergonomic keyboard for comfortable typing.</div>
-                <div class="product-price">Rs. 8,500</div>
-                <button class="buy-btn">Buy Now</button>
+                <div class="product-info">
+                    <h2 class="product-title">Logitech Keyboard</h2>
+                    <div class="product-meta">
+                        <span class="price">Rs. 8,500</span>
+                        <span class="stock in-stock">In Stock</span>
+                    </div>
+                    <div class="product-actions">
+                        <button class="btn btn-blue">ADD TO CART</button>
+                        <button class="btn btn-gray"><i class="far fa-heart"></i> ADD TO WISHLIST</button>
+                    </div>
+                </div>
             </div>
             <div class="product-card">
                 <div class="product-img"><i class="fas fa-mouse"></i></div>
-                <div class="product-title">HP Wireless Mouse</div>
-                <div class="product-desc">Smooth, precise, and wireless control.</div>
-                <div class="product-price">Rs. 3,200</div>
-                <button class="buy-btn">Buy Now</button>
+                <div class="product-info">
+                    <h2 class="product-title">HP Wireless Mouse</h2>
+                    <div class="product-meta">
+                        <span class="price">Rs. 3,200</span>
+                        <span class="stock in-stock">In Stock</span>
+                    </div>
+                    <div class="product-actions">
+                        <button class="btn btn-blue">ADD TO CART</button>
+                        <button class="btn btn-gray"><i class="far fa-heart"></i> ADD TO WISHLIST</button>
+                    </div>
+                </div>
             </div>
             <div class="product-card">
                 <div class="product-img"><i class="fas fa-headphones"></i></div>
-                <div class="product-title">Gaming Headset</div>
-                <div class="product-desc">Immersive sound for gaming and music.</div>
-                <div class="product-price">Rs. 14,000</div>
-                <button class="buy-btn">Buy Now</button>
+                <div class="product-info">
+                    <h2 class="product-title">Gaming Headset</h2>
+                    <div class="product-meta">
+                        <span class="price">Rs. 14,000</span>
+                        <span class="stock in-stock">In Stock</span>
+                    </div>
+                    <div class="product-actions">
+                        <button class="btn btn-blue">ADD TO CART</button>
+                        <button class="btn btn-gray"><i class="far fa-heart"></i> ADD TO WISHLIST</button>
+                    </div>
+                </div>
             </div>
             <div class="product-card">
                 <div class="product-img"><i class="fas fa-laptop-code"></i></div>
-                <div class="product-title">Asus ROG Zephyrus</div>
-                <div class="product-desc">High-end gaming laptop for enthusiasts.</div>
-                <div class="product-price">Rs. 370,000</div>
-                <button class="buy-btn">Buy Now</button>
+                <div class="product-info">
+                    <h2 class="product-title">Asus ROG Zephyrus</h2>
+                    <div class="product-meta">
+                        <span class="price">Rs. 370,000</span>
+                        <span class="stock in-stock">In Stock</span>
+                    </div>
+                    <div class="product-actions">
+                        <button class="btn btn-blue">ADD TO CART</button>
+                        <button class="btn btn-gray"><i class="far fa-heart"></i> ADD TO WISHLIST</button>
+                    </div>
+                </div>
             </div>
             <div class="product-card">
                 <div class="product-img"><i class="fas fa-desktop"></i></div>
-                <div class="product-title">Custom Gaming PC</div>
-                <div class="product-desc">Build your dream gaming rig today.</div>
-                <div class="product-price">Rs. 450,000</div>
-                <button class="buy-btn">Buy Now</button>
+                <div class="product-info">
+                    <h2 class="product-title">Custom Gaming PC</h2>
+                    <div class="product-meta">
+                        <span class="price">Rs. 450,000</span>
+                        <span class="stock in-stock">In Stock</span>
+                    </div>
+                    <div class="product-actions">
+                        <button class="btn btn-blue">ADD TO CART</button>
+                        <button class="btn btn-gray"><i class="far fa-heart"></i> ADD TO WISHLIST</button>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
     <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-col">
-                <h4>About Us</h4>
-                <p>Bawa Computers is your trusted partner for laptops, desktops, and accessories. We deliver quality tech and reliable service since 2005.</p>
-            </div>
-            <div class="footer-col">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Laptops</a></li>
-                    <li><a href="#">Desktops</a></li>
-                    <li><a href="#">Accessories</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Contact Info</h4>
-                <ul>
-                    <li>123 Tech Street, Karachi, Pakistan</li>
-                    <li>Phone: (021) 123-4567</li>
-                    <li>Email: info@bawacomputers.com</li>
-                </ul>
-                <div class="footer-social">
-                    <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
-                    <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">&copy; 2024 Bawa Computers. All rights reserved.</div>
-    </footer>
+    <div id="footer"></div>
     <script src="js/script.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/include.js"></script>
     <script>
     // Carousel functionality
     const slides = document.querySelectorAll('.carousel-slide');
@@ -633,6 +631,26 @@
     });
     // Initial render (in case page is loaded after search)
     renderProducts(allProducts);
+
+    // Add to Cart functionality for dynamically rendered cards
+    document.addEventListener('DOMContentLoaded', function() {
+        document.body.addEventListener('click', function(e) {
+            if (e.target.classList.contains('buy-btn')) {
+                const card = e.target.closest('.product-card');
+                if (!card) return;
+                const productId = card.getAttribute('data-id');
+                if (!productId) return;
+                const product = productsArray.find(p => String(p.id) === String(productId));
+                if (!product) return;
+                let cart = JSON.parse(localStorage.getItem('cart')) || [];
+                if (!cart.find(item => String(item.id) === String(product.id))) {
+                    cart.push(product);
+                    localStorage.setItem('cart', JSON.stringify(cart));
+                }
+                window.location.href = 'cart.html';
+            }
+        });
+    });
     </script>
 </body>
 </html>
