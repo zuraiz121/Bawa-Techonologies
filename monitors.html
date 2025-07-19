@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" type="image/png" href="images/favicon.jpg">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/new-cards.css">
 </head>
 <body>
     <!-- Top Header -->
@@ -215,17 +216,29 @@ function renderProducts(page) {
         const p = filteredProducts[i];
         grid.innerHTML += `
         <div class="product-card" data-id="${i+1}">
-            <div class="product-img"></div>
-            <div class="product-info">
+            <div class="card-left">
+                <img src="${p.img || 'https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'}" alt="${p.title}" />
+            </div>
+            <div class="card-right">
+                <div class="heart-icon" onclick="toggleWishlist(${i+1})">&#10084;</div>
                 <h2 class="product-title">${p.title}</h2>
+                <h4 class="product-category">${p.type.toUpperCase()} MONITOR</h4>
+                <div class="price">${p.priceDisplay}</div>
+                <div class="description">
+                    High-quality ${p.size}" ${p.type.toLowerCase()} monitor with stunning display and advanced features for ${p.type.toLowerCase()} use.
+                </div>
+                <div class="product-features">
+                    <span class="feature-tag">${p.size}" Display</span>
+                    <span class="feature-tag">${p.type}</span>
+                    <span class="feature-tag">${p.brand}</span>
+                </div>
                 <div class="product-meta">
-                    <span class="price">${p.priceDisplay}</span>
                     <span class="stock in-stock">${p.stock}</span>
                 </div>
-                <div class="product-actions">
-                    <a class="btn btn-blue" href="product-detail.html?id=${i+1}&type=monitor">View Product</a>
-                    <button class="btn btn-gray add-to-cart-btn" data-id="${i+1}"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
-                    <button class="btn btn-gray wishlist-btn" data-id="${i+1}"><i class="far fa-heart"></i> ADD TO WISHLIST</button>
+                <div class="buttons">
+                    <a href="product-detail.html?id=${i+1}&type=monitor" class="btn-primary">VIEW PRODUCT</a>
+                    <button onclick="addToCart(${i+1})">ADD TO CART</button>
+                    <button onclick="addToWishlist(${i+1})">WISHLIST</button>
                 </div>
             </div>
         </div>`;
@@ -362,25 +375,98 @@ document.getElementById('price-go').addEventListener('click', function() {
     renderPagination();
 });
 
-// Add to Cart global handler
-window.addEventListener('DOMContentLoaded', function() {
-  document.body.addEventListener('click', function(e) {
-    if (e.target.classList.contains('add-to-cart-btn')) {
-      const card = e.target.closest('.product-card');
-      if (!card) return;
-      const productId = card.getAttribute('data-id');
-      if (!productId) return;
-      const product = monitorProducts[parseInt(productId)-1];
-      if (!product) return;
-      let cart = JSON.parse(localStorage.getItem('cart')) || [];
-      if (!cart.find(item => String(item.title) === String(product.title))) {
-        cart.push(product);
+// Cart and Wishlist Functions
+function addToCart(productId) {
+    const product = monitorProducts[productId - 1];
+    if (product) {
+        let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+        const existingItem = cart.find(item => item.id === productId);
+        
+        if (existingItem) {
+            existingItem.quantity += 1;
+        } else {
+            cart.push({
+                id: productId,
+                title: product.title,
+                price: product.price,
+                priceDisplay: product.priceDisplay,
+                quantity: 1
+            });
+        }
+        
         localStorage.setItem('cart', JSON.stringify(cart));
-      }
-      window.location.href = 'cart.html';
+        showNotification('Product added to cart successfully!', 'success');
+        updateCartCounter();
     }
-  });
-});
+}
+
+function addToWishlist(productId) {
+    const product = monitorProducts[productId - 1];
+    if (product) {
+        let wishlist = JSON.parse(localStorage.getItem('wishlist') || '[]');
+        const existingItem = wishlist.find(item => item.id === productId);
+        
+        if (!existingItem) {
+            wishlist.push({
+                id: productId,
+                title: product.title,
+                price: product.price,
+                priceDisplay: product.priceDisplay
+            });
+            localStorage.setItem('wishlist', JSON.stringify(wishlist));
+            showNotification('Product added to wishlist!', 'success');
+        } else {
+            showNotification('Product already in wishlist!', 'info');
+        }
+    }
+}
+
+function toggleWishlist(productId) {
+    const heartIcon = event.target;
+    heartIcon.classList.toggle('active');
+    
+    if (heartIcon.classList.contains('active')) {
+        addToWishlist(productId);
+    } else {
+        // Remove from wishlist
+        let wishlist = JSON.parse(localStorage.getItem('wishlist') || '[]');
+        wishlist = wishlist.filter(item => item.id !== productId);
+        localStorage.setItem('wishlist', JSON.stringify(wishlist));
+        showNotification('Product removed from wishlist!', 'info');
+    }
+}
+
+function updateCartCounter() {
+    const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+    const cartLink = document.getElementById('cart-link');
+    if (cartLink) {
+        cartLink.innerHTML = `<i class="fas fa-shopping-cart"></i>${totalItems > 0 ? ` <span style="background: red; color: white; border-radius: 50%; padding: 2px 6px; font-size: 12px;">${totalItems}</span>` : ''}`;
+    }
+}
+
+function showNotification(message, type = 'info') {
+    const notification = document.createElement('div');
+    notification.className = `notification ${type}`;
+    notification.innerHTML = `
+        <div class="icon">${type === 'success' ? '✓' : type === 'error' ? '✗' : 'ℹ'}</div>
+        <div class="message">${message}</div>
+        <div class="close" onclick="this.parentElement.remove()">×</div>
+    `;
+    document.body.appendChild(notification);
+    
+    setTimeout(() => {
+        notification.classList.add('show');
+    }, 100);
+    
+    setTimeout(() => {
+        notification.classList.remove('show');
+        setTimeout(() => notification.remove(), 300);
+    }, 3000);
+}
+
+// Initialize cart counter
+updateCartCounter();
 </script>
 </body>
 </html> 
