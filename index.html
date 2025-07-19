@@ -24,11 +24,13 @@
             color: var(--dark-gray);
         }
         .hero-carousel {
-            width: 100vw;
+            width: 100%;
             min-height: 60vh;
             position: relative;
             overflow: hidden;
             background: #222;
+            margin: 0;
+            padding: 0;
         }
         .carousel-slide {
             position: absolute;
@@ -51,7 +53,8 @@
             padding: 40px 32px;
             border-radius: 18px;
             text-align: center;
-            max-width: 90vw;
+            max-width: 600px;
+            margin: 0 auto;
         }
         .carousel-content h1 {
             font-size: 2.5rem;
@@ -81,7 +84,7 @@
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background: rgba(50,101,138,0.7);
+            background: rgba(50,101,138,0.8);
             color: #fff;
             border: none;
             font-size: 2rem;
@@ -92,17 +95,18 @@
             justify-content: center;
             cursor: pointer;
             z-index: 2;
-            transition: background 0.2s;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
         .carousel-arrow:hover {
             background: var(--hover-accent);
         }
-        .carousel-arrow.prev { left: 24px; }
-        .carousel-arrow.next { right: 24px; }
+        .carousel-arrow.prev { left: 30px; }
+        .carousel-arrow.next { right: 30px; }
         .carousel-dots {
             position: absolute;
             left: 50%;
-            bottom: 24px;
+            bottom: 30px;
             transform: translateX(-50%);
             display: flex;
             gap: 12px;
@@ -260,7 +264,44 @@
             margin-top: 32px;
         }
         /* Responsive */
+        @media (max-width: 1200px) {
+            .hero-carousel {
+                min-height: 50vh;
+            }
+            .carousel-content {
+                padding: 30px 24px;
+                max-width: 500px;
+            }
+            .carousel-content h1 {
+                font-size: 2.2rem;
+            }
+            .carousel-content p {
+                font-size: 1.1rem;
+            }
+        }
+        
         @media (max-width: 1024px) {
+            .hero-carousel {
+                min-height: 45vh;
+            }
+            .carousel-content {
+                padding: 25px 20px;
+                max-width: 90vw;
+            }
+            .carousel-content h1 {
+                font-size: 2rem;
+            }
+            .carousel-content p {
+                font-size: 1rem;
+                margin-bottom: 20px;
+            }
+            .carousel-arrow {
+                width: 40px;
+                height: 40px;
+                font-size: 1.5rem;
+            }
+            .carousel-arrow.prev { left: 15px; }
+            .carousel-arrow.next { right: 15px; }
             .product-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
@@ -269,15 +310,78 @@
                 gap: 24px;
             }
         }
-        @media (max-width: 600px) {
-            .carousel-content h1 {
-                font-size: 1.4rem;
-            }
-            .carousel-content p {
-                font-size: 1rem;
+        
+        @media (max-width: 768px) {
+            .hero-carousel {
+                min-height: 40vh;
             }
             .carousel-content {
-                padding: 18px 6px;
+                padding: 20px 16px;
+                max-width: 95vw;
+            }
+            .carousel-content h1 {
+                font-size: 1.6rem;
+                margin-bottom: 12px;
+            }
+            .carousel-content p {
+                font-size: 0.95rem;
+                margin-bottom: 18px;
+            }
+            .carousel-content .cta-btn {
+                padding: 12px 30px;
+                font-size: 1rem;
+            }
+            .carousel-arrow {
+                width: 36px;
+                height: 36px;
+                font-size: 1.3rem;
+            }
+            .carousel-arrow.prev { left: 10px; }
+            .carousel-arrow.next { right: 10px; }
+            .carousel-dots {
+                bottom: 15px;
+                gap: 8px;
+            }
+            .carousel-dot {
+                width: 12px;
+                height: 12px;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .hero-carousel {
+                min-height: 35vh;
+            }
+            .carousel-content {
+                padding: 18px 12px;
+                max-width: 98vw;
+            }
+            .carousel-content h1 {
+                font-size: 1.4rem;
+                margin-bottom: 10px;
+            }
+            .carousel-content p {
+                font-size: 0.9rem;
+                margin-bottom: 15px;
+            }
+            .carousel-content .cta-btn {
+                padding: 10px 24px;
+                font-size: 0.9rem;
+            }
+            .carousel-arrow {
+                width: 32px;
+                height: 32px;
+                font-size: 1.1rem;
+            }
+            .carousel-arrow.prev { left: 8px; }
+            .carousel-arrow.next { right: 8px; }
+            .carousel-dots {
+                bottom: 12px;
+                gap: 6px;
+            }
+            .carousel-dot {
+                width: 10px;
+                height: 10px;
             }
             .product-grid {
                 grid-template-columns: 1fr;
@@ -285,6 +389,79 @@
             }
             .footer-container {
                 padding: 0 6px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-carousel {
+                min-height: 30vh;
+            }
+            .carousel-content {
+                padding: 15px 10px;
+                max-width: 100vw;
+            }
+            .carousel-content h1 {
+                font-size: 1.2rem;
+                margin-bottom: 8px;
+            }
+            .carousel-content p {
+                font-size: 0.85rem;
+                margin-bottom: 12px;
+            }
+            .carousel-content .cta-btn {
+                padding: 8px 20px;
+                font-size: 0.85rem;
+            }
+            .carousel-arrow {
+                width: 28px;
+                height: 28px;
+                font-size: 1rem;
+            }
+            .carousel-arrow.prev { left: 5px; }
+            .carousel-arrow.next { right: 5px; }
+            .carousel-dots {
+                bottom: 10px;
+                gap: 5px;
+            }
+            .carousel-dot {
+                width: 8px;
+                height: 8px;
+            }
+        }
+        
+        @media (max-width: 360px) {
+            .hero-carousel {
+                min-height: 25vh;
+            }
+            .carousel-content {
+                padding: 12px 8px;
+            }
+            .carousel-content h1 {
+                font-size: 1.1rem;
+                margin-bottom: 6px;
+            }
+            .carousel-content p {
+                font-size: 0.8rem;
+                margin-bottom: 10px;
+            }
+            .carousel-content .cta-btn {
+                padding: 6px 16px;
+                font-size: 0.8rem;
+            }
+            .carousel-arrow {
+                width: 24px;
+                height: 24px;
+                font-size: 0.9rem;
+            }
+            .carousel-arrow.prev { left: 3px; }
+            .carousel-arrow.next { right: 3px; }
+            .carousel-dots {
+                bottom: 8px;
+                gap: 4px;
+            }
+            .carousel-dot {
+                width: 6px;
+                height: 6px;
             }
         }
     </style>
