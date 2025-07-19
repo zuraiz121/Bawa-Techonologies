@@ -23,14 +23,14 @@ const navbarHTML = `<nav class="navbar" id="navbar-main">
           <li><a href="headphones.html">Headphones</a></li>
           <li><a href="laptop-memories.html">Laptop Memories</a></li>
           <li><a href="desktop-memories.html">Desktop Memories</a></li>
-          <li><a href="#">Motherboards</a></li>
-          <li><a href="#">Mouse</a></li>
-          <li><a href="#">PC Casing</a></li>
-          <li><a href="#">Power Supply</a></li>
-          <li><a href="#">Scanners</a></li>
-          <li><a href="#">TV Box</a></li>
-          <li><a href="#">Toner Cartridges</a></li>
-          <li><a href="#">UPS</a></li>
+          <li><a href="motherboards.html">Motherboards</a></li>
+          <li><a href="mouse.html">Mouse</a></li>
+          <li><a href="pc-casing.html">PC Casing</a></li>
+          <li><a href="power-supply.html">Power Supply</a></li>
+          <li><a href="scanners.html">Scanners</a></li>
+          <li><a href="tv-box.html">TV Box</a></li>
+          <li><a href="toner-cartridges.html">Toner Cartridges</a></li>
+          <li><a href="ups.html">UPS</a></li>
         </ul>
       </li>
     </ul>
@@ -62,22 +62,6 @@ const footerHTML = `<footer class="footer">
         <li><a href="desktop-pcs.html">Desktop PCs</a></li>
         <li><a href="drives.html">Drives</a></li>
         <li><a href="monitors.html">Monitor</a></li>
-        <li><a href="#">Used - Laptops</a></li>
-        <li><a href="#">Used - Desktop PCs</a></li>
-        <li><a href="#">Used - Accessories</a></li>
-        <li><a href="#">Used - LCDs</a></li>
-        <li><a href="#">More - Graphic Cards</a></li>
-        <li><a href="#">More - Headphones</a></li>
-        <li><a href="#">More - Laptop Memories</a></li>
-        <li><a href="#">More - Desktop Memories</a></li>
-        <li><a href="#">More - Motherboards</a></li>
-        <li><a href="#">More - Mouse</a></li>
-        <li><a href="#">More - PC Casing</a></li>
-        <li><a href="#">More - Power Supply</a></li>
-        <li><a href="#">More - Scanners</a></li>
-        <li><a href="#">More - TV Box</a></li>
-        <li><a href="#">More - Toner Cartridges</a></li>
-        <li><a href="#">More - UPS</a></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -108,7 +92,6 @@ function loadHTML(selector, url) {
     })
     .then(html => {
       document.querySelector(selector).innerHTML = html;
-      console.log(`Loaded ${url} into ${selector}`);
       
       // Initialize navbar functionality after loading
       if (selector === '#navbar') {
@@ -116,23 +99,18 @@ function loadHTML(selector, url) {
       }
     })
     .catch(error => {
-      console.error(`Error loading ${url}:`, error);
       // Use fallback HTML
       if (selector === '#navbar') {
         document.querySelector(selector).innerHTML = navbarHTML;
-        console.log('Using fallback navbar HTML');
         initializeNavbar();
       } else if (selector === '#footer') {
         document.querySelector(selector).innerHTML = footerHTML;
-        console.log('Using fallback footer HTML');
       }
     });
 }
 
 // Initialize navbar functionality
 function initializeNavbar() {
-  console.log('Initializing navbar functionality...');
-  
   const hamburger = document.getElementById('hamburger');
   const navMenu = document.getElementById('nav-menu');
   const navOverlay = document.querySelector('.nav-overlay');
@@ -144,9 +122,7 @@ function initializeNavbar() {
   }
 
   if (hamburger && navMenu) {
-    console.log('Hamburger and nav menu found, adding event listeners...');
     hamburger.addEventListener('click', () => {
-      console.log('Hamburger clicked!');
       navMenu.classList.toggle('open');
       hamburger.classList.toggle('active');
       if (navMenu.classList.contains('open')) {
@@ -155,8 +131,6 @@ function initializeNavbar() {
         document.body.style.overflow = '';
       }
     });
-  } else {
-    console.log('Hamburger or nav menu not found');
   }
 
   if (navOverlay) {
@@ -194,8 +168,6 @@ function initializeNavbar() {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-  console.log('DOM loaded, checking for navbar and footer elements...');
-  
   const navbarElement = document.getElementById('navbar');
   const footerElement = document.getElementById('footer');
   
